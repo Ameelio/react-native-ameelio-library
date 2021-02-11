@@ -1,8 +1,8 @@
-import { RootStackParamList, Screens } from '@navigations/Screens';
+import { RootStackParamList, Screens } from '@dev/navigations/Screens';
 import { StackNavigationProp } from '@react-navigation/stack';
-import Divider from '@src/Styles/Divider.react';
+import { Divider } from '@src';
 import React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Button, View } from 'react-native';
 
 interface Props {
   navigation: StackNavigationProp<RootStackParamList, Screens.Menu>;

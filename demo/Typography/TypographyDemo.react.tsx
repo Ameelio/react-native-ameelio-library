@@ -1,9 +1,6 @@
 import React from 'react';
 import { ScrollView, View } from 'react-native';
-import Body from './Body.react';
-import Caption from './Caption.react';
-import Header from './Header.react';
-import Words from './Words.react';
+import { Body, Caption, Header, Words } from 'react-native-ameelio-library';
 
 const TypographyDemoScreen: React.FC = () => {
   return (

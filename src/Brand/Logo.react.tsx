@@ -1,7 +1,8 @@
 import React from 'react';
-import Ameelio from '@assets/Brand/Ameelio.svg';
-import BirdBlue from '@assets/Brand/BirdBlue.svg';
-import BirdRed from '@assets/Brand/BirdRed.svg';
+import Ameelio from './Ameelio';
+import BirdBlue from './BirdBlue';
+import BirdRed from './BirdRed';
+import { SvgXml } from 'react-native-svg';
 
 interface Props {
   type?: 'red' | 'blue' | 'ameelio';
@@ -12,13 +13,13 @@ interface Props {
 const Logo: React.FC<Props> = ({ type, width, height }: Props) => {
   switch (type) {
     case 'red':
-      return <BirdRed width={width} height={height} />;
+      return <SvgXml xml={BirdRed} width={width} height={height} />;
     case 'blue':
-      return <BirdBlue width={width} height={height} />;
+      return <SvgXml xml={BirdBlue} width={width} height={height} />;
     case 'ameelio':
-      return <Ameelio width={width} height={height} />;
+      return <SvgXml xml={Ameelio} width={width} height={height} />;
     default:
-      return <BirdRed width={width} height={height} />;
+      return <SvgXml xml={BirdRed} width={width} height={height} />;
   }
 };
 

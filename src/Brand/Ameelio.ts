@@ -1,4 +1,4 @@
-<svg
+export default `<svg
   width="296"
   height="87"
   viewBox="0 0 296 87"
@@ -60,5 +60,4 @@
   <path
     d="M49.7322 31.8048L53.5884 21.4838L64.9177 27.8851L49.7322 31.8048Z"
     fill="#A2CBFB"
-  />
-</svg>
+  /></svg>`;

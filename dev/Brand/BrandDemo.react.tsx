@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import Logo from './Logo.react';
+import { Logo } from '@src';
 
 const BrandDemoScreen = () => {
   return (

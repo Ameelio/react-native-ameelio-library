@@ -18,8 +18,8 @@ module.exports = {
           '.json',
         ],
         alias: {
-          '@assets': './assets',
-          '@navigations': './src/navigations',
+          '@demo': './demo',
+          '@dev': './dev',
           '@src': './src',
         },
       },

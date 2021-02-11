@@ -1,4 +1,4 @@
-import Navigator from '@navigations';
+import Navigator from '@demo/navigations';
 import React from 'react';
 import AppLoading from 'expo-app-loading';
 import {

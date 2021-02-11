@@ -3,10 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Screens } from './Screens';
 
-import MenuScreen from '@src/Menu/Menu.react';
-import BrandDemoScreen from '@src/Brand/BrandDemo.react';
-import TypographyDemoScreen from '@src/Typography/TypographyDemo.react';
-import UserInputDemoScreen from '@src/UserInput/UserInputDemo.react';
+import MenuScreen from '@dev/Menu/Menu.react';
+import BrandDemoScreen from '@dev/Brand/BrandDemo.react';
+import TypographyDemoScreen from '@dev/Typography/TypographyDemo.react';
+import UserInputDemoScreen from '@dev/UserInput/UserInputDemo.react';
 
 const RootStack = createStackNavigator();
 

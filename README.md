@@ -1,1 +1,1 @@
-# mobile-component-library
+# react-native-ameelio-library-demo

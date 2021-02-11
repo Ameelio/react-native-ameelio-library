@@ -14,10 +14,10 @@
     "baseUrl": ".",
     "skipLibCheck": true,
     "paths": {
-      "@assets": ["assets"],
-      "@assets/*": ["assets/*"],
-      "@navigations": ["src/navigations"],
-      "@navigations/*": ["src/navigations/*"],
+      "@demo": ["demo"],
+      "@demo/*": ["demo/*"],
+      "@dev": ["dev"],
+      "@dev/*": ["dev/*"],
       "@src": ["src"],
       "@src/*": ["src/*"]
     },
