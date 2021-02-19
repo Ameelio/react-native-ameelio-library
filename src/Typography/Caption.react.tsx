@@ -1,27 +1,51 @@
-import React from 'react';
-import { Text, TextStyle } from 'react-native';
-import { SCALE_CONSTANT } from './Constants';
+import React from "react";
+import { Text } from "react-native";
+import { CustomTextProps, SCALE_CONSTANT } from "./Constants";
 
-interface Props {
+interface Props extends CustomTextProps {
   size?: 1 | 2;
-  style?: TextStyle;
-  children: string;
 }
 
-const Caption: React.FC<Props> = ({ size, style, children }: Props) => {
-  let fontSize = 13;
+const Caption: React.FC<Props> = ({
+  size,
+  style,
+  children,
+  adjustSize,
+  numLines,
+  align,
+  fontSize,
+  color,
+}: Props) => {
+  let finalSize = fontSize;
   switch (size) {
     case 1:
-      fontSize = 13 * SCALE_CONSTANT;
+      finalSize = 13 * SCALE_CONSTANT;
       break;
     case 2:
-      fontSize = 11 * SCALE_CONSTANT;
+    default:
+      finalSize = 11 * SCALE_CONSTANT;
       break;
   }
 
-  const fontFamily = 'Poppins_500Medium';
+  const fontFamily = "Poppins_500Medium";
 
-  return <Text style={[{ fontSize, fontFamily }, style]}>{children}</Text>;
+  return (
+    <Text
+      style={[
+        {
+          fontSize: finalSize,
+          fontFamily,
+          textAlign: align,
+          color,
+        },
+        style,
+      ]}
+      adjustsFontSizeToFit={adjustSize}
+      numberOfLines={numLines}
+    >
+      {children}
+    </Text>
+  );
 };
 
 export default Caption;

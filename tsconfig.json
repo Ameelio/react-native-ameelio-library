@@ -1,27 +1,19 @@
 {
   "compilerOptions": {
-    "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "isolatedModules": false,
-    "jsx": "react",
-    "lib": ["es2020"],
-    "module": "ES2020",
+    "jsx": "react-native",
+    "lib": ["dom", "esnext"],
     "moduleResolution": "node",
     "noEmit": true,
-    "strict": true,
-    "target": "esnext",
-    "baseUrl": ".",
     "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "rootDirs": ["src", "stories"],
+    "baseUrl": ".",
     "paths": {
-      "@demo": ["demo"],
-      "@demo/*": ["demo/*"],
-      "@dev": ["dev"],
-      "@dev/*": ["dev/*"],
       "@src": ["src"],
       "@src/*": ["src/*"]
-    },
-    "resolveJsonModule": true
+    }
   },
   "exclude": [
     "node_modules",

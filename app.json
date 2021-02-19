@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MobileComponentLibrary",
-    "slug": "MobileComponentLibrary",
+    "name": "react-native-ameelio-library-storybook",
+    "slug": "react-native-ameelio-library-storybook",
     "version": "1.0.0",
     "orientation": "portrait",
     "splash": {
@@ -14,6 +14,10 @@
     "ios": {
       "supportsTablet": true
     },
-    "android": {}
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#FFFFFF"
+      }
+    }
   }
 }

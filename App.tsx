@@ -1,6 +1,6 @@
-import Navigator from '@demo/navigations';
-import React from 'react';
-import AppLoading from 'expo-app-loading';
+import React from "react";
+import { View } from "react-native";
+const StorybookUIRoot = require("./storybook").default;
 import {
   useFonts,
   Poppins_400Regular,
@@ -11,7 +11,16 @@ import {
   Poppins_600SemiBold_Italic,
   Poppins_700Bold,
   Poppins_700Bold_Italic,
-} from '@expo-google-fonts/poppins';
+} from "@expo-google-fonts/poppins";
+import AppLoading from "expo-app-loading";
+
+// NOTE: The weird flex solution here is to deal with
+// an annoying bug in the Expo mobile client.
+// Sometimes the "Downloading Javascript bundle" bar
+// does not disappear from the bottom of the screen,
+// which partially hides the nav provided by storybook
+// in an annoying way. Once this Expo bug is fixed,
+// this can be removed.
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -27,5 +36,12 @@ export default function App() {
 
   if (!fontsLoaded) return <AppLoading />;
 
-  return <Navigator />;
+  return (
+    <View style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>
+        <StorybookUIRoot />
+      </View>
+      <View style={{ width: "100%", height: 35 }} />
+    </View>
+  );
 }
