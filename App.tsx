@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { Platform, StatusBar, View } from "react-native";
 const StorybookUIRoot = require("./storybook").default;
 import {
   useFonts,
@@ -38,10 +38,11 @@ export default function App() {
 
   return (
     <View style={{ flex: 1 }}>
+      <StatusBar barStyle="dark-content" />
       <View style={{ flex: 1 }}>
         <StorybookUIRoot />
       </View>
-      <View style={{ width: "100%", height: 35 }} />
+      {Platform.OS === "ios" && <View style={{ width: "100%", height: 35 }} />}
     </View>
   );
 }
