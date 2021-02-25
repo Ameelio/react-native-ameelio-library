@@ -8,4 +8,6 @@ import "./Typography/Caption.stories";
 import "./Typography/Header.stories";
 import "./Typography/Words.stories";
 
+import "./UserInput/Button.stories";
 import "./UserInput/Input.stories";
+import "./UserInput/Popup.stories";

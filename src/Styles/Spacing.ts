@@ -1,7 +1,9 @@
-import { ViewStyle } from "react-native";
+import { Dimensions, ViewStyle } from "react-native";
 
 export const PADDING = 8;
 export const MARGIN = 8;
+export const SCREEN_WIDTH = Dimensions.get("window").width;
+export const SCREEN_HEIGHT = Dimensions.get("window").height;
 
 // PADDING
 export const smallPaddingTop: ViewStyle = {

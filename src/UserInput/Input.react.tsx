@@ -7,10 +7,10 @@ import {
   ViewStyle,
 } from "react-native";
 import { Input as ElementsInput, InputProps } from "react-native-elements";
-import { GlobalStyles, Spacing } from "@src/Styles";
-import * as Colors from "@src/Brand/Colors";
+import { GlobalStyles, Spacing } from "../Styles";
+import * as Colors from "../Brand/Colors";
 import Eye from "./SecureEye";
-import { Icon } from "@src";
+import Icon from "../Common/Icon.react";
 
 export type BaseInput = ElementsInput;
 

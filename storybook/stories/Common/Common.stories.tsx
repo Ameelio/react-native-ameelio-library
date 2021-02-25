@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/react-native";
 import React from "react";
-import { Body, Icon, KeyboardAvoider } from "@src";
+import { Body, Icon, KeyboardAvoider, Toast } from "@src";
 import CenterView from "../../helpers/CenterView.react";
 import DynamicX from "./DynamicX";
 import { ScrollView, TextInput } from "react-native";
@@ -37,4 +37,11 @@ storiesOf("Common", module)
         />
       </ScrollView>
     </KeyboardAvoider>
+  ))
+  .add("Toast", () => (
+    <>
+      <Toast toast={{ type: "error", text: "error" }} />
+      <Toast toast={{ type: "warning", text: "warning" }} />
+      <Toast toast={{ type: "success", text: "success" }} />
+    </>
   ));
