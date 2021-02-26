@@ -9,5 +9,6 @@ import "./Typography/Header.stories";
 import "./Typography/Words.stories";
 
 import "./UserInput/Button.stories";
+import "./UserInput/DatePicker.stories";
 import "./UserInput/Input.stories";
 import "./UserInput/Popup.stories";
