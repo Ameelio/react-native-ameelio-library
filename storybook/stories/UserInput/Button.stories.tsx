@@ -20,7 +20,9 @@ storiesOf("UserInput/Button", module)
   .add("Buttons", () => {
     return (
       <View style={{ width: "100%", ...Spacing.largePaddingHorizontal }}>
-        <Button>Primary</Button>
+        <Button>
+          Primary {"hello"} {"test"}
+        </Button>
         <Divider />
         <Button secondary>Secondary</Button>
         <Divider />

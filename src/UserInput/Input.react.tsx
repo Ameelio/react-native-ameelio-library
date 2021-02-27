@@ -29,6 +29,7 @@ const Styles = StyleSheet.create({
   background: {
     backgroundColor: Colors.GRAY_200,
     ...Spacing.paddingHorizontal,
+    ...Spacing.smallMarginBottom,
     ...GlobalStyles.rounded,
     borderWidth: 2,
     borderColor: "transparent",
@@ -118,6 +119,7 @@ const Input: React.FC<Props> = (props: Props) => {
       if (props.onFocus) props.onFocus(e);
     },
     onBlur: (e) => {
+      setValid(getValid(value));
       setFocused(false);
       if (props.onBlur) props.onBlur(e);
     },

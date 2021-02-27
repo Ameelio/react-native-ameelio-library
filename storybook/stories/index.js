@@ -11,4 +11,5 @@ import "./Typography/Words.stories";
 import "./UserInput/Button.stories";
 import "./UserInput/DatePicker.stories";
 import "./UserInput/Input.stories";
+import "./UserInput/Picker.stories";
 import "./UserInput/Popup.stories";

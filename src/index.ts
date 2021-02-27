@@ -22,6 +22,7 @@ import Words from "./Typography/Words.react";
 import Button from "./UserInput/Button.react";
 import DatePicker from "./UserInput/DatePicker.react";
 import Input, { BaseInput, LINE_HEIGHT } from "./UserInput/Input.react";
+import Picker, { PickerRef } from "./UserInput/Picker.react";
 import Popup, { PopupInfo } from "./UserInput/Popup.react";
 
 /* ------------------------------------------------------------------ */
@@ -39,4 +40,14 @@ export { Divider, GlobalStyles, Spacing };
 export { Body, Caption, Header, Words };
 
 /* User Input */
-export { Button, DatePicker, Input, BaseInput, LINE_HEIGHT, Popup, PopupInfo };
+export {
+  Button,
+  DatePicker,
+  Input,
+  BaseInput,
+  LINE_HEIGHT,
+  Picker,
+  PickerRef,
+  Popup,
+  PopupInfo,
+};

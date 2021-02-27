@@ -92,12 +92,21 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       props.nav ? { borderRadius: 100 } : {},
     ],
     disabledStyle: Styles.disabledBackground,
+    disabledTitleStyle: {
+      color: Colors.GRAY_100,
+    },
     onPress: async () => {
       if (blocked) return;
       if (props.blocking) safelySetBlocked(true);
       if (props.onPress) await props.onPress();
       if (props.blocking) safelySetBlocked(false);
     },
+    titleStyle: [
+      {
+        fontSize: props.nav ? 14 : 18,
+      },
+      props.secondary ? Styles.secondaryForeground : Styles.primaryForeground,
+    ],
     loading: blocked,
     loadingStyle: { width: 27, height: 27 },
     TouchableComponent: TouchableOpacity,
@@ -121,26 +130,14 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     );
   }
 
+  const text =
+    props.children && typeof props.children !== "string"
+      ? props.children.join("")
+      : props.children;
+
   return (
     <>
-      <ElementsButton
-        title={
-          <Header
-            size={3}
-            fontSize={props.nav ? 14 : 18}
-            numLines={1}
-            adjustSize
-            style={
-              props.secondary
-                ? Styles.secondaryForeground
-                : Styles.primaryForeground
-            }
-          >
-            {props.children}
-          </Header>
-        }
-        {...derivedProps}
-      />
+      <ElementsButton title={text} {...derivedProps} />
       {props.ignorable && (
         <TouchableOpacity
           onPress={props.onIgnore}
