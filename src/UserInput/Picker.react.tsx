@@ -1,4 +1,4 @@
-import { GlobalStyles, Spacing } from "@src/Styles";
+import { GlobalStyles, Spacing } from "../Styles";
 import React, {
   useState,
   useEffect,
@@ -7,7 +7,7 @@ import React, {
   Ref,
 } from "react";
 import { View, ViewStyle, StyleSheet } from "react-native";
-import { Colors } from "react-native-ameelio-library";
+import * as Colors from "../Brand/Colors";
 import RNPickerSelect from "react-native-picker-select";
 import Entypo from "react-native-vector-icons/Entypo";
 
