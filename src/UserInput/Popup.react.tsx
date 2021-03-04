@@ -11,18 +11,19 @@ import { Spacing } from "../Styles";
 interface PopupCommon {
   title: string;
   titleEmoji?: string;
+  numTitleLines?: number;
   svg?: string;
   buttons: ButtonProps[];
   dynamic?: boolean;
 }
 
 interface PopupBasic extends PopupCommon {
-  message: string;
+  message?: string;
   dynamic?: false;
 }
 
 interface PopupDynamic extends PopupCommon {
-  content: JSX.Element;
+  content?: JSX.Element;
   dynamic: true;
 }
 
@@ -75,7 +76,7 @@ const Popup: React.FC<Props> = ({ popup, onDismiss, onResolve }: Props) => {
     >
       <View style={Styles.background}>
         <View style={Styles.titleContainer}>
-          <Header size={2} numLines={1} adjustSize>
+          <Header size={2} numLines={popup?.numTitleLines || 1} adjustSize>
             {local.title}
           </Header>
           {local.titleEmoji && (
@@ -87,20 +88,27 @@ const Popup: React.FC<Props> = ({ popup, onDismiss, onResolve }: Props) => {
             <Icon svg={local.svg} />
           </View>
         )}
-        {local.dynamic ? (
-          <View
-            style={[
-              { width: "100%", justifyContent: "center", alignItems: "center" },
-              Spacing.paddingBottom,
-            ]}
-          >
-            {local.content}
-          </View>
-        ) : (
-          <Body align="center" style={Spacing.paddingBottom}>
-            {local.message}
-          </Body>
-        )}
+        {local.dynamic
+          ? !!local.dynamic && (
+              <View
+                style={[
+                  {
+                    width: "100%",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  },
+                  Spacing.paddingBottom,
+                ]}
+              >
+                {local.content}
+              </View>
+            )
+          : !!local.message &&
+            !!local.message.length && (
+              <Body align="center" style={Spacing.paddingBottom}>
+                {local.message}
+              </Body>
+            )}
         {local.buttons.map((bProps, index) => {
           return (
             <View
@@ -109,6 +117,7 @@ const Popup: React.FC<Props> = ({ popup, onDismiss, onResolve }: Props) => {
                   ? [Spacing.paddingBottom, { width: "100%" }]
                   : { width: "100%" }
               }
+              key={index.toString()}
             >
               <Button
                 {...bProps}

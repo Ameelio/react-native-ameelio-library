@@ -49,4 +49,19 @@ storiesOf("Typography/Caption", module)
       )}
       color={color("color", "#000000")}
     />
+  ))
+  .add("Fontsize", () => (
+    <Caption
+      fontSize={40}
+      style={object("style", { width: "100%" }) as any}
+      children={text("text", "Caption")}
+      adjustSize={boolean("adjustSize", false)}
+      numLines={number("numLines", 1, numLinesOptions)}
+      align={radios(
+        "align",
+        { left: "left", center: "center", right: "right" },
+        "center"
+      )}
+      color={color("color", "#000000")}
+    />
   ));

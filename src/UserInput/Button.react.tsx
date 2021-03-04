@@ -104,11 +104,12 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     titleStyle: [
       {
         fontSize: props.nav ? 14 : 18,
+        fontFamily: "Poppins_600SemiBold",
       },
       props.secondary ? Styles.secondaryForeground : Styles.primaryForeground,
     ],
-    loading: blocked,
-    loadingStyle: { width: 27, height: 27 },
+    loading: blocked || props.loading,
+    loadingStyle: { width: 29, height: 29 },
     TouchableComponent: TouchableOpacity,
   };
 

@@ -3,6 +3,7 @@ import * as Colors from "./Brand/Colors";
 import Logo from "./Brand/Logo.react";
 
 /* Common */
+import BottomSheet from "./Common/BottomSheet.react";
 import Icon from "./Common/Icon.react";
 import KeyboardAvoider from "./Common/KeyboardAvoider.react";
 import Toast, { ToastInfo, ToastTypes } from "./Common/Toast.react";
@@ -31,7 +32,7 @@ import Popup, { PopupInfo } from "./UserInput/Popup.react";
 export { Colors, Logo };
 
 /* Common */
-export { Icon, KeyboardAvoider, Toast, ToastInfo, ToastTypes };
+export { BottomSheet, Icon, KeyboardAvoider, Toast, ToastInfo, ToastTypes };
 
 /* Styles */
 export { Divider, GlobalStyles, Spacing };

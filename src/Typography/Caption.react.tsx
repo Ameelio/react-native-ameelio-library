@@ -17,15 +17,16 @@ const Caption: React.FC<Props> = ({
   color,
 }: Props) => {
   let finalSize = fontSize;
-  switch (size) {
-    case 1:
-      finalSize = 13 * SCALE_CONSTANT;
-      break;
-    case 2:
-    default:
-      finalSize = 11 * SCALE_CONSTANT;
-      break;
-  }
+  if (!finalSize)
+    switch (size) {
+      case 1:
+        finalSize = 13 * SCALE_CONSTANT;
+        break;
+      case 2:
+      default:
+        finalSize = 11 * SCALE_CONSTANT;
+        break;
+    }
 
   const fontFamily = "Poppins_500Medium";
 

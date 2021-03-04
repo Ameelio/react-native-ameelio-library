@@ -44,6 +44,8 @@ storiesOf("UserInput/Button", module)
         <Button nav>Nav</Button>
         <Divider />
         <Button link>Link</Button>
+        <Divider />
+        <Button loading>Override loading</Button>
       </View>
     );
   });
