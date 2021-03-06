@@ -38,6 +38,28 @@ storiesOf("Typography/Header", module)
       <Header size={5}>Header 5</Header>
     </>
   ))
+  .add("Colors", () => (
+    <>
+      <Header size={1} color="primary">
+        Primary
+      </Header>
+      <Header size={1} color="secondary">
+        Secondary
+      </Header>
+      <Header size={1} color="success">
+        Success
+      </Header>
+      <Header size={1} color="warning">
+        Warning
+      </Header>
+      <Header size={1} color="error">
+        Error
+      </Header>
+      <Header size={1} color="white">
+        White
+      </Header>
+    </>
+  ))
   .add("Custom", () => (
     <Header
       size={number("size", 1, sizeOptions) as any}

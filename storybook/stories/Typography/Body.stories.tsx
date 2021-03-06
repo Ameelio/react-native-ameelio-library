@@ -36,6 +36,28 @@ storiesOf("Typography/Body", module)
       <Body size={3}>Body 3</Body>
     </>
   ))
+  .add("Colors", () => (
+    <>
+      <Body size={1} color="primary">
+        Primary
+      </Body>
+      <Body size={1} color="secondary">
+        Secondary
+      </Body>
+      <Body size={1} color="success">
+        Success
+      </Body>
+      <Body size={1} color="warning">
+        Warning
+      </Body>
+      <Body size={1} color="error">
+        Error
+      </Body>
+      <Body size={1} color="white">
+        White
+      </Body>
+    </>
+  ))
   .add("Custom", () => (
     <Body
       size={number("size", 1, sizeOptions) as any}

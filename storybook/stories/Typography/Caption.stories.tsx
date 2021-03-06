@@ -35,6 +35,28 @@ storiesOf("Typography/Caption", module)
       <Caption size={2}>Caption 2</Caption>
     </>
   ))
+  .add("Colors", () => (
+    <>
+      <Caption size={1} color="primary">
+        Primary
+      </Caption>
+      <Caption size={1} color="secondary">
+        Secondary
+      </Caption>
+      <Caption size={1} color="success">
+        Success
+      </Caption>
+      <Caption size={1} color="warning">
+        Warning
+      </Caption>
+      <Caption size={1} color="error">
+        Error
+      </Caption>
+      <Caption size={1} color="white">
+        White
+      </Caption>
+    </>
+  ))
   .add("Custom", () => (
     <Caption
       size={number("size", 1, sizeOptions) as any}

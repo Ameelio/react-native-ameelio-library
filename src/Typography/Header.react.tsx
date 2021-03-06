@@ -1,6 +1,11 @@
 import React from "react";
 import { Text, TextStyle } from "react-native";
-import { CustomTextProps, SCALE_CONSTANT } from "./Constants";
+import {
+  calculateColor,
+  CustomTextProps,
+  SCALE_CONSTANT,
+  TypographyColors,
+} from "./Constants";
 
 interface Props extends CustomTextProps {
   size?: 1 | 2 | 3 | 4 | 5;
@@ -51,10 +56,19 @@ const Header: React.FC<Props> = ({
       break;
   }
 
+  let colorType: TypographyColors =
+    color || (size === 1 ? "primary" : "secondary");
+  let calculatedColor = calculateColor(colorType);
+
   return (
     <Text
       style={[
-        { fontSize: finalSize, fontFamily, textAlign: align, color },
+        {
+          fontSize: finalSize,
+          fontFamily,
+          textAlign: align,
+          color: calculatedColor,
+        },
         style,
       ]}
       adjustsFontSizeToFit={adjustSize}

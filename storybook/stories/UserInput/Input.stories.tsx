@@ -132,6 +132,12 @@ storiesOf("UserInput/Input", module)
         />
         <Divider />
         <Input secure label="Secure entry" placeholder="Placeholder" />
+        <Divider />
+        <Input
+          label="Secure entry"
+          placeholder="Placeholder"
+          initialValue="Initial Value"
+        />
       </View>
     );
   })

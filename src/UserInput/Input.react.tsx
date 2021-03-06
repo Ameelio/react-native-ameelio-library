@@ -23,6 +23,7 @@ interface Props extends TextInputProps, InputProps {
   onValid?: (() => void) | (() => Promise<void>);
   onInvalid?: (() => void) | (() => Promise<void>);
   secure?: boolean;
+  initialValue?: string;
 }
 
 const Styles = StyleSheet.create({
@@ -75,7 +76,7 @@ const Input: React.FC<Props> = (props: Props) => {
     return valid ? Styles.validForeground : Styles.invalidForeground;
   };
 
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(props.initialValue || "");
   const [valid, setValid] = useState(getValid(""));
   const [dirty, setDirty] = useState(false);
   const [focused, setFocused] = useState(false);

@@ -1,6 +1,11 @@
 import React from "react";
 import { Text } from "react-native";
-import { CustomTextProps, SCALE_CONSTANT } from "./Constants";
+import {
+  calculateColor,
+  CustomTextProps,
+  SCALE_CONSTANT,
+  TypographyColors,
+} from "./Constants";
 
 interface Props extends CustomTextProps {
   size?: 1 | 2 | 3;
@@ -36,6 +41,10 @@ const Body: React.FC<Props> = ({
 
   const fontFamily = bold ? "Poppins_600SemiBold" : "Poppins_400Regular";
 
+  let colorType: TypographyColors =
+    color || (size === 1 ? "primary" : "secondary");
+  let calculatedColor = calculateColor(colorType);
+
   return (
     <Text
       style={[
@@ -43,7 +52,7 @@ const Body: React.FC<Props> = ({
           fontSize: finalSize,
           fontFamily,
           textAlign: align,
-          color,
+          color: calculatedColor,
         },
         style,
       ]}
