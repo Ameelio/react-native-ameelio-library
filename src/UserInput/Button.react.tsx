@@ -19,6 +19,7 @@ export interface ButtonProps extends ElementsButtonProps {
   onPress?: (() => void) | (() => Promise<void>);
   nav?: boolean;
   link?: boolean;
+  disabled?: boolean;
 }
 
 const Styles = StyleSheet.create({
