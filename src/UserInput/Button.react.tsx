@@ -3,7 +3,12 @@ import {
   Button as ElementsButton,
   ButtonProps as ElementsButtonProps,
 } from "react-native-elements";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+  StyleProp,
+  StyleSheet,
+  TouchableOpacity,
+  ViewStyle,
+} from "react-native";
 import { GlobalStyles, Spacing } from "../Styles";
 import * as Colors from "../Brand/Colors";
 import Header from "../Typography/Header.react";
@@ -20,6 +25,7 @@ export interface ButtonProps extends ElementsButtonProps {
   nav?: boolean;
   link?: boolean;
   disabled?: boolean;
+  style?: StyleProp<ViewStyle>;
 }
 
 const Styles = StyleSheet.create({
