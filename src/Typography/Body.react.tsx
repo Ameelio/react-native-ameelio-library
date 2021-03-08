@@ -42,7 +42,7 @@ const Body: React.FC<Props> = ({
   const fontFamily = bold ? "Poppins_600SemiBold" : "Poppins_400Regular";
 
   let colorType: TypographyColors =
-    color || (size === 1 ? "primary" : "secondary");
+    color || (size === 1 ? "default" : "secondary");
   let calculatedColor = calculateColor(colorType);
 
   return (

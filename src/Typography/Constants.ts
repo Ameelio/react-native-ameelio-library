@@ -4,11 +4,11 @@ import * as Colors from "../Brand/Colors";
 export const SCALE_CONSTANT = 5 / 4;
 
 // This look janks, but is needed to trick typescript into allowing any string
-// for color while still preserving autocomplete for "primary" "secondary" & "tertiary"
+// for color while still preserving autocomplete for "default" "secondary" & "tertiary"
 type CustomColor = string & { dummy?: never };
 
 export type TypographyColors =
-  | "primary"
+  | "default"
   | "secondary"
   | "warning"
   | "success"
@@ -29,7 +29,7 @@ export interface CustomTextProps {
 
 export function calculateColor(colorOrType: TypographyColors) {
   switch (colorOrType) {
-    case "primary":
+    case "default":
       return Colors.BLACK;
     case "secondary":
       return Colors.GRAY_400;

@@ -37,8 +37,8 @@ storiesOf("Typography/Caption", module)
   ))
   .add("Colors", () => (
     <>
-      <Caption size={1} color="primary">
-        Primary
+      <Caption size={1} color="default">
+        Default
       </Caption>
       <Caption size={1} color="secondary">
         Secondary

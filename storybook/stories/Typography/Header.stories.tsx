@@ -40,8 +40,8 @@ storiesOf("Typography/Header", module)
   ))
   .add("Colors", () => (
     <>
-      <Header size={1} color="primary">
-        Primary
+      <Header size={1} color="default">
+        Default
       </Header>
       <Header size={1} color="secondary">
         Secondary

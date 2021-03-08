@@ -38,8 +38,8 @@ storiesOf("Typography/Body", module)
   ))
   .add("Colors", () => (
     <>
-      <Body size={1} color="primary">
-        Primary
+      <Body size={1} color="default">
+        Default
       </Body>
       <Body size={1} color="secondary">
         Secondary
