@@ -9,6 +9,7 @@ import * as Colors from "../Brand/Colors";
 import Header from "../Typography/Header.react";
 
 export interface ButtonProps extends ElementsButtonProps {
+  title?: string;
   secondary?: boolean;
   ignorable?: boolean;
   ignoreText?: string | string[];

@@ -24,6 +24,8 @@ interface Props extends TextInputProps, InputProps {
   onInvalid?: (() => void) | (() => Promise<void>);
   secure?: boolean;
   initialValue?: string;
+  disabled?: boolean;
+  containerStyle?: ViewStyle | ViewStyle[];
 }
 
 const Styles = StyleSheet.create({
