@@ -1,5 +1,6 @@
 import React, { MutableRefObject, RefObject, useEffect, useState } from "react";
 import {
+  StyleProp,
   StyleSheet,
   TextInputProps,
   TextStyle,
@@ -25,7 +26,7 @@ interface Props extends TextInputProps, InputProps {
   secure?: boolean;
   initialValue?: string;
   disabled?: boolean;
-  containerStyle?: ViewStyle | ViewStyle[];
+  containerStyle?: StyleProp<ViewStyle>;
 }
 
 const Styles = StyleSheet.create({
@@ -99,7 +100,7 @@ const Input: React.FC<Props> = (props: Props) => {
     containerStyle: [
       Styles.background,
       getValidityBackground(),
-      props.containerStyle,
+      props.containerStyle || {},
     ],
     inputContainerStyle: [
       Styles.inputContainerStyle,
