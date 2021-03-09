@@ -21,6 +21,7 @@ import Words from "./Typography/Words.react";
 
 /* User Input */
 import Button from "./UserInput/Button.react";
+import ButtonDuo from "./UserInput/ButtonDuo.react";
 import DatePicker from "./UserInput/DatePicker.react";
 import Input, { BaseInput, LINE_HEIGHT } from "./UserInput/Input.react";
 import Picker, { PickerRef } from "./UserInput/Picker.react";
@@ -43,6 +44,7 @@ export { Body, Caption, Header, Words };
 /* User Input */
 export {
   Button,
+  ButtonDuo,
   DatePicker,
   Input,
   BaseInput,

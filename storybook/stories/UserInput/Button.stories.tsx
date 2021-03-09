@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/react-native";
 import React from "react";
-import { Spacing, Divider, Button } from "@src";
+import { Spacing, Divider, Button, ButtonDuo } from "@src";
 import CenterView from "../../helpers/CenterView.react";
 import { withKnobs } from "@storybook/addon-knobs";
 import { View } from "react-native";
@@ -37,15 +37,24 @@ storiesOf("UserInput/Button", module)
         <Divider />
         <Button disabled>Disabled</Button>
         <Divider />
-        <Button ignorable ignoreText="Ignore">
-          Ignoreable
-        </Button>
-        <Divider />
         <Button nav>Nav</Button>
         <Divider />
         <Button link>Link</Button>
         <Divider />
         <Button loading>Override loading</Button>
+      </View>
+    );
+  })
+  .add("Button Duo", () => {
+    return (
+      <View style={[Spacing.padding, { width: "100%" }]}>
+        <ButtonDuo
+          primaryText="Primary"
+          secondaryText="Secondary"
+          secondaryLink
+        />
+        <Divider />
+        <ButtonDuo primaryText="Primary" secondaryText="Secondary" />
       </View>
     );
   });

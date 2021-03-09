@@ -35,9 +35,7 @@ const Caption: React.FC<Props> = ({
 
   const fontFamily = "Poppins_500Medium";
 
-  let colorType: TypographyColors =
-    color || (size === 1 ? "default" : "secondary");
-  let calculatedColor = calculateColor(colorType);
+  let calculatedColor = calculateColor(color || "default");
 
   return (
     <Text

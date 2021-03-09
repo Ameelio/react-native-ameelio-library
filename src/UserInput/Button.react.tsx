@@ -16,14 +16,12 @@ import Header from "../Typography/Header.react";
 export interface ButtonProps extends ElementsButtonProps {
   title?: string;
   secondary?: boolean;
-  ignorable?: boolean;
-  ignoreText?: string | string[];
-  onIgnore?: (() => void) | (() => Promise<void>);
   children?: string | string[];
   blocking?: boolean;
   onPress?: (() => void) | (() => Promise<void>);
   nav?: boolean;
   link?: boolean;
+  linkSize?: number;
   disabled?: boolean;
   style?: StyleProp<ViewStyle>;
 }
@@ -129,6 +127,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       >
         <Header
           size={5}
+          fontSize={props.linkSize}
           numLines={1}
           adjustSize
           style={Styles.secondaryForeground}
@@ -144,26 +143,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       ? props.children.join("")
       : props.children;
 
-  return (
-    <>
-      <ElementsButton title={text} {...derivedProps} />
-      {props.ignorable && (
-        <TouchableOpacity
-          onPress={props.onIgnore}
-          style={Styles.ignoreableBackground}
-        >
-          <Header
-            size={5}
-            numLines={1}
-            adjustSize
-            style={Styles.secondaryForeground}
-          >
-            {props.ignoreText}
-          </Header>
-        </TouchableOpacity>
-      )}
-    </>
-  );
+  return <ElementsButton title={text} {...derivedProps} />;
 };
 
 export default Button;
