@@ -126,15 +126,6 @@ const Popup: React.FC<Props> = ({ popup, onDismiss, onResolve }: Props) => {
                   setLocal(null);
                   if (bProps.onPress) bProps.onPress();
                 }}
-                onIgnore={
-                  bProps.ignorable
-                    ? () => {
-                        if (onResolve) onResolve();
-                        setLocal(null);
-                        if (bProps.onIgnore) bProps.onIgnore();
-                      }
-                    : undefined
-                }
               />
             </View>
           );

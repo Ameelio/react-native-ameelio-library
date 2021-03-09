@@ -25,8 +25,6 @@ storiesOf("UserInput/Popup", module)
                   buttons: [
                     {
                       children: text("option 1", "option 1"),
-                      ignorable: boolean("ignore", false),
-                      ignoreText: "ignore",
                     },
                     {
                       children: text("option 2", "option 2"),
@@ -58,8 +56,6 @@ storiesOf("UserInput/Popup", module)
                   buttons: [
                     {
                       children: text("option 1", "option 1"),
-                      ignorable: boolean("ignore", false),
-                      ignoreText: "ignore",
                     },
                     {
                       children: text("option 2", "option 2"),
