@@ -1,6 +1,5 @@
-import { Spacing } from "@src/Styles";
+import { Spacing } from "../Styles";
 import React from "react";
-import { View } from "react-native";
 import Button from "./Button.react";
 
 interface Props {
