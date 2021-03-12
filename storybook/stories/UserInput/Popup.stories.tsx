@@ -41,6 +41,42 @@ storiesOf("UserInput/Popup", module)
       </>
     );
   })
+  .add("Popup Multiline Title", () => {
+    return (
+      <>
+        <Popup
+          popup={
+            boolean("Shown", true)
+              ? {
+                  title: text(
+                    "title",
+                    "this title is really really really long"
+                  ),
+                  numTitleLines: 2,
+                  svg: TestSvg,
+                  message: text(
+                    "message",
+                    "Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message "
+                  ),
+                  buttons: [
+                    {
+                      children: text("option 1", "option 1"),
+                    },
+                    {
+                      children: text("option 2", "option 2"),
+                      secondary: true,
+                    },
+                  ],
+                }
+              : null
+          }
+        />
+        <Body style={{ width: 200 }} align="center">
+          Use the addons tab to toggle view of the component
+        </Body>
+      </>
+    );
+  })
   .add("PopupDynamic", () => {
     return (
       <>

@@ -76,7 +76,12 @@ const Popup: React.FC<Props> = ({ popup, onDismiss, onResolve }: Props) => {
     >
       <View style={Styles.background}>
         <View style={Styles.titleContainer}>
-          <Header size={2} numLines={popup?.numTitleLines || 1} adjustSize>
+          <Header
+            size={2}
+            numLines={popup?.numTitleLines || 1}
+            adjustSize
+            align="center"
+          >
             {local.title}
           </Header>
           {local.titleEmoji && (

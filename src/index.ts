@@ -14,10 +14,11 @@ import * as GlobalStyles from "./Styles/GlobalStyles";
 import * as Spacing from "./Styles/Spacing";
 
 /* Typography */
-import Body from "./Typography/Body.react";
-import Caption from "./Typography/Caption.react";
-import Header from "./Typography/Header.react";
-import Words from "./Typography/Words.react";
+import Body, { BodyProps } from "./Typography/Body.react";
+import Caption, { CaptionProps } from "./Typography/Caption.react";
+import Header, { HeaderProps } from "./Typography/Header.react";
+import Words, { WordsProps } from "./Typography/Words.react";
+import { CustomTextProps, TypographyColors } from "./Typography/Constants";
 
 /* User Input */
 import Button from "./UserInput/Button.react";
@@ -39,7 +40,18 @@ export { BottomSheet, Icon, KeyboardAvoider, Toast, ToastInfo, ToastTypes };
 export { Divider, GlobalStyles, Spacing };
 
 /* Typography */
-export { Body, Caption, Header, Words };
+export {
+  Body,
+  BodyProps,
+  Caption,
+  CaptionProps,
+  Header,
+  HeaderProps,
+  Words,
+  WordsProps,
+  CustomTextProps,
+  TypographyColors,
+};
 
 /* User Input */
 export {

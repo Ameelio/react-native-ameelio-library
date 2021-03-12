@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TextStyle } from "react-native";
+import { Text } from "react-native";
 import {
   calculateColor,
   CustomTextProps,
@@ -7,12 +7,12 @@ import {
   TypographyColors,
 } from "./Constants";
 
-interface Props extends CustomTextProps {
+export interface WordsProps extends CustomTextProps {
   weight: "regular" | "medium" | "semibold" | "bold";
   italic?: boolean;
 }
 
-const Words: React.FC<Props> = ({
+const Words: React.FC<WordsProps> = ({
   weight,
   italic,
   style,
@@ -22,7 +22,7 @@ const Words: React.FC<Props> = ({
   align,
   fontSize,
   color,
-}: Props) => {
+}) => {
   const finalSize = fontSize ? fontSize : 14 * SCALE_CONSTANT;
 
   let fontFamily = "Poppins_400Regular";

@@ -8,7 +8,7 @@ export const SCALE_CONSTANT = 5 / 4;
 type CustomColor = string & { dummy?: never };
 
 export type TypographyColors =
-  | "default"
+  | "dark"
   | "secondary"
   | "warning"
   | "success"
@@ -29,8 +29,8 @@ export interface CustomTextProps {
 
 export function calculateColor(colorOrType: TypographyColors) {
   switch (colorOrType) {
-    case "default":
-      return Colors.BLACK;
+    case "dark":
+      return Colors.GRAY_700;
     case "secondary":
       return Colors.GRAY_400;
     case "success":

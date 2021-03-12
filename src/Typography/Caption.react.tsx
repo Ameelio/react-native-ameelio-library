@@ -1,17 +1,12 @@
 import React from "react";
 import { Text } from "react-native";
-import {
-  calculateColor,
-  CustomTextProps,
-  SCALE_CONSTANT,
-  TypographyColors,
-} from "./Constants";
+import { calculateColor, CustomTextProps, SCALE_CONSTANT } from "./Constants";
 
-interface Props extends CustomTextProps {
+export interface CaptionProps extends CustomTextProps {
   size?: 1 | 2;
 }
 
-const Caption: React.FC<Props> = ({
+const Caption: React.FC<CaptionProps> = ({
   size,
   style,
   children,
@@ -20,7 +15,7 @@ const Caption: React.FC<Props> = ({
   align,
   fontSize,
   color,
-}: Props) => {
+}) => {
   let finalSize = fontSize;
   if (!finalSize)
     switch (size) {

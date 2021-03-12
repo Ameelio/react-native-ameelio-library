@@ -7,11 +7,11 @@ import {
   TypographyColors,
 } from "./Constants";
 
-interface Props extends CustomTextProps {
+export interface HeaderProps extends CustomTextProps {
   size?: 1 | 2 | 3 | 4 | 5;
 }
 
-const Header: React.FC<Props> = ({
+const Header: React.FC<HeaderProps> = ({
   size,
   style,
   children,
@@ -20,7 +20,7 @@ const Header: React.FC<Props> = ({
   align,
   fontSize,
   color,
-}: Props) => {
+}: HeaderProps) => {
   let finalSize = fontSize;
   if (!finalSize) {
     switch (size) {
@@ -56,7 +56,7 @@ const Header: React.FC<Props> = ({
       break;
   }
 
-  let calculatedColor = calculateColor(color || "default");
+  let calculatedColor = calculateColor(color || "dark");
 
   return (
     <Text

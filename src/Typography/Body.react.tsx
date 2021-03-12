@@ -7,12 +7,12 @@ import {
   TypographyColors,
 } from "./Constants";
 
-interface Props extends CustomTextProps {
+export interface BodyProps extends CustomTextProps {
   size?: 1 | 2 | 3;
   bold?: boolean;
 }
 
-const Body: React.FC<Props> = ({
+const Body: React.FC<BodyProps> = ({
   size,
   style,
   children,
@@ -22,7 +22,7 @@ const Body: React.FC<Props> = ({
   fontSize,
   color,
   bold,
-}: Props) => {
+}) => {
   let finalSize = fontSize;
   if (!finalSize) {
     switch (size) {
@@ -41,7 +41,7 @@ const Body: React.FC<Props> = ({
 
   const fontFamily = bold ? "Poppins_600SemiBold" : "Poppins_400Regular";
 
-  let calculatedColor = calculateColor(color || "default");
+  let calculatedColor = calculateColor(color || "secondary");
 
   return (
     <Text
