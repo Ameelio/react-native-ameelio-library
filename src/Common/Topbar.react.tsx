@@ -17,9 +17,9 @@ import Icon from "./Icon.react";
 // for color while still preserving autocomplete for X or next icons
 type CustomIcon = string & { dummy?: never };
 
-type TopbarTypes = "error" | "warning" | "success" | "info";
+export type TopbarTypes = "error" | "warning" | "success" | "info";
 
-interface Props {
+export interface TopbarInfo {
   type: TopbarTypes;
   title: string;
   cta: string;
@@ -76,7 +76,7 @@ const Styles = StyleSheet.create({
   },
 });
 
-const Topbar: React.FC<Props> = ({
+const Topbar: React.FC<TopbarInfo> = ({
   type,
   title,
   cta,

@@ -9,7 +9,7 @@ import IconCard from "./Common/IconCard.react";
 import KeyboardAvoider from "./Common/KeyboardAvoider.react";
 import KeyboardConditional from "./Common/KeyboardConditional.react";
 import Toast, { ToastInfo, ToastTypes } from "./Common/Toast.react";
-import Topbar from "./Common/Topbar.react";
+import Topbar, { TopbarInfo, TopbarTypes } from "./Common/Topbar.react";
 
 /* Styles */
 import Divider from "./Styles/Divider.react";
@@ -49,6 +49,8 @@ export {
   ToastInfo,
   ToastTypes,
   Topbar,
+  TopbarInfo,
+  TopbarTypes,
 };
 
 /* Styles */
