@@ -1,7 +1,7 @@
 import { SCREEN_WIDTH } from "../Styles/Spacing";
 import React, { useEffect, useState } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import DynamicX from "./DynamicX";
+import DynamicX from "./assets/DynamicX";
 import Icon from "./Icon.react";
 import * as Colors from "../Brand/Colors";
 import { Spacing } from "../Styles";

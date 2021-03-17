@@ -1,8 +1,8 @@
 import Icon from "../Common/Icon.react";
 import React, { useEffect, useState } from "react";
 import CalendarPicker from "react-native-calendar-picker";
-import Next from "./Next";
-import Previous from "./Previous";
+import Next from "./assets/Next";
+import Previous from "./assets/Previous";
 import { StyleSheet, View } from "react-native";
 import * as Colors from "../Brand/Colors";
 

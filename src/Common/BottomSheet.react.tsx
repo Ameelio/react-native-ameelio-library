@@ -3,7 +3,7 @@ import Header from "../Typography/Header.react";
 import React, { useEffect, useRef } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
-import CloseCarat from "./CloseCarat";
+import CloseCarat from "./assets/CloseCarat";
 import Icon from "./Icon.react";
 
 interface Props {

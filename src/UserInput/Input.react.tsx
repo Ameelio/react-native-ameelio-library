@@ -5,13 +5,15 @@ import {
   TextInputProps,
   TextStyle,
   TouchableOpacity,
+  View,
   ViewStyle,
 } from "react-native";
 import { Input as ElementsInput, InputProps } from "react-native-elements";
 import { GlobalStyles, Spacing } from "../Styles";
 import * as Colors from "../Brand/Colors";
-import Eye from "./SecureEye";
+import Eye from "./assets/SecureEye";
 import Icon from "../Common/Icon.react";
+import Body from "../Typography/Body.react";
 
 export type BaseInput = ElementsInput;
 
@@ -25,6 +27,7 @@ interface Props extends TextInputProps, InputProps {
   onInvalid?: (() => void) | (() => Promise<void>);
   secure?: boolean;
   initialValue?: string;
+  dirtyOnInitialValue?: boolean;
   disabled?: boolean;
   containerStyle?: StyleProp<ViewStyle>;
 }
@@ -60,6 +63,12 @@ const Styles = StyleSheet.create({
   validForeground: {
     color: Colors.BLACK,
   },
+  errorMessageContainer: {
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    ...Spacing.smallMarginBottom,
+  },
 });
 
 const Input: React.FC<Props> = (props: Props) => {
@@ -81,12 +90,17 @@ const Input: React.FC<Props> = (props: Props) => {
 
   const [value, setValue] = useState(props.initialValue || "");
   const [valid, setValid] = useState(getValid(""));
-  const [dirty, setDirty] = useState(false);
+  const [dirty, setDirty] = useState(
+    props.dirtyOnInitialValue
+      ? props.initialValue && props.initialValue.length
+      : false
+  );
   const [focused, setFocused] = useState(false);
   const [secureText, setSecureText] = useState(!!props.secure);
 
   useEffect(() => {
     if (props.onChangeText) props.onChangeText(value);
+    setValid(getValid(value));
   }, [value]);
 
   useEffect(() => {
@@ -115,7 +129,6 @@ const Input: React.FC<Props> = (props: Props) => {
     placeholderTextColor: "#9A9A9A",
     onChangeText: (text) => {
       setValue(text);
-      setValid(getValid(text));
     },
     onFocus: (e) => {
       setDirty(true);
@@ -123,30 +136,39 @@ const Input: React.FC<Props> = (props: Props) => {
       if (props.onFocus) props.onFocus(e);
     },
     onBlur: (e) => {
-      setValid(getValid(value));
       setFocused(false);
       if (props.onBlur) props.onBlur(e);
     },
   };
 
   return (
-    <ElementsInput
-      value={value}
-      ref={props.inputRef}
-      {...derivedProps}
-      rightIcon={
-        props.secure ? (
-          <TouchableOpacity
-            onPress={() => {
-              setSecureText((val) => !val);
-            }}
-          >
-            <Icon svg={Eye} width={25} height="100%" />
-          </TouchableOpacity>
-        ) : undefined
-      }
-      secureTextEntry={secureText}
-    />
+    <>
+      <ElementsInput
+        value={value}
+        ref={props.inputRef}
+        {...derivedProps}
+        errorMessage={undefined}
+        rightIcon={
+          props.secure ? (
+            <TouchableOpacity
+              onPress={() => {
+                setSecureText((val) => !val);
+              }}
+            >
+              <Icon svg={Eye} width={25} height="100%" />
+            </TouchableOpacity>
+          ) : undefined
+        }
+        secureTextEntry={secureText}
+      />
+      {!valid && dirty && props.errorMessage && (
+        <View style={Styles.errorMessageContainer}>
+          <Body color="error" bold>
+            {props.errorMessage}
+          </Body>
+        </View>
+      )}
+    </>
   );
 };
 

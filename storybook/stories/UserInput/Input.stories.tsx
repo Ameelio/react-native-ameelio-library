@@ -134,9 +134,21 @@ storiesOf("UserInput/Input", module)
         <Input secure label="Secure entry" placeholder="Placeholder" />
         <Divider />
         <Input
-          label="Secure entry"
-          placeholder="Placeholder"
-          initialValue="Initial Value"
+          label="Error Feedback"
+          initialValue="Invalid"
+          dirtyOnInitialValue
+          validation={(text: string) => {
+            return text.toLowerCase() === "valid";
+          }}
+          errorMessage="Not valid"
+        />
+        <Input
+          label="Initial value dirty"
+          initialValue="Invalid"
+          dirtyOnInitialValue
+          validation={(text: string) => {
+            return text.toLowerCase() === "valid";
+          }}
         />
       </View>
     );

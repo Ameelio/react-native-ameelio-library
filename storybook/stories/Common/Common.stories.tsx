@@ -1,6 +1,15 @@
 import { storiesOf } from "@storybook/react-native";
 import React from "react";
-import { Body, BottomSheet, Icon, KeyboardAvoider, Toast } from "@src";
+import {
+  Body,
+  BottomSheet,
+  Icon,
+  IconCard,
+  Input,
+  KeyboardAvoider,
+  KeyboardConditional,
+  Toast,
+} from "@src";
 import CenterView from "../../helpers/CenterView.react";
 import DynamicX from "./DynamicX";
 import { ScrollView, TextInput, View } from "react-native";
@@ -58,5 +67,16 @@ storiesOf("Common", module)
       >
         <View style={{ flex: 1, backgroundColor: "yellow" }} />
       </BottomSheet>
+    </>
+  ))
+  .add("IconCard", () => (
+    <IconCard svg={DynamicX} title="title" subtitle="subtitle" />
+  ))
+  .add("KeyboardConditional", () => (
+    <>
+      <KeyboardConditional>
+        <Body>This only exists when the keyboard is closed</Body>
+      </KeyboardConditional>
+      <Input />
     </>
   ));
