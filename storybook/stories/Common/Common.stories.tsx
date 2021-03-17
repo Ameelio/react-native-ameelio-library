@@ -9,11 +9,18 @@ import {
   KeyboardAvoider,
   KeyboardConditional,
   Toast,
+  Topbar,
 } from "@src";
 import CenterView from "../../helpers/CenterView.react";
 import DynamicX from "./DynamicX";
 import { ScrollView, TextInput, View } from "react-native";
-import { boolean, number, text, withKnobs } from "@storybook/addon-knobs";
+import {
+  boolean,
+  number,
+  radios,
+  text,
+  withKnobs,
+} from "@storybook/addon-knobs";
 
 storiesOf("Common", module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
@@ -79,4 +86,21 @@ storiesOf("Common", module)
       </KeyboardConditional>
       <Input />
     </>
+  ))
+  .add("Topbar", () => (
+    <Topbar
+      type={radios(
+        "type",
+        {
+          error: "error",
+          warning: "warning",
+          success: "success",
+          info: "info",
+        },
+        "error"
+      )}
+      title={text("title", "title")}
+      cta={text("cta", "cta")}
+      rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "arrow")}
+    />
   ));

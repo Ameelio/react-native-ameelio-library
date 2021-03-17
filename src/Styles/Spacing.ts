@@ -15,6 +15,9 @@ export const paddingTop: ViewStyle = {
 export const largePaddingTop: ViewStyle = {
   paddingTop: PADDING * 2,
 };
+export const extraLargePaddingTop: ViewStyle = {
+  paddingTop: PADDING * 3,
+};
 
 export const smallPaddingBottom: ViewStyle = {
   paddingBottom: PADDING / 2,
@@ -24,6 +27,9 @@ export const paddingBottom: ViewStyle = {
 };
 export const largePaddingBottom: ViewStyle = {
   paddingBottom: PADDING * 2,
+};
+export const extraLargePaddingBottom: ViewStyle = {
+  paddingBottom: PADDING * 3,
 };
 
 export const smallPaddingLeft: ViewStyle = {
@@ -35,6 +41,9 @@ export const paddingLeft: ViewStyle = {
 export const largePaddingLeft: ViewStyle = {
   paddingLeft: PADDING * 2,
 };
+export const extraLargePaddingLeft: ViewStyle = {
+  paddingLeft: PADDING * 3,
+};
 
 export const smallPaddingRight: ViewStyle = {
   paddingRight: PADDING / 2,
@@ -44,6 +53,9 @@ export const paddingRight: ViewStyle = {
 };
 export const largePaddingRight: ViewStyle = {
   paddingRight: PADDING * 2,
+};
+export const extraLargePaddingRight: ViewStyle = {
+  paddingRight: PADDING * 3,
 };
 
 export const smallPaddingVertical: ViewStyle = {
@@ -55,6 +67,9 @@ export const paddingVertical: ViewStyle = {
 export const largePaddingVertical: ViewStyle = {
   paddingVertical: PADDING * 2,
 };
+export const extraLargePaddingVertical: ViewStyle = {
+  paddingVertical: PADDING * 3,
+};
 
 export const smallPaddingHorizontal: ViewStyle = {
   paddingHorizontal: PADDING / 2,
@@ -65,6 +80,9 @@ export const paddingHorizontal: ViewStyle = {
 export const largePaddingHorizontal: ViewStyle = {
   paddingHorizontal: PADDING * 2,
 };
+export const extraLargePaddingHorizontal: ViewStyle = {
+  paddingHorizontal: PADDING * 3,
+};
 
 export const smallPadding: ViewStyle = {
   padding: PADDING / 2,
@@ -74,6 +92,9 @@ export const padding: ViewStyle = {
 };
 export const largePadding: ViewStyle = {
   padding: PADDING * 2,
+};
+export const extraLargePadding: ViewStyle = {
+  padding: PADDING * 3,
 };
 
 // Margin
@@ -86,6 +107,9 @@ export const marginTop: ViewStyle = {
 export const largeMarginTop: ViewStyle = {
   marginTop: MARGIN * 2,
 };
+export const extraLargeMarginTop: ViewStyle = {
+  marginTop: MARGIN * 3,
+};
 
 export const smallMarginBottom: ViewStyle = {
   marginBottom: MARGIN / 2,
@@ -95,6 +119,9 @@ export const marginBottom: ViewStyle = {
 };
 export const largeMarginBottom: ViewStyle = {
   marginBottom: MARGIN * 2,
+};
+export const extraLargeMarginBottom: ViewStyle = {
+  marginBottom: MARGIN * 3,
 };
 
 export const smallMarginLeft: ViewStyle = {
@@ -106,6 +133,9 @@ export const marginLeft: ViewStyle = {
 export const largeMarginLeft: ViewStyle = {
   marginLeft: MARGIN * 2,
 };
+export const extraLargeMarginLeft: ViewStyle = {
+  marginLeft: MARGIN * 3,
+};
 
 export const smallMarginRight: ViewStyle = {
   marginRight: MARGIN / 2,
@@ -115,6 +145,9 @@ export const marginRight: ViewStyle = {
 };
 export const largeMarginRight: ViewStyle = {
   marginRight: MARGIN * 2,
+};
+export const extraLargeMarginRight: ViewStyle = {
+  marginRight: MARGIN * 3,
 };
 
 export const smallMarginVertical: ViewStyle = {
@@ -126,6 +159,9 @@ export const marginVertical: ViewStyle = {
 export const largeMarginVertical: ViewStyle = {
   marginVertical: MARGIN * 2,
 };
+export const extraLargeMarginVertical: ViewStyle = {
+  marginVertical: MARGIN * 3,
+};
 
 export const smallMarginHorizontal: ViewStyle = {
   marginHorizontal: MARGIN / 2,
@@ -136,6 +172,9 @@ export const marginHorizontal: ViewStyle = {
 export const largeMarginHorizontal: ViewStyle = {
   marginHorizontal: MARGIN * 2,
 };
+export const extraLargeMarginHorizontal: ViewStyle = {
+  marginHorizontal: MARGIN * 3,
+};
 
 export const smallMargin: ViewStyle = {
   margin: MARGIN / 2,
@@ -145,4 +184,7 @@ export const margin: ViewStyle = {
 };
 export const largeMargin: ViewStyle = {
   margin: MARGIN * 2,
+};
+export const extraLargeMargin: ViewStyle = {
+  margin: MARGIN * 3,
 };

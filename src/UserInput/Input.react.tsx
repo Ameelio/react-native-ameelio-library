@@ -22,6 +22,7 @@ export const LINE_HEIGHT = 26;
 interface Props extends TextInputProps, InputProps {
   inputRef?: RefObject<BaseInput> | MutableRefObject<BaseInput>;
   required?: boolean;
+  mustMatch?: string;
   validation?: (val: string) => boolean;
   onValid?: (() => void) | (() => Promise<void>);
   onInvalid?: (() => void) | (() => Promise<void>);
@@ -75,7 +76,8 @@ const Input: React.FC<Props> = (props: Props) => {
   const getValid = (text: string): boolean => {
     const requiredCheck = !props.required || !!text.length;
     const dynamicCheck = !props.validation || props.validation(text);
-    return requiredCheck && dynamicCheck;
+    const mustMatchCheck = !props.mustMatch || value === props.mustMatch;
+    return requiredCheck && dynamicCheck && mustMatchCheck;
   };
 
   const getValidityBackground = (): ViewStyle => {
@@ -107,6 +109,10 @@ const Input: React.FC<Props> = (props: Props) => {
     if (valid && props.onValid) props.onValid();
     if (!valid && props.onInvalid) props.onInvalid();
   }, [valid]);
+
+  useEffect(() => {
+    setValid(getValid(value));
+  }, [props.mustMatch]);
 
   const derivedProps: Props = {
     ...props,

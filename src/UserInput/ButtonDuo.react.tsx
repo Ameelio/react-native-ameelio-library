@@ -1,6 +1,7 @@
 import { Spacing } from "../Styles";
 import React from "react";
 import Button from "./Button.react";
+import { StyleProp, View, ViewStyle } from "react-native";
 
 interface Props {
   primaryText?: string;
@@ -12,6 +13,7 @@ interface Props {
   secondaryBlocking?: boolean;
   secondaryDisabled?: boolean;
   secondaryLink?: boolean;
+  style?: StyleProp<ViewStyle>;
 }
 
 const ButtonDuo: React.FC<Props> = ({
@@ -24,9 +26,10 @@ const ButtonDuo: React.FC<Props> = ({
   secondaryBlocking,
   secondaryDisabled,
   secondaryLink,
+  style,
 }) => {
   return (
-    <>
+    <View style={style}>
       <Button
         onPress={onPrimaryPress}
         blocking={primaryBlocking}
@@ -45,7 +48,7 @@ const ButtonDuo: React.FC<Props> = ({
       >
         {secondaryText}
       </Button>
-    </>
+    </View>
   );
 };
 
