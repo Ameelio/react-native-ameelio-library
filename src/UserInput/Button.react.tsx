@@ -89,13 +89,14 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     ...props,
     containerStyle: [
       Styles.trueBackground,
+      props.nav ? { borderRadius: 19, height: 40 } : {},
       props.containerStyle,
-      props.nav ? { borderRadius: 100, width: undefined } : {},
     ],
     buttonStyle: [
       Styles.background,
       getBackgroundStyle(),
-      props.nav ? { borderRadius: 100 } : {},
+      props.nav ? { borderRadius: 19, height: 40 } : {},
+      props.buttonStyle,
     ],
     disabledStyle: Styles.disabledBackground,
     disabledTitleStyle: {
@@ -109,10 +110,11 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     },
     titleStyle: [
       {
-        fontSize: props.nav ? 14 : 18,
+        fontSize: props.nav ? 15 : 18,
         fontFamily: "Poppins_600SemiBold",
       },
       props.secondary ? Styles.secondaryForeground : Styles.primaryForeground,
+      props.titleStyle,
     ],
     loading: blocked || props.loading,
     loadingStyle: { width: 29, height: 29 },
