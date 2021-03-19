@@ -14,4 +14,5 @@ import "./UserInput/DatePicker.stories";
 import "./UserInput/Input.stories";
 import "./UserInput/Picker.stories";
 import "./UserInput/Popup.stories";
+import "./UserInput/Rating.stories";
 import "./UserInput/Tooltip.stories";
