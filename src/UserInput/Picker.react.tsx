@@ -10,7 +10,6 @@ import { View, ViewStyle, StyleSheet } from "react-native";
 import * as Colors from "../Brand/Colors";
 import RNPickerSelect from "react-native-picker-select";
 import Entypo from "react-native-vector-icons/Entypo";
-import RNGestureHandlerButton from "react-native-gesture-handler/dist/src/components/GestureHandlerButton";
 
 export interface Props {
   style?: ViewStyle | ViewStyle[];
