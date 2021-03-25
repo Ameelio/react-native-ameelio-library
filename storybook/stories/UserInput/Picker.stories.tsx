@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/react-native";
 import React from "react";
-import { Input, Picker, Spacing } from "@src";
+import { Divider, Input, Picker, Spacing } from "@src";
 import CenterView from "../../helpers/CenterView.react";
 import { withKnobs } from "@storybook/addon-knobs";
 import { View } from "react-native";
@@ -29,6 +29,7 @@ storiesOf("UserInput/Picker", module)
         <Picker
           items={["Apple", "Banana", "Carrot"]}
           placeholder="Placeholder"
+          required
         />
         <Input placeholder="Input comparison" />
         <Picker
@@ -37,6 +38,12 @@ storiesOf("UserInput/Picker", module)
           disabled
         />
         <Input placeholder="Input comparison" disabled />
+        <Divider />
+        <Picker
+          items={["Apple", "Banana", "Carrot"]}
+          initialValue="Apple"
+          placeholder={"Not required"}
+        />
       </View>
     );
   });

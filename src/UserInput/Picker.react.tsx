@@ -10,13 +10,16 @@ import { View, ViewStyle, StyleSheet } from "react-native";
 import * as Colors from "../Brand/Colors";
 import RNPickerSelect from "react-native-picker-select";
 import Entypo from "react-native-vector-icons/Entypo";
+import RNGestureHandlerButton from "react-native-gesture-handler/dist/src/components/GestureHandlerButton";
 
 export interface Props {
   style?: ViewStyle | ViewStyle[];
   items: string[];
   placeholder: string;
+  initialValue?: string;
   onValueChange?: (v: string) => void;
   disabled?: boolean;
+  required?: boolean;
 }
 
 export interface PickerRef {
@@ -59,7 +62,7 @@ const pickerStyles = (disabled: boolean) => {
       ...Spacing.paddingVertical,
     },
     placeholder: {
-      color: disabled ? Colors.GRAY_400 : "#9A9A9A",
+      color: disabled ? "rgb(201,201,201)" : "#9A9A9A",
     },
     iconContainer: {
       top: 14,
@@ -67,8 +70,9 @@ const pickerStyles = (disabled: boolean) => {
     },
   });
 };
+
 const Picker = forwardRef((props: Props, ref: Ref<PickerRef>) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(props.initialValue || "");
   const [dirty, setDirty] = useState(false);
   const [styleIgnoresValueChange, setStyleIgnoresValueChange] = useState(false);
   const { style, items, placeholder, onValueChange } = props;
@@ -98,9 +102,10 @@ const Picker = forwardRef((props: Props, ref: Ref<PickerRef>) => {
 
   let checkValueStyle = {};
   if (dirty) {
-    checkValueStyle = isValueSelected()
-      ? Styles.validBackground
-      : Styles.invalidBackground;
+    checkValueStyle =
+      !props.required || isValueSelected()
+        ? Styles.validBackground
+        : Styles.invalidBackground;
   }
 
   return (
