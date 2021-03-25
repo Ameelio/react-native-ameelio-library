@@ -82,12 +82,14 @@ const Toast: React.FC<Props> = ({ toast }: Props) => {
         { backgroundColor: colors.bg, borderColor: colors.fg },
       ]}
     >
-      <Body
-        size={3}
-        style={{ color: colors.fg, fontSize: 16, ...Spacing.marginVertical }}
-      >
-        {local.text}
-      </Body>
+      <View style={{ flex: 1 }}>
+        <Body
+          size={3}
+          style={{ color: colors.fg, fontSize: 16, ...Spacing.marginVertical }}
+        >
+          {local.text}
+        </Body>
+      </View>
       <TouchableOpacity
         style={Styles.closePressable}
         onPress={() => {

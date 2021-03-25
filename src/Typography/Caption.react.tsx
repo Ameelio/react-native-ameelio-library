@@ -30,7 +30,7 @@ const Caption: React.FC<CaptionProps> = ({
 
   const fontFamily = "Poppins_500Medium";
 
-  let calculatedColor = calculateColor(color || "default");
+  let calculatedColor = calculateColor(color || "dark");
 
   return (
     <Text

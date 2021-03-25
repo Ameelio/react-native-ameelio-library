@@ -29,7 +29,7 @@ const ButtonDuo: React.FC<Props> = ({
   style,
 }) => {
   return (
-    <View style={style}>
+    <View style={[{ width: "100%" }, , style]}>
       <Button
         onPress={onPrimaryPress}
         blocking={primaryBlocking}

@@ -61,6 +61,14 @@ storiesOf("Common", module)
       <Toast toast={{ type: "error", text: "error" }} />
       <Toast toast={{ type: "warning", text: "warning" }} />
       <Toast toast={{ type: "success", text: "success" }} />
+
+      <Toast
+        toast={{
+          type: "success",
+          text:
+            "the quick brown fox jumped over the lazy dog the quick brown fox jumped over the lazy dog",
+        }}
+      />
     </>
   ))
   .add("BottomSheet", () => (
