@@ -10,7 +10,7 @@ export interface Props {
   items: string[];
   placeholder?: string;
   initialValue?: string;
-  onValueChange?: (v?: string) => void;
+  onValueChange?: (v: string) => void;
   disabled?: boolean;
   required?: boolean;
 }
@@ -67,16 +67,12 @@ const Picker: React.FC<Props> = ({
   disabled,
   required,
 }) => {
-  const [value, setValue] = useState(initialValue);
+  const [value, setValue] = useState(initialValue || "");
   const [dirty, setDirty] = useState(false);
 
   const isValueSelected = () => {
     return value && !!value.length;
   };
-
-  useEffect(() => {
-    setValue(initialValue);
-  }, [initialValue]);
 
   useEffect(() => {
     if (onValueChange) onValueChange(value);
