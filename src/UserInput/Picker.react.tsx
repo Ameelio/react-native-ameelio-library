@@ -49,6 +49,7 @@ const pickerStyles = (disabled: boolean) => {
       ...Spacing.paddingVertical,
     },
     placeholder: {
+      fontSize: 16,
       color: disabled ? "rgb(201,201,201)" : "#9A9A9A",
     },
     iconContainer: {

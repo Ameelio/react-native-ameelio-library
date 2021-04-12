@@ -128,6 +128,7 @@ const Input: React.FC<Props> = (props: Props) => {
     ],
     inputStyle: [
       Styles.inputStyle,
+      props.multiline ? {} : { height: 51 },
       getValidityForeground(),
       { textAlignVertical: props.multiline ? "top" : "center" },
       props.inputStyle,
