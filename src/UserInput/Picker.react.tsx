@@ -1,11 +1,5 @@
 import { GlobalStyles, Spacing } from "../Styles";
-import React, {
-  useState,
-  useEffect,
-  forwardRef,
-  useImperativeHandle,
-  Ref,
-} from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { View, ViewStyle, StyleSheet } from "react-native";
 import * as Colors from "../Brand/Colors";
 import RNPickerSelect from "react-native-picker-select";
@@ -14,17 +8,11 @@ import Entypo from "react-native-vector-icons/Entypo";
 export interface Props {
   style?: ViewStyle | ViewStyle[];
   items: string[];
-  placeholder: string;
+  placeholder?: string;
   initialValue?: string;
-  onValueChange?: (v: string) => void;
+  onValueChange?: (v?: string) => void;
   disabled?: boolean;
   required?: boolean;
-}
-
-export interface PickerRef {
-  isValueSelected: () => boolean;
-  value: string;
-  setStoredValue: (v: string, makeDirty?: boolean) => void;
 }
 
 const Styles = StyleSheet.create({
@@ -70,39 +58,34 @@ const pickerStyles = (disabled: boolean) => {
   });
 };
 
-const Picker = forwardRef((props: Props, ref: Ref<PickerRef>) => {
-  const [value, setValue] = useState(props.initialValue || "");
+const Picker: React.FC<Props> = ({
+  style,
+  items,
+  placeholder,
+  initialValue,
+  onValueChange,
+  disabled,
+  required,
+}) => {
+  const [value, setValue] = useState(initialValue);
   const [dirty, setDirty] = useState(false);
-  const [styleIgnoresValueChange, setStyleIgnoresValueChange] = useState(false);
-  const { style, items, placeholder, onValueChange } = props;
 
-  function isValueSelected(): boolean {
-    return !(value === "");
-  }
+  const isValueSelected = () => {
+    return value && !!value.length;
+  };
 
-  // default: sets value without immediately triggering container style change.
-  // setting makeDirty=true triggers container style change
-  function setStoredValue(v: string, makeDirty?: boolean): void {
-    if (v && v !== value) {
-      setStyleIgnoresValueChange(makeDirty !== true);
-      setValue(v);
-    }
-  }
-
-  useImperativeHandle(ref, () => ({
-    isValueSelected,
-    value,
-    setStoredValue,
-  }));
+  useEffect(() => {
+    setValue(initialValue);
+  }, [initialValue]);
 
   useEffect(() => {
     if (onValueChange) onValueChange(value);
-  }, [value, styleIgnoresValueChange]);
+  }, [value]);
 
   let checkValueStyle = {};
   if (dirty) {
     checkValueStyle =
-      !props.required || isValueSelected()
+      !required || isValueSelected()
         ? Styles.validBackground
         : Styles.invalidBackground;
   }
@@ -110,25 +93,25 @@ const Picker = forwardRef((props: Props, ref: Ref<PickerRef>) => {
   return (
     <View style={[Styles.pickerContainer, checkValueStyle, style]}>
       <RNPickerSelect
+        key={value}
         placeholder={{ label: placeholder, value: "" }}
         items={items.map((item) => {
           return { key: item, label: item, value: item };
         })}
         useNativeAndroidPickerStyle={false}
-        style={pickerStyles(!!props.disabled)}
+        style={pickerStyles(!!disabled)}
         value={value}
         onValueChange={(v) => {
           setValue(v);
-          setDirty(!styleIgnoresValueChange);
-          if (styleIgnoresValueChange) setStyleIgnoresValueChange(false);
+          setDirty(true);
         }}
-        disabled={props.disabled}
+        disabled={disabled}
         Icon={() => {
           return <Entypo name="chevron-thin-down" size={16} color="gray" />;
         }}
       />
     </View>
   );
-});
+};
 
 export default Picker;

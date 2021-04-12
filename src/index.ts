@@ -29,7 +29,7 @@ import ButtonDuo from "./UserInput/ButtonDuo.react";
 import Chip from "./UserInput/Chip.react";
 import DatePicker from "./UserInput/DatePicker.react";
 import Input, { BaseInput, LINE_HEIGHT } from "./UserInput/Input.react";
-import Picker, { PickerRef } from "./UserInput/Picker.react";
+import Picker from "./UserInput/Picker.react";
 import Popup, { PopupInfo } from "./UserInput/Popup.react";
 import Rating from "./UserInput/Rating.react";
 import Tooltip from "./UserInput/Tooltip.react";
@@ -81,7 +81,6 @@ export {
   BaseInput,
   LINE_HEIGHT,
   Picker,
-  PickerRef,
   Popup,
   PopupInfo,
   Rating,

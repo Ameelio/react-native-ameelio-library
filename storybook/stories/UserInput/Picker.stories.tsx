@@ -2,7 +2,7 @@ import { storiesOf } from "@storybook/react-native";
 import React from "react";
 import { Divider, Input, Picker, Spacing } from "@src";
 import CenterView from "../../helpers/CenterView.react";
-import { withKnobs } from "@storybook/addon-knobs";
+import { text, withKnobs } from "@storybook/addon-knobs";
 import { View } from "react-native";
 
 function sleep(ms: number, error = false): Promise<void> {
@@ -41,7 +41,7 @@ storiesOf("UserInput/Picker", module)
         <Divider />
         <Picker
           items={["Apple", "Banana", "Carrot"]}
-          initialValue="Apple"
+          initialValue={text("Iniatial Value", "Apple")}
           placeholder={"Not required"}
         />
       </View>

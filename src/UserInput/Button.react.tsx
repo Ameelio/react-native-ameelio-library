@@ -35,6 +35,7 @@ const Styles = StyleSheet.create({
     ...Spacing.padding,
     ...GlobalStyles.rounded,
     borderWidth: 2,
+    height: 50,
   },
   primaryBackground: {
     backgroundColor: Colors.SECONDARY_500,
@@ -117,7 +118,6 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       props.titleStyle,
     ],
     loading: blocked || props.loading,
-    loadingStyle: { width: 29, height: 29 },
     TouchableComponent: TouchableOpacity,
   };
 
