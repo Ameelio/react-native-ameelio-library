@@ -11,6 +11,7 @@ const KeyboardAvoider: React.FC<Props> = (props: Props) => {
     <KeyboardAvoidingView
       style={[{ flex: 1 }, props.style]}
       behavior={Platform.OS === "ios" ? "padding" : undefined}
+      keyboardVerticalOffset={Platform.OS === "ios" ? 60 : -200}
       enabled
     >
       {props.children}

@@ -31,6 +31,7 @@ interface Props extends TextInputProps, InputProps {
   dirtyOnInitialValue?: boolean;
   disabled?: boolean;
   containerStyle?: StyleProp<ViewStyle>;
+  hideValidityFeedback?: boolean;
 }
 
 const Styles = StyleSheet.create({
@@ -119,7 +120,7 @@ const Input: React.FC<Props> = (props: Props) => {
     renderErrorMessage: false,
     containerStyle: [
       Styles.background,
-      getValidityBackground(),
+      props.hideValidityFeedback ? {} : getValidityBackground(),
       props.containerStyle || {},
     ],
     inputContainerStyle: [
@@ -129,7 +130,7 @@ const Input: React.FC<Props> = (props: Props) => {
     inputStyle: [
       Styles.inputStyle,
       props.multiline ? {} : { height: 51 },
-      getValidityForeground(),
+      props.hideValidityFeedback ? {} : getValidityForeground(),
       { textAlignVertical: props.multiline ? "top" : "center" },
       props.inputStyle,
     ],

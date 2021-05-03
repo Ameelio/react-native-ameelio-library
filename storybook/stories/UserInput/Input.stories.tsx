@@ -120,47 +120,53 @@ storiesOf("UserInput/Input", module)
   })
   .add("Single Line Validation", () => {
     return (
-      <KeyboardAvoider>
-        <ScrollView style={{ width: "100%" }}>
-          <Input label="Required" required placeholder="Placeholder" />
-          <Divider />
-          <Input
-            label="Less than 4 chars"
-            validation={(text: string) => {
-              return text.length < 4;
-            }}
-            placeholder="Placeholder"
-          />
-          <Divider />
-          <Input secure label="Secure entry" placeholder="Placeholder" />
-          <Divider />
-          <Input
-            label="Error Feedback"
-            initialValue="Invalid"
-            validation={(text: string) => {
-              return text.toLowerCase() === "valid";
-            }}
-            errorMessage="Not valid"
-          />
-          <Divider />
-          <Input
-            label="Initial value dirty"
-            initialValue="Invalid"
-            dirtyOnInitialValue
-            validation={(text: string) => {
-              return text.toLowerCase() === "valid";
-            }}
-          />
-          <Divider />
-          <Input
-            label="Must match"
-            initialValue="doesn't match"
-            mustMatch={text("match", "match")}
-            errorMessage="doesn't match"
-          />
-          <View style={{ width: "100%", height: 1000 }} />
-        </ScrollView>
-      </KeyboardAvoider>
+      <ScrollView style={{ width: "100%" }}>
+        <Input label="Required" required placeholder="Placeholder" />
+        <Divider />
+        <Input
+          label="Less than 4 chars"
+          validation={(text: string) => {
+            return text.length < 4;
+          }}
+          placeholder="Placeholder"
+        />
+        <Divider />
+        <Input secure label="Secure entry" placeholder="Placeholder" />
+        <Divider />
+        <Input
+          label="Error Feedback"
+          initialValue="Invalid"
+          validation={(text: string) => {
+            return text.toLowerCase() === "valid";
+          }}
+          errorMessage="Not valid"
+        />
+        <Divider />
+        <Input
+          label="Initial value dirty"
+          initialValue="Invalid"
+          dirtyOnInitialValue
+          validation={(text: string) => {
+            return text.toLowerCase() === "valid";
+          }}
+        />
+        <Divider />
+        <Input
+          label="Must match"
+          initialValue="doesn't match"
+          mustMatch={text("match", "match")}
+          errorMessage="doesn't match"
+        />
+        <Divider />
+        <Input
+          label="No validity feedback"
+          initialValue="incorrect"
+          mustMatch={text("match", "match")}
+          errorMessage="doesn't match"
+          hideValidityFeedback
+        />
+        <View style={{ width: "100%", height: 1000 }} />
+      </ScrollView>
     );
   })
   .add("Multi Line", () => {

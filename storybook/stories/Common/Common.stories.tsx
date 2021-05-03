@@ -28,32 +28,33 @@ storiesOf("Common", module)
   .add("Icon", () => <Icon svg={DynamicX} />)
   .add("KeyboardAvoider", () => (
     <KeyboardAvoider>
-      <ScrollView>
-        <Body>
-          Text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-          text text text text text text text text text text text text text text
-        </Body>
-        <TextInput
-          style={{ width: "100%", backgroundColor: "gray" }}
-          placeholder="Tap to type"
-        />
-      </ScrollView>
+      <View style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }}>
+          <Body>
+            Text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text text text text text text text text text
+            text text text text text
+          </Body>
+        </ScrollView>
+        <Input />
+      </View>
     </KeyboardAvoider>
   ))
   .add("Toast", () => (
