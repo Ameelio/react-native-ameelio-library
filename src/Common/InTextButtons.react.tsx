@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleProp, Text, TextStyle, TouchableOpacity } from "react-native";
-import { Body, Colors } from "react-native-ameelio-library";
+import Body from "../Typography/Body.react";
+import * as Colors from "../Brand/Colors";
 
 interface Block {
   type: "text" | "button";
@@ -47,7 +48,9 @@ const InTextButtons: React.FC<Props> = ({
             key={block.text + index.toString()}
           >
             <Body
-              style={block.type === "text" ? textStyle : buttonStyle}
+              style={
+                block.type === "text" ? textStyle || {} : buttonStyle || {}
+              }
               bold={block.type === "button"}
               numLines={1}
               adjustSize
