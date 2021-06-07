@@ -113,6 +113,7 @@ storiesOf("UserInput/Input", module)
     return (
       <View style={{ width: "100%" }}>
         <Input inputRef={ref} placeholder="Placeholder" />
+        <Input inputRef={ref} placeholder="Disabled" disabled />
         <Divider />
         {renderInputManipulators(ref)}
       </View>

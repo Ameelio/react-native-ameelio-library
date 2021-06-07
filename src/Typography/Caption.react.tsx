@@ -3,7 +3,8 @@ import { Text } from "react-native";
 import { calculateColor, CustomTextProps, SCALE_CONSTANT } from "./Constants";
 
 export interface CaptionProps extends CustomTextProps {
-  size?: 1 | 2;
+  size?: 1 | 2 | 3;
+  bold?: boolean;
 }
 
 const Caption: React.FC<CaptionProps> = ({
@@ -15,6 +16,7 @@ const Caption: React.FC<CaptionProps> = ({
   align,
   fontSize,
   color,
+  bold,
 }) => {
   let finalSize = fontSize;
   if (!finalSize)
@@ -23,12 +25,17 @@ const Caption: React.FC<CaptionProps> = ({
         finalSize = 13 * SCALE_CONSTANT;
         break;
       case 2:
+        finalSize = 12 * SCALE_CONSTANT;
+        break;
+      case 3:
       default:
         finalSize = 11 * SCALE_CONSTANT;
-        break;
     }
 
-  const fontFamily = "Poppins_500Medium";
+  const fontFamily =
+    (bold === undefined && size !== 3) || bold
+      ? "Poppins_500Medium"
+      : "Poppins_400Regular";
 
   let calculatedColor = calculateColor(color || "dark");
 

@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({
   if (!finalSize) {
     switch (size) {
       case 1:
-        finalSize = 40 * SCALE_CONSTANT;
+        finalSize = 20 * SCALE_CONSTANT;
         break;
       case 2:
         finalSize = 18 * SCALE_CONSTANT;

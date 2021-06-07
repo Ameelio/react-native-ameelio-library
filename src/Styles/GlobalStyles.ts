@@ -44,6 +44,4 @@ export const contentBackground: ViewStyle = {
 export const bottomButtonContainer: ViewStyle = {
   width: "100%",
   ...Spacing.largePadding,
-  borderTopWidth: 1,
-  borderTopColor: Colors.GRAY_300,
 };

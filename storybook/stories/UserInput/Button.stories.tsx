@@ -37,7 +37,7 @@ storiesOf("UserInput/Button", module)
         <Divider />
         <Button disabled>Disabled</Button>
         <Divider />
-        <Button nav containerStyle={{ width: 76 }}>
+        <Button nav noGrow>
           Save
         </Button>
         <Divider />

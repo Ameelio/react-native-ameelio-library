@@ -3,9 +3,11 @@ import React from "react";
 import {
   Body,
   BottomSheet,
+  EmojiBullet,
   Icon,
   IconCard,
   Input,
+  InTextButtons,
   KeyboardAvoider,
   KeyboardConditional,
   Toast,
@@ -66,8 +68,7 @@ storiesOf("Common", module)
       <Toast
         toast={{
           type: "success",
-          text:
-            "the quick brown fox jumped over the lazy dog the quick brown fox jumped over the lazy dog",
+          text: "the quick brown fox jumped over the lazy dog the quick brown fox jumped over the lazy dog",
         }}
       />
     </>
@@ -94,6 +95,32 @@ storiesOf("Common", module)
         <Body>This only exists when the keyboard is closed</Body>
       </KeyboardConditional>
       <Input />
+    </>
+  ))
+  .add("EmojiBullet", () => (
+    <>
+      <EmojiBullet emoji="coffee" text="test" />
+      <EmojiBullet emoji="coffee" text="test" />
+      <EmojiBullet emoji="coffee" text="test" />
+      <EmojiBullet emoji="coffee" text="test" />
+    </>
+  ))
+  .add("InTextButtons", () => (
+    <>
+      <InTextButtons
+        buttonStyle={{
+          fontSize: 16,
+          textDecorationLine: "underline",
+        }}
+        blocks={[
+          { type: "text", text: "text" },
+          {
+            type: "button",
+            text: "button",
+            onPress: () => {},
+          },
+        ]}
+      />
     </>
   ))
   .add("Topbar", () => (

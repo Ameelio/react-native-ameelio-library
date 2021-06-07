@@ -7,6 +7,7 @@ import {
   StyleProp,
   StyleSheet,
   TouchableOpacity,
+  View,
   ViewStyle,
 } from "react-native";
 import { GlobalStyles, Spacing } from "../Styles";
@@ -24,6 +25,8 @@ export interface ButtonProps extends ElementsButtonProps {
   linkSize?: number;
   disabled?: boolean;
   style?: StyleProp<ViewStyle>;
+  noGrow?: boolean;
+  noGrowContainer?: StyleProp<ViewStyle>;
 }
 
 const Styles = StyleSheet.create({
@@ -38,18 +41,18 @@ const Styles = StyleSheet.create({
     height: 50,
   },
   primaryBackground: {
-    backgroundColor: Colors.SECONDARY_500,
-    borderColor: Colors.SECONDARY_500,
+    backgroundColor: Colors.PRIMARY_400,
+    borderColor: Colors.PRIMARY_400,
   },
   secondaryBackground: {
     backgroundColor: Colors.WHITE,
     borderColor: Colors.GRAY_200,
   },
   disabledBackground: {
-    backgroundColor: Colors.SECONDARY_200,
-    borderColor: Colors.SECONDARY_200,
+    backgroundColor: Colors.PRIMARY_200,
+    borderColor: Colors.PRIMARY_200,
   },
-  ignoreableBackground: {
+  linkBackground: {
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
@@ -59,7 +62,7 @@ const Styles = StyleSheet.create({
     color: Colors.WHITE,
   },
   secondaryForeground: {
-    color: Colors.SECONDARY_500,
+    color: Colors.PRIMARY_400,
   },
 });
 
@@ -90,12 +93,14 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     ...props,
     containerStyle: [
       Styles.trueBackground,
+      props.noGrow ? { width: undefined } : { width: "100%" },
       props.nav ? { borderRadius: 19, height: 40 } : {},
       props.containerStyle,
     ],
     buttonStyle: [
       Styles.background,
       getBackgroundStyle(),
+      props.noGrow ? { width: undefined } : {},
       props.nav ? { borderRadius: 19, height: 40 } : {},
       props.buttonStyle,
     ],
@@ -123,16 +128,16 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
 
   if (props.link) {
     return (
-      <TouchableOpacity
-        onPress={props.onPress}
-        style={Styles.ignoreableBackground}
-      >
+      <TouchableOpacity onPress={props.onPress} style={Styles.linkBackground}>
         <Header
           size={5}
           fontSize={props.linkSize}
           numLines={1}
           adjustSize
-          style={Styles.secondaryForeground}
+          style={[
+            Styles.secondaryForeground,
+            props.noGrow ? { width: undefined } : {},
+          ]}
         >
           {props.children}
         </Header>
@@ -145,7 +150,18 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       ? props.children.join("")
       : props.children;
 
-  return <ElementsButton title={text} {...derivedProps} />;
+  const fundamentalButton = <ElementsButton title={text} {...derivedProps} />;
+
+  if (props.noGrow)
+    return (
+      <View style={[{ flexDirection: "row" }, props.noGrowContainer]}>
+        <View style={{ flex: 1 }}></View>
+        {fundamentalButton}
+        <View style={{ flex: 1 }}></View>
+      </View>
+    );
+
+  return fundamentalButton;
 };
 
 export default Button;

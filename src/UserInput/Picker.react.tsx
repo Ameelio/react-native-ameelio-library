@@ -41,12 +41,14 @@ const pickerStyles = (disabled: boolean) => {
       fontFamily: "Poppins_400Regular",
       color: Colors.BLACK,
       ...Spacing.paddingVertical,
+      height: 51,
     },
     inputAndroid: {
       fontSize: 16,
       fontFamily: "Poppins_400Regular",
       color: Colors.BLACK,
       ...Spacing.paddingVertical,
+      height: 51,
     },
     placeholder: {
       fontSize: 16,

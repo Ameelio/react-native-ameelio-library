@@ -18,6 +18,7 @@ import Body from "../Typography/Body.react";
 export type BaseInput = ElementsInput;
 
 export const LINE_HEIGHT = 26;
+export const INPUT_HEIGHT = 51;
 
 interface Props extends TextInputProps, InputProps {
   inputRef?: RefObject<BaseInput> | MutableRefObject<BaseInput>;

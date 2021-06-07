@@ -6,6 +6,14 @@ export const PRIMARY_500 = "#EA5F53";
 export const PRIMARY_600 = "#CB4F4A";
 export const PRIMARY_700 = "#B13E37";
 
+export const SECONDARY_100 = "#E7F3FE";
+export const SECONDARY_200 = "#C5DFFC";
+export const SECONDARY_300 = "#A2CBFB";
+export const SECONDARY_400 = "#68A8F8";
+export const SECONDARY_500 = "#448AF3";
+export const SECONDARY_600 = "#4979D5";
+export const SECONDARY_700 = "#3649A4";
+
 export const PINK_100 = "#F8E5EC";
 export const PINK_200 = "#EFBED0";
 export const PINK_300 = "#E794B1";
@@ -37,14 +45,6 @@ export const INDIGO_400 = "#5D6CBA";
 export const INDIGO_500 = "#4053AF";
 export const INDIGO_600 = "#30419A";
 export const INDIGO_700 = "#182579";
-
-export const SECONDARY_100 = "#E7F3FE";
-export const SECONDARY_200 = "#C5DFFC";
-export const SECONDARY_300 = "#A2CBFB";
-export const SECONDARY_400 = "#68A8F8";
-export const SECONDARY_500 = "#448AF3";
-export const SECONDARY_600 = "#4979D5";
-export const SECONDARY_700 = "#3649A4";
 
 export const LIGHTBLUE_100 = "#E5F5FD";
 export const LIGHTBLUE_200 = "#BCE4FA";

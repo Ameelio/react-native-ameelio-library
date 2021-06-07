@@ -7,10 +7,12 @@ interface Props {
   primaryText?: string;
   onPrimaryPress?: (() => void) | (() => Promise<void>);
   primaryBlocking?: boolean;
+  primaryLoading?: boolean;
   primaryDisabled?: boolean;
   secondaryText?: string;
   onSecondaryPress?: (() => void) | (() => Promise<void>);
   secondaryBlocking?: boolean;
+  secondaryLoading?: boolean;
   secondaryDisabled?: boolean;
   secondaryLink?: boolean;
   style?: StyleProp<ViewStyle>;
@@ -20,16 +22,18 @@ const ButtonDuo: React.FC<Props> = ({
   primaryText,
   onPrimaryPress,
   primaryBlocking,
+  primaryLoading,
   primaryDisabled,
   secondaryText,
   onSecondaryPress,
   secondaryBlocking,
+  secondaryLoading,
   secondaryDisabled,
   secondaryLink,
   style,
 }) => {
   return (
-    <View style={[{ width: "100%" }, , style]}>
+    <View style={[{ width: "100%" }, style]}>
       <Button
         onPress={onPrimaryPress}
         blocking={primaryBlocking}
@@ -37,9 +41,13 @@ const ButtonDuo: React.FC<Props> = ({
       >
         {primaryText}
       </Button>
+      {secondaryLink && (
+        <View style={{ width: "100%", height: Spacing.MARGIN }} />
+      )}
       <Button
         onPress={onSecondaryPress}
         blocking={secondaryBlocking}
+        loading={secondaryLoading}
         disabled={secondaryDisabled}
         secondary={!secondaryLink}
         link={secondaryLink}

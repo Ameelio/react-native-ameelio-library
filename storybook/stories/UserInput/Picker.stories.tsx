@@ -38,6 +38,14 @@ storiesOf("UserInput/Picker", module)
           disabled
         />
         <Input placeholder="Input comparison" disabled />
+        <View style={{ flexDirection: "row" }}>
+          <View style={{ flex: 1 }}>
+            <Picker items={["Apple"]} placeholder="test" />
+          </View>
+          <View style={{ flex: 1 }}>
+            <Input placeholder="Input comparison" />
+          </View>
+        </View>
         <Divider />
         <Picker
           items={["Apple", "Banana", "Carrot"]}
