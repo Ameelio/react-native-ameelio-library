@@ -2,7 +2,11 @@
 import * as Colors from "./Brand/Colors";
 import Logo from "./Brand/Logo.react";
 
+/* Cards */
+import ContactCard from "./Cards/ContactCard.react";
+
 /* Common */
+import AsyncImage from "./Common/AsyncImage.react";
 import BottomSheet from "./Common/BottomSheet.react";
 import EmojiBullet from "./Common/EmojiBullet.react";
 import Icon from "./Common/Icon.react";
@@ -12,6 +16,9 @@ import KeyboardAvoider from "./Common/KeyboardAvoider.react";
 import KeyboardConditional from "./Common/KeyboardConditional.react";
 import Toast, { ToastInfo, ToastTypes } from "./Common/Toast.react";
 import Topbar, { TopbarInfo, TopbarTypes } from "./Common/Topbar.react";
+
+/* Persona */
+import Initials from "./Persona/Initials.react";
 
 /* Styles */
 import Divider from "./Styles/Divider.react";
@@ -41,8 +48,12 @@ import Tooltip from "./UserInput/Tooltip.react";
 /* Brand */
 export { Colors, Logo };
 
+/* Cards */
+export { ContactCard };
+
 /* Common */
 export {
+  AsyncImage,
   BottomSheet,
   EmojiBullet,
   Icon,
@@ -57,6 +68,9 @@ export {
   TopbarInfo,
   TopbarTypes,
 };
+
+/* Persona */
+export { Initials };
 
 /* Styles */
 export { Divider, GlobalStyles, Spacing };

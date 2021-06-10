@@ -1,6 +1,8 @@
 import "./Brand/Colors.stories";
 import "./Brand/Logo.stories";
 
+import "./Cards/Cards.stories";
+
 import "./Common/Common.stories";
 
 import "./Typography/Body.stories";
