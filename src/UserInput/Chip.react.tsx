@@ -74,13 +74,14 @@ const Chip: React.FC<Props> = ({
  } else {
    return (
      <TouchableOpacity
-       style={[Styles.timeChipBackground, backgroundStyle, style, {flexDirection: 'row'}]}
+       style={[Styles.timeChipBackground, backgroundStyle, style, {flexDirection: 'row-reverse'}]}
        onPress={onPress}
      >
-       {image && <View style={{width: 25}}><Icon width={20} height={20} svg={image as string}/></View>}
        <Body size={3} style={foregroundStyle}>
          {children}
        </Body>
+       {image && <View style={{width: 25}}><Icon width={20} height={20} svg={image as string}/></View>}
+       
      </TouchableOpacity>
    );
  }
