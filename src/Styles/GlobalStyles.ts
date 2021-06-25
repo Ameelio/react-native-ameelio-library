@@ -13,8 +13,14 @@ export const shadow: ViewStyle = {
   elevation: 4,
 };
 
+export const smallRounded: ViewStyle = {
+  borderRadius: 4,
+};
 export const rounded: ViewStyle = {
   borderRadius: 8,
+};
+export const largeRounded: ViewStyle = {
+  borderRadius: 16,
 };
 
 export const centered: ViewStyle = {

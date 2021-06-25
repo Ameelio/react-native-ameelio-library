@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { Overlay } from "react-native-elements";
 import Button, { ButtonProps } from "./Button.react";
 import Emoji from "react-native-emoji";
 import Header from "../Typography/Header.react";
 import Body from "../Typography/Body.react";
 import Icon from "../Common/Icon.react";
-import { Spacing } from "../Styles";
+import { Spacing, GlobalStyles } from "../Styles";
 
 interface PopupCommon {
   title: string;
@@ -33,13 +33,13 @@ interface Props {
   popup: PopupInfo | null;
   onDismiss?: () => void; // When the user clicks on the backdrop
   onResolve?: () => void; // When the user clicks on a button
+  maxWidth?: number;
+  maxHeight?: number;
 }
 
 const Styles = StyleSheet.create({
   background: {
     width: Spacing.SCREEN_WIDTH - Spacing.PADDING * 8,
-    alignItems: "center",
-    ...Spacing.padding,
   },
   titleContainer: {
     flexDirection: "row",
@@ -58,12 +58,25 @@ const Styles = StyleSheet.create({
   },
 });
 
-const Popup: React.FC<Props> = ({ popup, onDismiss, onResolve }: Props) => {
+const Popup: React.FC<Props> = ({
+  popup,
+  onDismiss,
+  onResolve,
+  maxWidth,
+  maxHeight,
+}: Props) => {
   const [local, setLocal] = useState(popup);
+  const [containerHeight, setContainerHeight] = useState(0);
+  const [scrollable, setScrollable] = useState(true);
 
   useEffect(() => {
     setLocal(popup);
   }, [popup]);
+
+  const maxSizeStyle = {
+    maxWidth,
+    maxHeight,
+  };
 
   if (!local) return null;
   return (
@@ -73,68 +86,86 @@ const Popup: React.FC<Props> = ({ popup, onDismiss, onResolve }: Props) => {
         if (onDismiss) onDismiss();
         setLocal(null);
       }}
+      overlayStyle={{ padding: 0, ...GlobalStyles.rounded }}
     >
-      <View style={Styles.background}>
-        <View style={Styles.titleContainer}>
-          <Header
-            size={2}
-            numLines={popup?.numTitleLines}
-            adjustSize
-            align="center"
-          >
-            {local.title}
-          </Header>
-          {local.titleEmoji && (
-            <Emoji name={local.titleEmoji} style={Styles.emojiStyle} />
-          )}
-        </View>
-        {local.svg && (
-          <View style={Styles.iconContainer}>
-            <Icon svg={local.svg} />
-          </View>
-        )}
-        {local.dynamic
-          ? !!local.dynamic && (
-              <View
-                style={[
-                  {
-                    width: "100%",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  },
-                  Spacing.paddingBottom,
-                ]}
-              >
-                {local.content}
-              </View>
-            )
-          : !!local.message &&
-            !!local.message.length && (
-              <Body align="center" style={Spacing.paddingBottom}>
-                {local.message}
-              </Body>
-            )}
-        {local.buttons.map((bProps, index) => {
-          return (
-            <View
-              style={
-                index !== local.buttons.length - 1
-                  ? [Spacing.paddingBottom, { width: "100%" }]
-                  : { width: "100%" }
-              }
-              key={index.toString()}
+      <View style={[Styles.background, maxSizeStyle]}>
+        <ScrollView
+          style={{}}
+          contentContainerStyle={[
+            GlobalStyles.contentBackground,
+            GlobalStyles.centered,
+            GlobalStyles.largeRounded,
+          ]}
+          overScrollMode="auto"
+          onLayout={(e) => {
+            setContainerHeight(e.nativeEvent.layout.height);
+          }}
+          onContentSizeChange={(_, h) => {
+            setScrollable(h > containerHeight);
+          }}
+          scrollEnabled={scrollable}
+        >
+          <View style={Styles.titleContainer}>
+            <Header
+              size={2}
+              numLines={popup?.numTitleLines}
+              adjustSize
+              align="center"
             >
-              <Button
-                {...bProps}
-                onPress={() => {
-                  if (onResolve) onResolve();
-                  setLocal(null);
-                  if (bProps.onPress) bProps.onPress();
-                }}
-              />
+              {local.title}
+            </Header>
+            {local.titleEmoji && (
+              <Emoji name={local.titleEmoji} style={Styles.emojiStyle} />
+            )}
+          </View>
+          {local.svg && (
+            <View style={Styles.iconContainer}>
+              <Icon svg={local.svg} />
             </View>
-          );
-        })}
+          )}
+          {local.dynamic
+            ? !!local.dynamic && (
+                <View
+                  style={[
+                    {
+                      width: "100%",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    },
+                    Spacing.paddingBottom,
+                  ]}
+                >
+                  {local.content}
+                </View>
+              )
+            : !!local.message &&
+              !!local.message.length && (
+                <Body align="center" style={Spacing.largePaddingBottom}>
+                  {local.message}
+                </Body>
+              )}
+          {local.buttons.map((bProps, index) => {
+            return (
+              <View
+                style={
+                  index !== local.buttons.length - 1
+                    ? [Spacing.paddingBottom, { width: "100%" }]
+                    : { width: "100%" }
+                }
+                key={index.toString()}
+              >
+                <Button
+                  {...bProps}
+                  onPress={() => {
+                    if (onResolve) onResolve();
+                    setLocal(null);
+                    if (bProps.onPress) bProps.onPress();
+                  }}
+                />
+              </View>
+            );
+          })}
+        </ScrollView>
       </View>
     </Overlay>
   );
