@@ -90,7 +90,6 @@ const Popup: React.FC<Props> = ({
     >
       <View style={[Styles.background, maxSizeStyle]}>
         <ScrollView
-          style={{}}
           contentContainerStyle={[
             GlobalStyles.contentBackground,
             GlobalStyles.centered,
