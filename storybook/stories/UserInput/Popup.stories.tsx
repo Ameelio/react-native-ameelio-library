@@ -17,10 +17,9 @@ storiesOf("UserInput/Popup", module)
               ? {
                   title: text("title", "title"),
                   titleEmoji: text("titleEmoi", "coffee"),
-                  svg: TestSvg,
                   message: text(
                     "message",
-                    "Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message Message "
+                    "Message Message Message Message Message Message Message Message Message Message Message Message "
                   ),
                   buttons: [
                     {
@@ -101,6 +100,37 @@ storiesOf("UserInput/Popup", module)
                 }
               : null
           }
+        />
+        <Body style={{ width: 200 }} align="center">
+          Use the addons tab to toggle view of the component
+        </Body>
+      </>
+    );
+  })
+  .add("PopupScrollable", () => {
+    return (
+      <>
+        <Popup
+          popup={
+            boolean("Shown", true)
+              ? {
+                  title: text("title", "title"),
+                  titleEmoji: text("titleEmoi", "coffee"),
+                  svg: TestSvg,
+                  message: "message",
+                  buttons: [
+                    {
+                      children: text("option 1", "option 1"),
+                    },
+                    {
+                      children: text("option 2", "option 2"),
+                      secondary: true,
+                    },
+                  ],
+                }
+              : null
+          }
+          maxHeight={50}
         />
         <Body style={{ width: 200 }} align="center">
           Use the addons tab to toggle view of the component
