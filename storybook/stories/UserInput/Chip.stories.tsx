@@ -1,10 +1,10 @@
 import { storiesOf } from "@storybook/react-native";
 import React from "react";
-import { Chip } from "@src";
+import { Chip, Spacing } from "@src";
 import CenterView from "../../helpers/CenterView.react";
 import { withKnobs } from "@storybook/addon-knobs";
 import { View } from "react-native";
-import { Colors } from "react-native-ameelio-library";
+import * as Colors from "src/Brand/Colors";
 import FilterImage from "./assets/FilterImage";
 import TokenImage from "./assets/TokenImage";
 import FreeCreditImage from "./assets/FreeCreditImage";
