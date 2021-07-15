@@ -5,12 +5,12 @@ import {
   ViewStyle,
   ImageStyle,
   Animated,
+  TouchableOpacity,
 } from "react-native";
 import Loading from "./assets/loading.gif";
 import Warning from "./assets/Warning.png";
 import * as FileSystem from "expo-file-system";
 import * as Crypto from "expo-crypto";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 function getImageDims(uri: string): Promise<{ width: number; height: number }> {
   return new Promise((res, rej) => {
