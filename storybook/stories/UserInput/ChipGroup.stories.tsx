@@ -4,7 +4,6 @@ import { ChipGroup } from "@src";
 import CenterView from "../../helpers/CenterView.react";
 import { withKnobs } from "@storybook/addon-knobs";
 import { View } from "react-native";
-import { useEffect } from "react";
 
 function ChipGroupTest() {
   type Options =
@@ -14,10 +13,6 @@ function ChipGroupTest() {
     | "Option D"
     | "Option C or D";
   const [selected, setSelected] = useState<Options[]>([]);
-
-  useEffect(() => {
-    console.log(selected);
-  }, [selected]);
 
   return (
     <View
@@ -32,7 +27,7 @@ function ChipGroupTest() {
         shownOptions={["Option A", "Option B"]}
         moreOptions={["Option C or D", "Option C", "Option D"]}
         onChange={setSelected}
-        incompatibleMap={(option) => {
+        incompatibleMap={(option: Options) => {
           switch (option) {
             case "Option A":
             case "Option B":
