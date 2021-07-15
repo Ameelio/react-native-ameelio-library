@@ -42,6 +42,7 @@ export default function App() {
       <View style={{ flex: 1 }}>
         <StorybookUIRoot />
       </View>
+      <View style={{ height: 30 }} />
     </View>
   );
 }

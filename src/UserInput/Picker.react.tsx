@@ -25,8 +25,8 @@ const Styles = StyleSheet.create({
     borderColor: "transparent",
   },
   invalidBackground: {
-    backgroundColor: Colors.PINK_100,
-    borderColor: Colors.PINK_400,
+    backgroundColor: Colors.RED_100,
+    borderColor: Colors.RED_400,
   },
   validBackground: {
     backgroundColor: Colors.GREEN_100,
@@ -39,14 +39,14 @@ const pickerStyles = (disabled: boolean) => {
     inputIOS: {
       fontSize: 16,
       fontFamily: "Poppins_400Regular",
-      color: Colors.BLACK,
+      color: Colors.GRAY_700,
       ...Spacing.paddingVertical,
       height: 51,
     },
     inputAndroid: {
       fontSize: 16,
       fontFamily: "Poppins_400Regular",
-      color: Colors.BLACK,
+      color: Colors.GRAY_700,
       ...Spacing.paddingVertical,
       height: 51,
     },

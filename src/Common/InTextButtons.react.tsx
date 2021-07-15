@@ -67,7 +67,7 @@ const InTextButtons: React.FC<Props> = ({
 InTextButtons.defaultProps = {
   buttonStyle: {
     textDecorationLine: "underline",
-    color: Colors.SECONDARY_500,
+    color: Colors.BLUE_500,
     fontSize: 14,
   },
   textStyle: {

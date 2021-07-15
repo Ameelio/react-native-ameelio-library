@@ -41,16 +41,16 @@ const Styles = StyleSheet.create({
     height: 50,
   },
   primaryBackground: {
-    backgroundColor: Colors.PRIMARY_400,
-    borderColor: Colors.PRIMARY_400,
+    backgroundColor: Colors.BLUE_400,
+    borderColor: Colors.BLUE_400,
   },
   secondaryBackground: {
-    backgroundColor: Colors.WHITE,
+    backgroundColor: Colors.GRAY_100,
     borderColor: Colors.GRAY_200,
   },
   disabledBackground: {
-    backgroundColor: Colors.PRIMARY_200,
-    borderColor: Colors.PRIMARY_200,
+    backgroundColor: Colors.BLUE_200,
+    borderColor: Colors.BLUE_200,
   },
   linkBackground: {
     width: "100%",
@@ -59,10 +59,10 @@ const Styles = StyleSheet.create({
     ...Spacing.padding,
   },
   primaryForeground: {
-    color: Colors.WHITE,
+    color: Colors.GRAY_100,
   },
   secondaryForeground: {
-    color: Colors.PRIMARY_400,
+    color: Colors.BLUE_400,
   },
 });
 

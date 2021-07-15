@@ -47,8 +47,8 @@ function mapTypeToColors(type: ToastTypes): { bg: string; fg: string } {
   switch (type) {
     case "error":
       return {
-        bg: Colors.PRIMARY_100,
-        fg: Colors.PRIMARY_700,
+        bg: Colors.RED_100,
+        fg: Colors.RED_700,
       };
     case "success":
       return {
@@ -58,8 +58,8 @@ function mapTypeToColors(type: ToastTypes): { bg: string; fg: string } {
     case "warning":
     default:
       return {
-        bg: Colors.AMBER_100,
-        fg: Colors.DEEPORANGE_600,
+        bg: Colors.YELLOW_100,
+        fg: Colors.YELLOW_600,
       };
   }
 }

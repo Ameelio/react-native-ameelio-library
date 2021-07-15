@@ -11,13 +11,17 @@ storiesOf("UserInput/DatePicker", module)
   .add("DatePicker", () => {
     return (
       <DatePicker
-        minDate={addDays(new Date(), 0)}
-        maxDate={addDays(new Date(), 7)}
+        minDate={addDays(new Date(), 1)}
+        maxDate={addDays(new Date(), 14)}
         disabledDates={[
-          addDays(new Date(), 2),
-          addDays(new Date(), 4),
-          addDays(new Date(), 6),
+          addDays(new Date(), 1),
+          addDays(new Date(), 3),
+          addDays(new Date(), 5),
+          addDays(new Date(), 7),
         ]}
+        availableKeyText="Available"
+        crossedKeyText="Weekly Limit Reached"
+        crossedKeyToolText="This appears when [Firstname] filled their max number of visits for a given week."
       />
     );
   });

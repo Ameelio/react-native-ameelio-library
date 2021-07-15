@@ -87,7 +87,29 @@ storiesOf("Common", module)
     </>
   ))
   .add("IconCard", () => (
-    <IconCard svg={DynamicX} title="title" subtitle="subtitle" />
+    <>
+      <IconCard svg={DynamicX} title="title" subtitle="subtitle" />
+      <IconCard svg={DynamicX} title="title" subtitle="subtitle" disabled />
+      <IconCard
+        svg={DynamicX}
+        title="long long long long long long long long long long"
+        numTitleLines={1}
+        subtitle="subtitle"
+      />
+      <IconCard
+        svg={DynamicX}
+        title="title"
+        subtitle="long long long long long long long long long long"
+        numSubtitleLines={1}
+      />
+      <IconCard
+        svg={DynamicX}
+        title="title"
+        subtitle="long long long long long long long long long long"
+        numSubtitleLines={1}
+        subtitleBold
+      />
+    </>
   ))
   .add("KeyboardConditional", () => (
     <>

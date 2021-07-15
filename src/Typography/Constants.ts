@@ -36,9 +36,9 @@ export function calculateColor(colorOrType: TypographyColors) {
     case "success":
       return Colors.GREEN_500;
     case "warning":
-      return Colors.AMBER_500;
+      return Colors.YELLOW_500;
     case "error":
-      return Colors.PRIMARY_500;
+      return Colors.RED_500;
     case "white":
       return Colors.WHITE;
     default:
