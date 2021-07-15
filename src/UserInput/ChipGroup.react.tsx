@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  StyleProp,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from "react-native";
 import More from "./assets/More";
 import Chip from "./Chip.react";
 import { Spacing } from "../Styles";
@@ -11,6 +18,19 @@ interface Props<T> {
   moreOptions: T[];
   incompatibleMap?: (key: T) => T[];
   onChange?: (selected: T[]) => void;
+  selectedColors?: {
+    fg: string;
+    bg: string;
+    border: string;
+  };
+  unselectedColors?: {
+    fg: string;
+    bg: string;
+    border: string;
+  };
+  style?: StyleProp<ViewStyle>;
+  scrollStyle?: StyleProp<ViewStyle>;
+  contentStyle?: StyleProp<ViewStyle>;
 }
 
 const Styles = StyleSheet.create({
@@ -20,7 +40,9 @@ const Styles = StyleSheet.create({
   scrollBackground: {
     width: "100%",
   },
-  contentBackground: {},
+  contentBackground: {
+    ...Spacing.padding,
+  },
   chipContainer: {},
 });
 
@@ -29,6 +51,11 @@ function ChipGroup<T>({
   moreOptions,
   onChange,
   incompatibleMap,
+  selectedColors,
+  unselectedColors,
+  style,
+  scrollStyle,
+  contentStyle,
 }: Props<T>) {
   const [selected, setSelected] = useState<T[]>([]);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
@@ -63,9 +90,10 @@ function ChipGroup<T>({
   }, [selected]);
 
   return (
-    <View style={Styles.trueBackground}>
+    <View style={[Styles.trueBackground, style]}>
       <FlatList
-        style={Styles.scrollBackground}
+        style={[Styles.scrollBackground, scrollStyle]}
+        contentContainerStyle={[Styles.contentBackground, contentStyle]}
         data={shownOptions}
         keyExtractor={(_, index) => index.toString()}
         renderItem={({ item }) => {
@@ -88,6 +116,8 @@ function ChipGroup<T>({
                     safelyUpdateSelected(rawNew);
                   }
                 }}
+                selectedColors={selectedColors}
+                unselectedColors={unselectedColors}
               >
                 {item as unknown as string}
               </Chip>
@@ -104,6 +134,8 @@ function ChipGroup<T>({
                 }}
                 iconRight
                 image={More}
+                selectedColors={selectedColors}
+                unselectedColors={unselectedColors}
               >
                 More
               </Chip>

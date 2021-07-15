@@ -45,8 +45,8 @@ const Styles = StyleSheet.create({
     borderColor: Colors.BLUE_400,
   },
   secondaryBackground: {
-    backgroundColor: Colors.GRAY_100,
-    borderColor: Colors.GRAY_200,
+    backgroundColor: Colors.WHITE_BACKGROUND,
+    borderColor: Colors.GRAY_100,
   },
   disabledBackground: {
     backgroundColor: Colors.BLUE_200,

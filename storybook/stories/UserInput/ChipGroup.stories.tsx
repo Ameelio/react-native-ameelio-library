@@ -39,6 +39,16 @@ function ChipGroupTest() {
               return ["Option C or D"];
           }
         }}
+        unselectedColors={{
+          fg: "yellow",
+          bg: "red",
+          border: "yellow",
+        }}
+        selectedColors={{
+          fg: "blue",
+          bg: "green",
+          border: "green",
+        }}
       />
     </View>
   );
