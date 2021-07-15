@@ -31,11 +31,11 @@ export const centered: ViewStyle = {
 export const plainBackground: ViewStyle = {
   flex: 1,
   ...Spacing.padding,
-  backgroundColor: "white",
+  backgroundColor: Colors.WHITE_BACKGROUND,
 };
 
 export const trueBackground: ViewStyle = {
-  backgroundColor: Colors.WHITE,
+  backgroundColor: Colors.WHITE_BACKGROUND,
   flex: 1,
 };
 

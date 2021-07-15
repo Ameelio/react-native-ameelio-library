@@ -26,7 +26,7 @@ const Initials: React.FC<Props> = ({
     width: size || DEFAULT_SIZE,
     height: size || DEFAULT_SIZE,
     borderRadius: (size || DEFAULT_SIZE) / 2,
-    backgroundColor: backgroundColor || Colors.SECONDARY_700,
+    backgroundColor: backgroundColor || Colors.BLUE_700,
   };
 
   return (

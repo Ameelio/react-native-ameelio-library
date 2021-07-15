@@ -31,19 +31,19 @@ export interface TopbarInfo {
 
 const mapTypeToColors: Record<TopbarTypes, { bg: string; fg: string }> = {
   error: {
-    bg: Colors.PRIMARY_100,
-    fg: Colors.PRIMARY_600,
+    bg: Colors.RED_100,
+    fg: Colors.RED_600,
   },
   warning: {
-    bg: Colors.AMBER_100,
-    fg: Colors.AMBER_600,
+    bg: Colors.YELLOW_100,
+    fg: Colors.YELLOW_600,
   },
   success: {
     bg: Colors.GREEN_100,
     fg: Colors.GREEN_600,
   },
   info: {
-    bg: Colors.SECONDARY_600,
+    bg: Colors.BLUE_600,
     fg: Colors.WHITE,
   },
 };

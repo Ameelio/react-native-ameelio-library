@@ -36,11 +36,13 @@ import { CustomTextProps, TypographyColors } from "./Typography/Constants";
 import Button from "./UserInput/Button.react";
 import ButtonDuo from "./UserInput/ButtonDuo.react";
 import Chip from "./UserInput/Chip.react";
+import ChipGroup from "./UserInput/ChipGroup.react";
 import DatePicker from "./UserInput/DatePicker.react";
 import Input, { BaseInput, LINE_HEIGHT } from "./UserInput/Input.react";
 import Picker from "./UserInput/Picker.react";
 import Popup, { PopupInfo } from "./UserInput/Popup.react";
 import Rating from "./UserInput/Rating.react";
+import SelectSheet from "./UserInput/SelectSheet.react";
 import Tooltip from "./UserInput/Tooltip.react";
 
 /* ------------------------------------------------------------------ */
@@ -94,6 +96,7 @@ export {
   Button,
   ButtonDuo,
   Chip,
+  ChipGroup,
   DatePicker,
   Input,
   BaseInput,
@@ -102,5 +105,6 @@ export {
   Popup,
   PopupInfo,
   Rating,
+  SelectSheet,
   Tooltip,
 };

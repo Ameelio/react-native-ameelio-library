@@ -27,7 +27,7 @@ function renderInputManipulators(
     <View style={{ flexDirection: "row" }}>
       <TouchableOpacity
         style={{
-          backgroundColor: Colors.SECONDARY_500,
+          backgroundColor: Colors.BLUE_500,
           ...Spacing.padding,
           ...Spacing.marginHorizontal,
           flex: 1,
@@ -42,7 +42,7 @@ function renderInputManipulators(
       </TouchableOpacity>
       <TouchableOpacity
         style={{
-          backgroundColor: Colors.SECONDARY_500,
+          backgroundColor: Colors.BLUE_500,
           ...Spacing.padding,
           ...Spacing.marginHorizontal,
           flex: 1,
@@ -57,7 +57,7 @@ function renderInputManipulators(
       </TouchableOpacity>
       <TouchableOpacity
         style={{
-          backgroundColor: Colors.SECONDARY_500,
+          backgroundColor: Colors.BLUE_500,
           ...Spacing.padding,
           ...Spacing.marginHorizontal,
           flex: 1,
@@ -72,7 +72,7 @@ function renderInputManipulators(
       </TouchableOpacity>
       <TouchableOpacity
         style={{
-          backgroundColor: Colors.SECONDARY_500,
+          backgroundColor: Colors.BLUE_500,
           ...Spacing.padding,
           ...Spacing.marginHorizontal,
           flex: 1,
