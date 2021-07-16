@@ -59,7 +59,7 @@ const Styles = StyleSheet.create({
     ...Spacing.padding,
   },
   primaryForeground: {
-    color: Colors.GRAY_100,
+    color: Colors.WHITE,
   },
   secondaryForeground: {
     color: Colors.BLUE_400,

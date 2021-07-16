@@ -105,10 +105,10 @@ const DatePicker: React.FC<Props> = ({
   width,
 }: Props) => {
   const [chosenDate, setChosenDate] = useState<Date | null>(null);
-  const [normalizedMinDate] = useState(
+  const [normalizedMinDate, setNormalizedMinDate] = useState(
     new Date(minDate.setUTCHours(0, 0, 0, 0))
   );
-  const [normalizedMaxDate] = useState(
+  const [normalizedMaxDate, setNormalizedMaxDate] = useState(
     new Date(maxDate.setUTCHours(23, 59, 59, 999))
   );
   const DATE_WIDTH = (width || DEFAULT_DATE_WIDTH * 8) / 8;
@@ -117,6 +117,14 @@ const DatePicker: React.FC<Props> = ({
   useEffect(() => {
     if (onChange) onChange(chosenDate);
   }, [chosenDate]);
+
+  useEffect(() => {
+    setNormalizedMinDate(new Date(minDate.setUTCHours(0, 0, 0, 0)));
+  }, [minDate]);
+
+  useEffect(() => {
+    setNormalizedMaxDate(new Date(maxDate.setUTCHours(23, 59, 59, 999)));
+  }, [maxDate]);
 
   const renderCross = useCallback((specificStyle?: StyleProp<ViewStyle>) => {
     return (

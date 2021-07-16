@@ -45,9 +45,9 @@ const Tooltip: React.FC<Props> = ({
       withPointer
       withOverlay={false}
       skipAndroidStatusBar={true}
-      backgroundColor={Colors.GRAY_100}
+      backgroundColor={Colors.WHITE_BACKGROUND}
       containerStyle={Styles.background}
-      pointerColor={Colors.GRAY_200}
+      pointerColor={Colors.GRAY_100}
       height={height}
       width={width}
       toggleOnPress
