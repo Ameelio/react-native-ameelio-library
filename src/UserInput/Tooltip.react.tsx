@@ -38,14 +38,14 @@ const Tooltip: React.FC<Props> = ({
   return (
     <TooltipElement
       popover={
-        <Body numLines={numLines} adjustSize={!!numLines}>
+        <Body numLines={numLines} adjustSize={!!numLines} color="dark">
           {text}
         </Body>
       }
       withPointer
       withOverlay={false}
       skipAndroidStatusBar={true}
-      backgroundColor={Colors.WHITE_BACKGROUND}
+      backgroundColor={Colors.GRAY_100}
       containerStyle={Styles.background}
       pointerColor={Colors.GRAY_100}
       height={height}

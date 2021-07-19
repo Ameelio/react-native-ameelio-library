@@ -43,6 +43,7 @@ import Picker from "./UserInput/Picker.react";
 import Popup, { PopupInfo } from "./UserInput/Popup.react";
 import Rating from "./UserInput/Rating.react";
 import SelectSheet from "./UserInput/SelectSheet.react";
+import TextButtonSheet from "./UserInput/TextButtonSheet.react";
 import Tooltip from "./UserInput/Tooltip.react";
 
 /* ------------------------------------------------------------------ */
@@ -106,5 +107,6 @@ export {
   PopupInfo,
   Rating,
   SelectSheet,
+  TextButtonSheet,
   Tooltip,
 };

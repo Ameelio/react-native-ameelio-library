@@ -5,16 +5,15 @@ import BottomSheet from "../Common/BottomSheet.react";
 import Body from "../Typography/Body.react";
 
 interface Props<T> {
-  open: boolean;
-  setOpen: (val: boolean) => void;
+  isOpen: boolean;
+  setIsOpen: (val: boolean) => void;
   title: string;
   options: T[];
   selected: T[];
   onChange?: (selected: T[]) => void;
+  maxHeight?: number;
 }
 
-const ITEM_HEIGHT = 42;
-const TOP_HEIGHT = 59;
 const CIRCLE_WIDTH = 26;
 
 const Styles = StyleSheet.create({
@@ -48,19 +47,20 @@ const Styles = StyleSheet.create({
 });
 
 export default function SelectSheet<T>({
-  open,
-  setOpen,
+  isOpen,
+  setIsOpen,
   title,
   options,
   selected,
   onChange,
+  maxHeight,
 }: Props<T>) {
   return (
     <BottomSheet
-      open={open}
-      setOpen={setOpen}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
       title={title}
-      height={TOP_HEIGHT + ITEM_HEIGHT * options.length}
+      maxHeight={maxHeight}
     >
       {options.map((option, index) => {
         const isSelected = !!selected.find((thing) => thing === option);

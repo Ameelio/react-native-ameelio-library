@@ -22,8 +22,8 @@ function SelectSheetTest() {
     >
       <Button onPress={() => setIsOpen((val) => !val)}>Toggle</Button>
       <SelectSheet<Options>
-        open={isOpen}
-        setOpen={setIsOpen}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
         title="title"
         options={[
           "Option A",

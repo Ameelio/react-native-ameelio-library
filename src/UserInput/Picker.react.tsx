@@ -17,7 +17,7 @@ export interface Props {
 
 const Styles = StyleSheet.create({
   pickerContainer: {
-    backgroundColor: Colors.GRAY_200,
+    backgroundColor: Colors.GRAY_100,
     ...Spacing.paddingHorizontal,
     ...Spacing.smallMarginBottom,
     ...GlobalStyles.rounded,

@@ -77,12 +77,11 @@ storiesOf("Common", module)
     <>
       <Body>Use knobs to open</Body>
       <BottomSheet
-        open={boolean("open", false)}
-        setOpen={() => null}
+        isOpen={boolean("open", false)}
+        setIsOpen={() => null}
         title={text("title", "Title")}
-        height={number("height", 100)}
       >
-        <View style={{ flex: 1, backgroundColor: "yellow" }} />
+        <View style={{ height: 200, backgroundColor: "yellow" }} />
       </BottomSheet>
     </>
   ))

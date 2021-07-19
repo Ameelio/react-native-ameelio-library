@@ -1,16 +1,16 @@
 import { GlobalStyles, Spacing } from "../Styles";
 import Header from "../Typography/Header.react";
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 import CloseCarat from "./assets/CloseCarat";
 import Icon from "./Icon.react";
 
 interface Props {
-  open: boolean;
-  setOpen: (val: boolean) => void;
+  isOpen: boolean;
+  setIsOpen: (val: boolean) => void;
   children?: JSX.Element | JSX.Element[];
-  height?: number;
+  maxHeight?: number;
   title: string;
 }
 
@@ -42,37 +42,26 @@ const Styles = StyleSheet.create({
 });
 
 const BottomSheet: React.FC<Props> = ({
-  open,
-  setOpen,
+  isOpen,
+  setIsOpen,
   children,
   title,
-  height,
+  maxHeight,
 }: Props) => {
   const rbRef = useRef<RBSheet>(null);
+  const [calculatedHeight, setCalculatedHeight] = useState(200);
 
   useEffect(() => {
     if (!rbRef.current) return;
-    if (open) {
+    if (isOpen) {
       rbRef.current.open();
     } else {
       rbRef.current.close();
     }
-  }, [open]);
+  }, [isOpen]);
 
-  return (
-    <RBSheet
-      ref={rbRef}
-      closeOnDragDown={true}
-      customStyles={{
-        wrapper: Styles.wrapper,
-        container: Styles.container,
-        draggableIcon: Styles.draggableIcon,
-      }}
-      onClose={() => {
-        setOpen(false);
-      }}
-      height={height}
-    >
+  const renderTitle = useCallback(() => {
+    return (
       <View style={Styles.titleContainer}>
         <Header align="center" size={3}>
           {title}
@@ -86,8 +75,48 @@ const BottomSheet: React.FC<Props> = ({
           <Icon svg={CloseCarat} />
         </TouchableOpacity>
       </View>
-      {children}
-    </RBSheet>
+    );
+  }, [title]);
+
+  const renderContent = useCallback(() => {
+    return (
+      <>
+        {renderTitle()}
+        {children}
+      </>
+    );
+  }, [renderTitle, children]);
+
+  return (
+    <>
+      <View style={{ opacity: 0, width: "100%" }}>
+        <View
+          style={{ position: "absolute" }}
+          onLayout={(e) => {
+            setCalculatedHeight(
+              Math.min(e.nativeEvent.layout.height, maxHeight || 999999)
+            );
+          }}
+        >
+          {renderContent()}
+        </View>
+      </View>
+      <RBSheet
+        ref={rbRef}
+        closeOnDragDown={true}
+        customStyles={{
+          wrapper: Styles.wrapper,
+          container: Styles.container,
+          draggableIcon: Styles.draggableIcon,
+        }}
+        onClose={() => {
+          setIsOpen(false);
+        }}
+        height={calculatedHeight}
+      >
+        {renderContent()}
+      </RBSheet>
+    </>
   );
 };
 

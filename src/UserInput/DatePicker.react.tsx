@@ -225,25 +225,29 @@ const DatePicker: React.FC<Props> = ({
           >
             {availableKeyText}
           </Body>
-          {renderCross(Spacing.marginLeft)}
-          <Body
-            fontSize={12}
-            numLines={1}
-            adjustSize
-            color="secondary"
-            style={[Spacing.marginLeft]}
-          >
-            {crossedKeyText}
-          </Body>
-          {crossedKeyToolText && (
-            <View style={{ transform: [{ translateY: -1 }] }}>
-              <Tooltip
-                width={200}
-                height={100}
-                text={crossedKeyToolText}
-                numLines={4}
-              />
-            </View>
+          {crossedDates?.length && (
+            <>
+              {renderCross(Spacing.marginLeft)}
+              <Body
+                fontSize={12}
+                numLines={1}
+                adjustSize
+                color="secondary"
+                style={[Spacing.marginLeft]}
+              >
+                {crossedKeyText}
+              </Body>
+              {crossedKeyToolText && (
+                <View style={{ transform: [{ translateY: -1 }] }}>
+                  <Tooltip
+                    width={200}
+                    height={100}
+                    text={crossedKeyToolText}
+                    numLines={4}
+                  />
+                </View>
+              )}
+            </>
           )}
         </View>
       )}

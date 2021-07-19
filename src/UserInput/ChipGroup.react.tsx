@@ -145,8 +145,8 @@ function ChipGroup<T>({
         horizontal
       />
       <SelectSheet<T>
-        open={isMoreOpen}
-        setOpen={setIsMoreOpen}
+        isOpen={isMoreOpen}
+        setIsOpen={setIsMoreOpen}
         title="More Filters"
         options={moreOptions}
         selected={selected}
