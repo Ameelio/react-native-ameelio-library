@@ -7,6 +7,8 @@ import { GlobalStyles, Spacing } from "../Styles";
 import { StyleProp } from "react-native";
 import { useCallback } from "react";
 import Tooltip from "./Tooltip.react";
+import { addHours, addSeconds, isSameDay } from "date-fns";
+import { addDays } from "date-fns/esm";
 
 interface Props {
   minDate: Date;
@@ -25,12 +27,6 @@ interface Props {
 const DEFAULT_DATE_WIDTH = 36;
 const CROSS_OUTER_WIDTH = 24;
 const CROSS_WIDTH = CROSS_OUTER_WIDTH * Math.sqrt(2);
-
-function areSameDate(a: Date, b: Date) {
-  const aMin = new Date(a.setUTCHours(0, 0, 0, 0));
-  const aMax = new Date(a.setUTCHours(23, 59, 59, 999));
-  return aMin <= b && b <= aMax;
-}
 
 const generateStyles = (DATE_WIDTH: number) =>
   StyleSheet.create({
@@ -135,18 +131,19 @@ const DatePicker: React.FC<Props> = ({
   }, []);
 
   const renderDate = useCallback(
-    (date: Date) => {
+    (rawDate: Date) => {
+      const date = new Date(rawDate.setUTCHours(23));
       const isInRange = normalizedMinDate <= date && date <= normalizedMaxDate;
       const isInDisabledList = !!disabledDates?.some((testDate) => {
-        return areSameDate(date, testDate);
+        return isSameDay(date, testDate);
       });
       const isCrossed = !!crossedDates?.some((testDate) => {
-        return areSameDate(date, testDate);
+        return isSameDay(date, testDate);
       });
 
       const isDisabled = !isInRange || isInDisabledList;
-      const isSelected = !!chosenDate && areSameDate(date, chosenDate);
-      const isToday = areSameDate(date, new Date());
+      const isSelected = !!chosenDate && isSameDay(date, chosenDate);
+      const isToday = isSameDay(date, new Date());
 
       let color = "dark";
       if (isSelected) color = "white";

@@ -23,11 +23,17 @@ import {
   text,
   withKnobs,
 } from "@storybook/addon-knobs";
+import TestIcon from "./TestIcon";
 
 storiesOf("Common", module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .addDecorator(withKnobs)
-  .add("Icon", () => <Icon svg={DynamicX} />)
+  .add("Icon", () => (
+    <>
+      <Icon svg={DynamicX} />
+      <Icon svg={TestIcon} />
+    </>
+  ))
   .add("KeyboardAvoider", () => (
     <KeyboardAvoider>
       <View style={{ flex: 1 }}>
