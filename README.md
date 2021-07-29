@@ -1,10 +1,12 @@
 # react-native-ameelio-library-storybook
 
-### Getting started
+## Getting started
 
 Clone this repo, then run `yarn install` to get dependencies.
 
-In one terminal, run `yarn storybook`, and in another run `yarn start` (as you would normally do to run an Expo project).
+Run `yarn start` to launch the expo server. Install the Expo app for Android or iOS, and then connect your phone to the expo server to view the Storybook.
+
+Publish the package with `yarn release`
 
 ### Creating a component
 
