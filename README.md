@@ -1,4 +1,4 @@
-# react-native-ameelio-library-storybook
+# react-native-ameelio-library
 
 ## Getting started
 
