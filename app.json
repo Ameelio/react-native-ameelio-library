@@ -2,6 +2,7 @@
   "expo": {
     "name": "react-native-ameelio-library-storybook",
     "slug": "react-native-ameelio-library-storybook",
+    "entryPoint": "node_modules/expo/AppEntry.js",
     "version": "1.0.0",
     "orientation": "portrait",
     "splash": {
@@ -10,7 +11,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
