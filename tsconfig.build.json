@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "isolatedModules": false,
+    "jsx": "react",
+    "lib": ["es2019"],
+    "moduleResolution": "node",
+    "strict": true,
+    "target": "esnext",
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules", "dist", "storybook", "App.tsx"],
+  "includes": ["src", "./typings.d.ts"],
+  "typeRoots": ["./typings.d.ts"]
+}
