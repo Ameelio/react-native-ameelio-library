@@ -1,6 +1,6 @@
 {
   "name": "react-native-ameelio-library",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Components used in Ameelio's mobile suite.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -35,7 +35,7 @@
     "date-fns": "^2.22.1",
     "expo-crypto": "^8.4.0",
     "react-native-calendar-picker": "^7.0.9",
-    "react-native-calendars": "^1.1264.0",
+    "react-native-calendars": "1.1264.0",
     "react-native-elements": "^3.2.0",
     "react-native-emoji": "^1.8.0",
     "react-native-picker-select": "8.0.0",
