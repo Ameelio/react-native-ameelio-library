@@ -10567,7 +10567,7 @@ react-native-calendar-picker@^7.0.9:
     prop-types "^15.6.0"
     recyclerlistview "^3.0.0"
 
-react-native-calendars@^1.1264.0:
+react-native-calendars@1.1264.0:
   version "1.1264.0"
   resolved "https://registry.yarnpkg.com/react-native-calendars/-/react-native-calendars-1.1264.0.tgz#98d1905b7bfe9f44cba80c9c34a0b8441fe1c1a1"
   integrity sha512-MX9Dy9xDtdmvGEA9rQWas1NVxvC2T6tEYrx7NvX8w0pWpYqsq5sVS4N+Y/vHBmcbiykStgrHTcWCP1bBLee3yg==
