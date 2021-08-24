@@ -6,6 +6,7 @@ interface Props {
   svg: string;
   width?: number | string;
   height?: number | string;
+  borderRadius?: number;
   style?: ViewStyle | ViewStyle[];
 }
 

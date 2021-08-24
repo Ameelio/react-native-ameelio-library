@@ -16,7 +16,7 @@ interface Props {
   emphasis?: 'header' | 'body' | 'none';
   img: string;
   title: string;
-  subtitle?: string;
+  subtitle: string;
   handlePress?: () => void;
   containerStyle?: ViewStyle | ViewStyle[];
 }
@@ -51,9 +51,9 @@ const HeaderCard: React.FC<Props> = ({
   return (
     <TouchableOpacity style={[Styles.cardContainer, Styles.shadow, containerStyle]} onPress={handlePress}>
       <View style={{flex: 1, flexDirection: 'row', ...Spacing.margin, alignItems: 'center'}}>
-        {img && (<View style={{width: 50, height: 50, borderRadius: 20}}>
+        <View style={{borderRadius: 10, width: 50, height: 50}}>
             <Icon svg={img}/>
-        </View>)}
+        </View>
         <View
           style={{
             ...Spacing.padding,
@@ -64,16 +64,15 @@ const HeaderCard: React.FC<Props> = ({
           <Header color={emphasis == 'body' ? Colors.GRAY_400: Colors.GRAY_700} fontSize={emphasis == 'header' ? 16 : 14} numLines={1} style={{textTransform: 'capitalize'}}>
             {title}
           </Header>
-            {subtitle && (
-              <Body
-                numLines={1}
-                fontSize={14}
-                bold={emphasis == 'body'}
-                color={emphasis != 'body' ? Colors.GRAY_400: Colors.GRAY_700}
-              >
-                {subtitle}
-              </Body>
-            )}
+            <Body
+            numLines={1}
+            fontSize={14}
+            bold={emphasis == 'body'}
+            color={emphasis != 'body' ? Colors.GRAY_400: Colors.GRAY_700}
+            >
+            {subtitle}
+            </Body>
+            
         </View>
         <View style={{width: 20, height: 20}}>
             <Icon svg={ForwardArrow}/>
