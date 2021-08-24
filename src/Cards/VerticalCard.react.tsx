@@ -94,27 +94,27 @@ const VerticalCard: React.FC<Props> = ({
   containerStyle,
 }: Props) => {
   let img: JSX.Element;
-//   if (icon) {
-//     img = (
-//       <View style={CardStyles.verticalCardImage}>
-//         <Icon svg={image as string} />
-//       </View>
-//     );
-//   } else {
-//     img = !local ? (
-//       <AsyncImage
-//         download
-//         source={{uri: image}}
-//         viewStyle={CardStyles.verticalCardImage}
-//         local={local}
-//       />
-//     ) : (
-//       <ImageComponent
-//         source={{uri: image}}
-//         style={CardStyles.verticalCardImage}
-//       />
-//     );
-//   }
+  if (icon) {
+    img = (
+      <View style={CardStyles.verticalCardImage}>
+        <Icon svg={image as string} />
+      </View>
+    );
+  } else {
+    img = !local ? (
+      <AsyncImage
+        download
+        source={{uri: image}}
+        viewStyle={CardStyles.verticalCardImage}
+        local={local}
+      />
+    ) : (
+      <ImageComponent
+        source={{uri: image}}
+        style={CardStyles.verticalCardImage}
+      />
+    );
+  }
   return (
     <TouchableOpacity style={containerStyle} onPress={handlePress}>
       <View
