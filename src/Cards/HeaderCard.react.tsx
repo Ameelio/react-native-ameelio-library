@@ -51,7 +51,7 @@ const HeaderCard: React.FC<Props> = ({
   return (
     <TouchableOpacity style={[Styles.cardContainer, Styles.shadow, containerStyle]} onPress={handlePress}>
       <View style={{flex: 1, flexDirection: 'row', ...Spacing.margin, alignItems: 'center'}}>
-        <View style={{borderRadius: 10, width: 50, height: 50}}>
+        <View style={{...GlobalStyles.rounded, width: 50, height: 50}}>
             <Icon svg={img}/>
         </View>
         <View
