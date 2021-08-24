@@ -125,13 +125,31 @@ storiesOf("Cards", module)
     <View style={{ width: "100%", padding: 16 }}>
       <HeaderCard
         containerStyle={{width: 320,
-          height: 80}}
+          height: 70}}
+        title={'Header Emphasis'}
+        subtitle={'Description text goes here'}
+        img={Thumbnail}
+        emphasis={'header'}
+      />
+      <View style={{height: 20}}></View>
+      <HeaderCard
+        containerStyle={{width: 320,
+          height: 70}}
         title={'Header text'}
         subtitle={'Description text goes here'}
         img={Thumbnail}
-        local
+      />
+      <View style={{height: 20}}></View>
+
+      <HeaderCard
+        containerStyle={{height: 70}}
+        title={'Body Emphasis'}
+        subtitle={'Emphasized text description with lots of extra text that gets cut off'}
+        img={Thumbnail}
+        emphasis={'body'}
       />
     </View>
+    
   ))
   
   

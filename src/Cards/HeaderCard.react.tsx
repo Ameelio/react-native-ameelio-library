@@ -13,50 +13,45 @@ import * as Colors from '../Brand/Colors';
 import ForwardArrow from './assets/ForwardArrow';
 
 interface Props {
-  local?: boolean;
+  emphasis?: 'header' | 'body' | 'none';
   img: string;
-  status?: string;
   title: string;
   subtitle?: string;
   handlePress?: () => void;
-  active?: boolean;
   containerStyle?: ViewStyle | ViewStyle[];
 }
  
 const Styles = StyleSheet.create({
     cardContainer: {
         ...GlobalStyles.rounded,
-        color: 'blue',
-        borderColor: '#DCDCDC',
-        borderWidth: 1,
-        width: 300,
-        height: 100,
+        width: 320,
+        height: 70, 
     },
     shadow: {
         shadowColor: '#000',
         shadowOffset: {
-          width: 0,
-          height: 4,
+          width: 1,
+          height: 2,
         },
         shadowOpacity: 0.25,
-        shadowRadius: 3.84,
+        shadowRadius: 6,
         elevation: 5,
+        backgroundColor: Colors.WHITE,
     },
-
-   
 });
  
 const HeaderCard: React.FC<Props> = ({
   title,
   subtitle,
+  emphasis,
   img,
   handlePress,
   containerStyle,
 }: Props) => {
   return (
-    <TouchableOpacity style={[Styles.cardContainer,containerStyle]} onPress={handlePress}>
+    <TouchableOpacity style={[Styles.cardContainer, Styles.shadow, containerStyle]} onPress={handlePress}>
       <View style={{flex: 1, flexDirection: 'row', ...Spacing.margin, alignItems: 'center'}}>
-        {img && (<View style={{width: 60, height: 60, borderRadius: 20}}>
+        {img && (<View style={{width: 50, height: 50, borderRadius: 20}}>
             <Icon svg={img}/>
         </View>)}
         <View
@@ -66,12 +61,15 @@ const HeaderCard: React.FC<Props> = ({
             flexDirection: 'column',
           }}
         >
-          <Header size={4} numLines={1} style={{textTransform: 'capitalize'}}>
+          <Header color={emphasis == 'body' ? Colors.GRAY_400: Colors.GRAY_700} fontSize={emphasis == 'header' ? 16 : 14} numLines={1} style={{textTransform: 'capitalize'}}>
             {title}
           </Header>
             {subtitle && (
               <Body
+                numLines={1}
                 fontSize={14}
+                bold={emphasis == 'body'}
+                color={emphasis != 'body' ? Colors.GRAY_400: Colors.GRAY_700}
               >
                 {subtitle}
               </Body>
@@ -87,9 +85,8 @@ const HeaderCard: React.FC<Props> = ({
   );
 };
  
-// HeaderCard.defaultProps = {
-//   local: false,
-//   active: false,
-// };
+HeaderCard.defaultProps = {
+  emphasis: 'none',
+};
  
 export default HeaderCard;
