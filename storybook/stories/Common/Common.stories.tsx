@@ -151,6 +151,26 @@ storiesOf("Common", module)
     </>
   ))
   .add("Topbar", () => (
+    <>
+    <View style={{flex: 1, height: 200}}>
+
+    </View>
+    <Topbar
+      type={radios(
+        "type",
+        {
+          error: "error",
+          warning: "warning",
+          success: "success",
+          info: "info",
+        },
+        "error"
+      )}
+      title={"LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONG"}
+      cta={text("hi", "hi")}
+      rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "arrow")}
+    />
+    <View style={{height: 400}}></View>
     <Topbar
       type={radios(
         "type",
@@ -164,6 +184,7 @@ storiesOf("Common", module)
       )}
       title={text("title", "title")}
       cta={text("cta", "cta")}
-      rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "arrow")}
+      rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "X")}
     />
+    </>
   ));
