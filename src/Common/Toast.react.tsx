@@ -27,15 +27,15 @@ const Styles = StyleSheet.create({
     justifyContent: "space-between",
     borderRadius: 4,
     borderWidth: 2,
-    marginVertical: 4,
-    paddingLeft: 16,
+    ...Spacing.smallMarginVertical,
+    ...Spacing.largePaddingLeft
   },
   closePressable: {
     width: 48,
     height: 36,
     justifyContent: "center",
     alignItems: "flex-end",
-    paddingRight: 16,
+    ...Spacing.largePaddingRight,
   },
   closeIcon: {
     width: 16,
@@ -48,18 +48,18 @@ function mapTypeToColors(type: ToastTypes): { bg: string; fg: string } {
     case "error":
       return {
         bg: Colors.RED_100,
-        fg: Colors.RED_700,
+        fg: Colors.RED_600,
       };
     case "success":
       return {
         bg: Colors.GREEN_100,
-        fg: Colors.GREEN_700,
+        fg: Colors.GREEN_600,
       };
     case "warning":
     default:
       return {
         bg: Colors.YELLOW_100,
-        fg: Colors.YELLOW_600,
+        fg: Colors.YELLOW_500,
       };
   }
 }
@@ -85,7 +85,7 @@ const Toast: React.FC<Props> = ({ toast }: Props) => {
       <View style={{ flex: 1 }}>
         <Body
           size={3}
-          style={{ color: colors.fg, fontSize: 16, ...Spacing.marginVertical }}
+          style={{ color: colors.fg, fontSize: 16, ...Spacing.smallMarginVertical }}
         >
           {local.text}
         </Body>
