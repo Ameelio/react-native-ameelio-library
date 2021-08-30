@@ -1,8 +1,21 @@
-import React from "react";
-import { Platform, StatusBar, View } from "react-native";
+import React, { useState, useEffect } from "react";
 const StorybookUIRoot = require("./storybook").default;
+import { Platform, StatusBar, View } from "react-native";
+
+import AppLoading from "expo-app-loading";
 import {
   useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from "@expo-google-fonts/inter";
+import {
   Poppins_400Regular,
   Poppins_400Regular_Italic,
   Poppins_500Medium,
@@ -12,18 +25,18 @@ import {
   Poppins_700Bold,
   Poppins_700Bold_Italic,
 } from "@expo-google-fonts/poppins";
-import AppLoading from "expo-app-loading";
 
-// NOTE: The weird flex solution here is to deal with
-// an annoying bug in the Expo mobile client.
-// Sometimes the "Downloading Javascript bundle" bar
-// does not disappear from the bottom of the screen,
-// which partially hides the nav provided by storybook
-// in an annoying way. Once this Expo bug is fixed,
-// this can be removed.
-
-export default function App() {
+export default () => {
   let [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
     Poppins_400Regular,
     Poppins_400Regular_Italic,
     Poppins_500Medium,
@@ -34,15 +47,20 @@ export default function App() {
     Poppins_700Bold_Italic,
   });
 
-  if (!fontsLoaded) return <AppLoading />;
+  let fontSize = 24;
+  let paddingVertical = 6;
 
-  return (
-    <View style={{ flex: 1 }}>
-      <StatusBar barStyle="dark-content" />
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
       <View style={{ flex: 1 }}>
-        <StorybookUIRoot />
+        <StatusBar barStyle="dark-content" />
+        <View style={{ flex: 1 }}>
+          <StorybookUIRoot />
+        </View>
+        <View style={{ height: 30 }} />
       </View>
-      <View style={{ height: 30 }} />
-    </View>
-  );
-}
+    );
+  }
+};

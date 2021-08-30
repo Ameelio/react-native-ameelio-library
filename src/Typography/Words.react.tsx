@@ -21,7 +21,6 @@ const Words: React.FC<WordsProps> = ({
   numLines,
   align,
   fontSize,
-  color,
 }) => {
   const finalSize = fontSize ? fontSize : 14 * SCALE_CONSTANT;
 

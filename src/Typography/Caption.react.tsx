@@ -34,8 +34,8 @@ const Caption: React.FC<CaptionProps> = ({
 
   const fontFamily =
     (bold === undefined && size !== 3) || bold
-      ? "Poppins_500Medium"
-      : "Poppins_400Regular";
+      ? "Inter_400Regular"
+      : "Inter_500Medium";
 
   let calculatedColor = calculateColor(color || "dark");
 

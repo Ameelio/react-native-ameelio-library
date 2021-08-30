@@ -43,16 +43,20 @@ const Header: React.FC<HeaderProps> = ({
     }
   }
 
-  let fontFamily = "Poppins_700Bold";
+  let fontFamily = "Inter_700Bold";
   switch (size) {
     case 1:
-      fontFamily = "Poppins_700Bold";
+      fontFamily = "Inter_700Bold";
       break;
     case 2:
+      fontFamily = "Inter_600SemiBold";
+      break;
     case 3:
+      fontFamily = "Inter_600SemiBold";
     case 4:
+      fontFamily = "Inter_600SemiBold";
     case 5:
-      fontFamily = "Poppins_600SemiBold";
+      fontFamily = "Inter_600SemiBold";
       break;
   }
 
