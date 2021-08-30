@@ -165,7 +165,7 @@ storiesOf("Common", module)
       )}
       title={"Add a contact to send your first Ameelio."}
       cta={"Tap here to add a contact."}
-      rightIcon={"X"}
+      rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "X")}
     />
     </>
   ));
