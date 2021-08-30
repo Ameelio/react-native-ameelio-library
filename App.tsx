@@ -3,6 +3,7 @@ const StorybookUIRoot = require("./storybook").default;
 import { Platform, StatusBar, View } from "react-native";
 
 import AppLoading from "expo-app-loading";
+
 import {
   useFonts,
   Inter_100Thin,
@@ -15,16 +16,6 @@ import {
   Inter_800ExtraBold,
   Inter_900Black,
 } from "@expo-google-fonts/inter";
-import {
-  Poppins_400Regular,
-  Poppins_400Regular_Italic,
-  Poppins_500Medium,
-  Poppins_500Medium_Italic,
-  Poppins_600SemiBold,
-  Poppins_600SemiBold_Italic,
-  Poppins_700Bold,
-  Poppins_700Bold_Italic,
-} from "@expo-google-fonts/poppins";
 
 export default () => {
   let [fontsLoaded] = useFonts({
@@ -37,18 +28,7 @@ export default () => {
     Inter_700Bold,
     Inter_800ExtraBold,
     Inter_900Black,
-    Poppins_400Regular,
-    Poppins_400Regular_Italic,
-    Poppins_500Medium,
-    Poppins_500Medium_Italic,
-    Poppins_600SemiBold,
-    Poppins_600SemiBold_Italic,
-    Poppins_700Bold,
-    Poppins_700Bold_Italic,
   });
-
-  let fontSize = 24;
-  let paddingVertical = 6;
 
   if (!fontsLoaded) {
     return <AppLoading />;

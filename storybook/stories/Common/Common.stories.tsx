@@ -163,8 +163,8 @@ storiesOf("Common", module)
         },
         "error"
       )}
-      title={"Error message"}
-      cta={"More details about error"}
+      title={"Add a contact to send your first Ameelio."}
+      cta={"Tap here to add a contact."}
       rightIcon={"X"}
     />
     </>

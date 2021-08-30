@@ -52,6 +52,7 @@ const Styles = StyleSheet.create({
   background: {
     position: "absolute",
     width: "100%",
+    height: 70,
     flexDirection: "row",
     ...Spacing.paddingBottom,
     ...Spacing.largePaddingHorizontal,
@@ -59,7 +60,7 @@ const Styles = StyleSheet.create({
   },
   textContainer: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'flex-end',
   },
   iconContainer: {
     alignSelf: "flex-end",

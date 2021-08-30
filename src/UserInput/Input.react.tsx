@@ -56,7 +56,7 @@ const Styles = StyleSheet.create({
     borderBottomWidth: 0,
   },
   inputStyle: {
-    fontFamily: "Poppins_400Regular",
+    fontFamily: "Inter_400Regular",
     fontSize: 16,
     color: Colors.GRAY_700,
   },
