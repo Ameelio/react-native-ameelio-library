@@ -153,6 +153,7 @@ storiesOf("Common", module)
   .add("Topbar", () => (
     <>
     <Topbar 
+      style={{top: 20}}
       type={radios(
         "type",
         {
@@ -166,6 +167,20 @@ storiesOf("Common", module)
       title={"Add a contact to send your first Ameelio."}
       cta={"Tap here to add a contact."}
       rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "X")}
+    />
+    <Topbar 
+      style={{top: 100}}
+      type={"info"}
+      title={"Add a contact to send your first Ameelio."}
+      cta={"Tap here to add a contact."}
+      rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "rightIcon")}
+    />
+    <Topbar 
+      style={{top: 180, height: 50}}
+      type={"info"}
+      title={"Let us know..."}
+      cta={"Did Anthony receive your Ameelio?"}
+      rightIcon={"arrow"}
     />
     </>
   ));

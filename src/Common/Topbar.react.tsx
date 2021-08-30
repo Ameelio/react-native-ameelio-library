@@ -43,7 +43,7 @@ const mapTypeToColors: Record<TopbarTypes, { bg: string; fg: string }> = {
     fg: Colors.GREEN_600,
   },
   info: {
-    bg: Colors.BLUE_600,
+    bg: Colors.BLUE_500,
     fg: Colors.WHITE,
   },
 };
