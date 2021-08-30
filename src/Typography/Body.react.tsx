@@ -30,7 +30,7 @@ const Body: React.FC<BodyProps> = ({
         finalSize = 16 * SCALE_CONSTANT;
         break;
       case 2:
-        finalSize = 14;
+        finalSize = 14 * SCALE_CONSTANT;
         break;
       case 3:
       default:
@@ -39,22 +39,7 @@ const Body: React.FC<BodyProps> = ({
     }
   }
 
-<<<<<<< HEAD
   const fontFamily = bold ? "Inter_600SemiBold" : "Inter_400Regular";
-=======
-  let fontFamily = bold ? "Inter_400Regular" : "Poppins_400Regular";
-  switch (size) {
-    case 1:
-      fontFamily = "Inter_400Regular";
-      break;
-    case 2:
-      fontFamily = "Inter_600SemiBold";
-      break;
-    case 3:
-      fontFamily = "Poppins_400Regular";
-      break;
-  }
->>>>>>> c64c1e50211e15866fc04bb6164c3ba8558b4d89
 
   let calculatedColor = calculateColor(color || "secondary");
 
