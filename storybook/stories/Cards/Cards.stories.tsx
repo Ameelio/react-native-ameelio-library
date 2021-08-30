@@ -1,10 +1,13 @@
 import { storiesOf } from "@storybook/react-native";
 import React from "react";
-import { ContactCard, HeaderCard, VerticalCard } from "@src";
+import { ContactCard, HeaderCard, OneLineCard, VerticalCard } from "@src";
 import CenterView from "../../helpers/CenterView.react";
 import { View, Image } from "react-native";
 import { radios, text, withKnobs } from "@storybook/addon-knobs";
 import { Spacing } from "src/Styles";
+import WhiteBook from "./assets/WhiteBook";
+import OrangeBook from "./assets/OrangeBook";
+
 
 const Letter = `<svg width="93" height="106" viewBox="0 0 93 106" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d)">
@@ -149,7 +152,20 @@ storiesOf("Cards", module)
         emphasis={'body'}
       />
     </View>
-    
+  ))
+  .add("OneLineCard", () => (
+    <View style={{ width: "100%", padding: 16 }}>
+      <OneLineCard
+        text={'One Line Card - Regular'}
+        img={OrangeBook}
+      />
+      <View style={{height: 20}}></View>
+      <OneLineCard
+        text={'One Line Card - Special'}
+        img={WhiteBook}
+        special
+      />
+    </View>
   ))
   
   
