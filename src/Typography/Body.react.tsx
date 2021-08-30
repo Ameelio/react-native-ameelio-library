@@ -39,7 +39,18 @@ const Body: React.FC<BodyProps> = ({
     }
   }
 
-  const fontFamily = bold ? "Poppins_600SemiBold" : "Poppins_400Regular";
+  let fontFamily = bold ? "Inter_400Regular" : "Poppins_400Regular";
+  switch (size) {
+    case 1:
+      fontFamily = "Inter_400Regular";
+      break;
+    case 2:
+      fontFamily = "Inter_600SemiBold";
+      break;
+    case 3:
+      fontFamily = "Poppins_400Regular";
+      break;
+  }
 
   let calculatedColor = calculateColor(color || "secondary");
 

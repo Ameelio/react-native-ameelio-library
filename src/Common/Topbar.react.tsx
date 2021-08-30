@@ -51,7 +51,6 @@ const mapTypeToColors: Record<TopbarTypes, { bg: string; fg: string }> = {
 const Styles = StyleSheet.create({
   background: {
     position: "absolute",
- 
     width: "100%",
     flexDirection: "row",
     ...Spacing.paddingBottom,

@@ -163,7 +163,7 @@ storiesOf("Common", module)
         },
         "error"
       )}
-      title={"Error Message"}
+      title={"Error message"}
       cta={"More details about error"}
       rightIcon={"X"}
     />
