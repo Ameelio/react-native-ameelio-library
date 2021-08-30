@@ -24,16 +24,16 @@ const Words: React.FC<WordsProps> = ({
 }) => {
   const finalSize = fontSize ? fontSize : 14 * SCALE_CONSTANT;
 
-  let fontFamily = "Poppins_400Regular";
+  let fontFamily = "Inter_400Regular";
 
   if (weight === "regular")
-    fontFamily = italic ? "Poppins_400Regular_Italic" : "Poppins_400Regular";
+    fontFamily = italic ? "Inter_400Regular_Italic" : "Inter_400Regular";
   else if (weight === "medium")
-    fontFamily = italic ? "Poppins_500Medium_Italic" : "Poppins_500Medium";
+    fontFamily = italic ? "Inter_500Medium_Italic" : "Inter_500Medium";
   else if (weight === "semibold")
-    fontFamily = italic ? "Poppins_600SemiBold_Italic" : "Poppins_600SemiBold";
+    fontFamily = italic ? "Inter_600SemiBold_Italic" : "Inter_600SemiBold";
   else if (weight === "bold")
-    fontFamily = italic ? "Poppins_700Bold_Italic" : "Poppins_700Bold";
+    fontFamily = italic ? "Inter_700Bold_Italic" : "Inter_700Bold";
 
   let colorType: TypographyColors = "default";
   let calculatedColor = calculateColor(colorType);

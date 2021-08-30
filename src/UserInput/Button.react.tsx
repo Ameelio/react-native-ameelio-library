@@ -117,7 +117,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     titleStyle: [
       {
         fontSize: props.nav ? 15 : 18,
-        fontFamily: "Poppins_600SemiBold",
+        fontFamily: "Inter_600SemiBold",
       },
       props.secondary ? Styles.secondaryForeground : Styles.primaryForeground,
       props.titleStyle,

@@ -1,7 +1,7 @@
 import { TextStyle } from "react-native";
 import * as Colors from "../Brand/Colors";
 
-export const SCALE_CONSTANT = 5 / 4;
+export const SCALE_CONSTANT = 1;
 
 // This look janks, but is needed to trick typescript into allowing any string
 // for color while still preserving autocomplete for "default" "secondary" & "tertiary"

@@ -51,8 +51,8 @@ const mapTypeToColors: Record<TopbarTypes, { bg: string; fg: string }> = {
 const Styles = StyleSheet.create({
   background: {
     position: "absolute",
-    top: 0,
     width: "100%",
+    height: 70,
     flexDirection: "row",
     ...Spacing.paddingBottom,
     ...Spacing.largePaddingHorizontal,
@@ -60,19 +60,19 @@ const Styles = StyleSheet.create({
   },
   textContainer: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'flex-end',
   },
   iconContainer: {
     alignSelf: "flex-end",
     ...Spacing.marginBottom,
   },
   arrowIconContainer: {
-    width: 16,
-    height: 24,
+    width: 10,
+    height: 20,
   },
   XIconContaner: {
-    width: 24,
-    height: 24,
+    width: 15,
+    height: 15,
   },
 });
 

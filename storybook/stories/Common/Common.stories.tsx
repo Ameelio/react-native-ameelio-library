@@ -151,7 +151,8 @@ storiesOf("Common", module)
     </>
   ))
   .add("Topbar", () => (
-    <Topbar
+    <>
+    <Topbar 
       type={radios(
         "type",
         {
@@ -162,8 +163,9 @@ storiesOf("Common", module)
         },
         "error"
       )}
-      title={text("title", "title")}
-      cta={text("cta", "cta")}
-      rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "arrow")}
+      title={"Add a contact to send your first Ameelio."}
+      cta={"Tap here to add a contact."}
+      rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "X")}
     />
+    </>
   ));
