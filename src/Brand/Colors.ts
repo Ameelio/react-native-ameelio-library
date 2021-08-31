@@ -48,4 +48,14 @@ export const GRAY_700 = "#0A0A0A";
 
 // Special values
 export const WHITE = "#FFF";
-export const WHITE_BACKGROUND = "#FFF";
+export const WHITE_BACKGROUND = '#FFFCFC';
+export const BLACK = '#000';
+
+// Black and white with transparency
+export const BLACK_65 = 'rgba(0, 0, 0, 0.65)';
+export const BLACK_45 = 'rgba(0, 0, 0, 0.45)';
+export const BLACK_25 = 'rgba(0, 0, 0, 0.25)';
+export const BLACK_06 = 'rgba(0, 0, 0, 0.06)';
+export const WHITE_65 = 'rgba(255, 255, 255, 0.65)';
+export const WHITE_45 = 'rgba(255, 255, 255, 0.45)';
+export const WHITE_25 = 'rgba(255, 255, 255, 0.25)';
