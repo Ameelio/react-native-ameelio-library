@@ -10,10 +10,13 @@ import {
   InTextButtons,
   KeyboardAvoider,
   KeyboardConditional,
+  Tag,
   Toast,
   Topbar,
 } from "@src";
 import CenterView from "../../helpers/CenterView.react";
+import Star from "./assets/Star";
+import Fire from "./assets/Fire";
 import DynamicX from "./DynamicX";
 import { ScrollView, TextInput, View } from "react-native";
 import {
@@ -147,6 +150,24 @@ storiesOf("Common", module)
             onPress: () => {},
           },
         ]}
+      />
+    </>
+  ))
+  .add("Tag", () => (
+    <>
+      <Tag
+        text={"MOST POPULAR"}
+        icon={Star}
+      />
+      <View style={{height: 20}}></View>
+      <Tag
+        text={"TRENDING"}
+        icon={Fire}
+      />
+      <View style={{height: 20}}></View>
+      <Tag
+        text={"RECOMMENDED"}
+        secondary
       />
     </>
   ))
