@@ -26,31 +26,34 @@ export interface ButtonProps extends ElementsButtonProps {
   disabled?: boolean;
   style?: StyleProp<ViewStyle>;
   noGrow?: boolean;
+  shadow?: boolean;
   noGrowContainer?: StyleProp<ViewStyle>;
 }
 
 const Styles = StyleSheet.create({
   trueBackground: {
     width: "100%",
+    ...Spacing.paddingBottom,
+    overflow: 'hidden'
   },
   background: {
     width: "100%",
-    ...Spacing.padding,
+    // ...Spacing.padding,
     ...GlobalStyles.rounded,
     borderWidth: 2,
     height: 50,
   },
   primaryBackground: {
-    backgroundColor: Colors.BLUE_400,
-    borderColor: Colors.BLUE_400,
+    backgroundColor: Colors.RED_400,
+    borderColor: Colors.RED_400,
   },
   secondaryBackground: {
     backgroundColor: Colors.WHITE_BACKGROUND,
-    borderColor: Colors.GRAY_100,
+    borderColor: Colors.WHITE_BACKGROUND,
   },
   disabledBackground: {
-    backgroundColor: Colors.BLUE_200,
-    borderColor: Colors.BLUE_200,
+    backgroundColor: Colors.RED_200,
+    borderColor: Colors.RED_200,
   },
   linkBackground: {
     width: "100%",
@@ -62,8 +65,18 @@ const Styles = StyleSheet.create({
     color: Colors.WHITE,
   },
   secondaryForeground: {
-    color: Colors.BLUE_400,
+    color: Colors.RED_400,
   },
+  shadow: {
+    shadowColor: Colors.BLACK,
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    shadowOffset: {
+      width: 1,
+      height: 3 
+    },
+    elevation: 5
+  }
 });
 
 const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
@@ -99,6 +112,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     ],
     buttonStyle: [
       Styles.background,
+      Styles.shadow,
       getBackgroundStyle(),
       props.noGrow ? { width: undefined } : {},
       props.nav ? { borderRadius: 19, height: 40 } : {},
@@ -106,7 +120,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     ],
     disabledStyle: Styles.disabledBackground,
     disabledTitleStyle: {
-      color: Colors.GRAY_100,
+      color: Colors.WHITE,
     },
     onPress: async () => {
       if (blocked) return;

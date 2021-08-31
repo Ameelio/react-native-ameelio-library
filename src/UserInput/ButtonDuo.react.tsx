@@ -2,6 +2,7 @@ import { Spacing } from "../Styles";
 import React from "react";
 import Button from "./Button.react";
 import { StyleProp, View, ViewStyle } from "react-native";
+import * as Colors from '@src/Brand/Colors';
 
 interface Props {
   primaryText?: string;
@@ -22,7 +23,6 @@ const ButtonDuo: React.FC<Props> = ({
   primaryText,
   onPrimaryPress,
   primaryBlocking,
-  primaryLoading,
   primaryDisabled,
   secondaryText,
   onSecondaryPress,
@@ -33,7 +33,7 @@ const ButtonDuo: React.FC<Props> = ({
   style,
 }) => {
   return (
-    <View style={[{ width: "100%" }, style]}>
+    <View style={[{ width: "100%", ...Spacing.paddingBottom}, style]}>
       <Button
         onPress={onPrimaryPress}
         blocking={primaryBlocking}
@@ -52,7 +52,7 @@ const ButtonDuo: React.FC<Props> = ({
         secondary={!secondaryLink}
         link={secondaryLink}
         linkSize={16}
-        style={Spacing.marginTop}
+        style={[Spacing.marginTop]}
       >
         {secondaryText}
       </Button>
