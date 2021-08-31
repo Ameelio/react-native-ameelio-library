@@ -55,10 +55,12 @@ storiesOf("UserInput/Button", module)
           secondaryText="Secondary"
           secondaryLink
         />
-        <View style={{height: 40}}></View>
         <Divider />
-        <View style={{height: 40}}></View>
         <ButtonDuo primaryText="Primary" secondaryText="Secondary" />
+        <Divider />
+        <ButtonDuo primaryText="Primary" secondaryText="Secondary" primaryDisabled/>
+        <Divider />
+        <ButtonDuo primaryText="Primary" secondaryText="Secondary" secondaryDisabled/>
       </View>
     );
   });
