@@ -17,6 +17,7 @@ import IconCard from "./Common/IconCard.react";
 import InTextButtons from "./Common/InTextButtons.react";
 import KeyboardAvoider from "./Common/KeyboardAvoider.react";
 import KeyboardConditional from "./Common/KeyboardConditional.react";
+import Tag from "./Common/Tag.react";
 import Toast, { ToastInfo, ToastTypes } from "./Common/Toast.react";
 import Topbar, { TopbarInfo, TopbarTypes } from "./Common/Topbar.react";
 
@@ -70,6 +71,7 @@ export {
   InTextButtons,
   KeyboardAvoider,
   KeyboardConditional,
+  Tag,
   Toast,
   ToastInfo,
   ToastTypes,
