@@ -26,16 +26,19 @@ export interface ButtonProps extends ElementsButtonProps {
   disabled?: boolean;
   style?: StyleProp<ViewStyle>;
   noGrow?: boolean;
+  shadow?: boolean;
   noGrowContainer?: StyleProp<ViewStyle>;
 }
 
 const Styles = StyleSheet.create({
   trueBackground: {
     width: "100%",
+    ...Spacing.paddingBottom,
+    overflow: 'hidden'
   },
   background: {
     width: "100%",
-    ...Spacing.padding,
+    // ...Spacing.padding,
     ...GlobalStyles.rounded,
     borderWidth: 2,
     height: 50,
@@ -46,7 +49,7 @@ const Styles = StyleSheet.create({
   },
   secondaryBackground: {
     backgroundColor: Colors.WHITE_BACKGROUND,
-    borderColor: Colors.GRAY_100,
+    borderColor: Colors.WHITE_BACKGROUND,
   },
   disabledBackground: {
     backgroundColor: Colors.RED_200,
@@ -64,6 +67,16 @@ const Styles = StyleSheet.create({
   secondaryForeground: {
     color: Colors.RED_400,
   },
+  shadow: {
+    shadowColor: Colors.BLACK,
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    shadowOffset: {
+      width: 1,
+      height: 3 
+    },
+    elevation: 5
+  }
 });
 
 const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
@@ -99,6 +112,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     ],
     buttonStyle: [
       Styles.background,
+      Styles.shadow,
       getBackgroundStyle(),
       props.noGrow ? { width: undefined } : {},
       props.nav ? { borderRadius: 19, height: 40 } : {},
@@ -106,7 +120,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     ],
     disabledStyle: Styles.disabledBackground,
     disabledTitleStyle: {
-      color: Colors.GRAY_100,
+      color: Colors.WHITE,
     },
     onPress: async () => {
       if (blocked) return;

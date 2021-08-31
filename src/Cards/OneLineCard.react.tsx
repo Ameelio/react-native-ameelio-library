@@ -20,9 +20,9 @@ interface Props {
  
 const Styles = StyleSheet.create({
     cardContainer: {
-        borderRadius: 6,
-        width: 330,
-        height: 50, 
+      borderRadius: 6,
+      width: 330,
+      height: 50, 
     },
     shadow: {
       shadowColor: '#000',

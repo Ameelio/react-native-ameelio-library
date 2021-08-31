@@ -23,6 +23,9 @@ import Topbar, { TopbarInfo, TopbarTypes } from "./Common/Topbar.react";
 /* Persona */
 import Initials from "./Persona/Initials.react";
 
+/* Pricing */
+import Balance from "./Pricing/Balance.react";
+
 /* Styles */
 import Divider from "./Styles/Divider.react";
 import * as GlobalStyles from "./Styles/GlobalStyles";
@@ -77,6 +80,9 @@ export {
 
 /* Persona */
 export { Initials };
+
+/* Pricing */
+export { Balance };
 
 /* Styles */
 export { Divider, GlobalStyles, Spacing };

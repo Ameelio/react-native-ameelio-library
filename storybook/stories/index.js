@@ -5,6 +5,8 @@ import "./Cards/Cards.stories";
 
 import "./Common/Common.stories";
 
+import "./Pricing/Pricing.stories";
+
 import "./Typography/Body.stories";
 import "./Typography/Caption.stories";
 import "./Typography/Header.stories";
@@ -21,3 +23,4 @@ import "./UserInput/Rating.stories";
 import "./UserInput/SelectSheet.stories";
 import "./UserInput/TextButtonSheet.stories";
 import "./UserInput/Tooltip.stories";
+
