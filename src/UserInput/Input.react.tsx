@@ -37,20 +37,20 @@ interface Props extends TextInputProps, InputProps {
 
 const Styles = StyleSheet.create({
   background: {
-    backgroundColor: Colors.GRAY_100,
+    backgroundColor: Colors.WHITE,
     ...Spacing.paddingHorizontal,
     ...Spacing.smallMarginBottom,
     ...GlobalStyles.rounded,
     borderWidth: 2,
-    borderColor: "transparent",
+    borderColor: Colors.BLACK_06,
   },
   invalidBackground: {
     backgroundColor: Colors.RED_100,
-    borderColor: Colors.RED_400,
+    borderColor: Colors.RED_700,
   },
   validBackground: {
     backgroundColor: Colors.GREEN_100,
-    borderColor: Colors.GREEN_400,
+    borderColor: Colors.GREEN_700,
   },
   inputContainerStyle: {
     borderBottomWidth: 0,

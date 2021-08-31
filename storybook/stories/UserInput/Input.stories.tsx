@@ -186,6 +186,13 @@ storiesOf("UserInput/Input", module)
           label="Three line height grow"
           inputStyle={{ maxHeight: LINE_HEIGHT * 3 }}
         />
+        <Divider />
+        {/* Paragraph style */}
+        <Input
+          placeholder="Tap to type..."
+          multiline
+          inputStyle={{ height: LINE_HEIGHT * 5 }}
+        />
       </View>
     );
   });
