@@ -18,6 +18,7 @@ interface Props {
   image?: Image | string;
   selected: boolean;
   iconRight?: boolean;
+  square?: boolean;
   onPress?: (() => void) | (() => Promise<void>);
   selectedColors?: {
     fg: string;
@@ -36,7 +37,6 @@ const Styles = StyleSheet.create({
     borderWidth: 2,
     ...Spacing.smallMarginRight,
     ...Spacing.padding,
-    borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -46,6 +46,7 @@ const Chip: React.FC<Props> = ({
   children,
   image,
   iconRight,
+  square,
   selected,
   onPress,
   selectedColors,
@@ -64,6 +65,7 @@ const Chip: React.FC<Props> = ({
       <TouchableOpacity
         style={[
           Styles.timeChipBackground,
+          square ? {borderRadius : 4} : {borderRadius: 20},
           backgroundStyle,
           style,
           { flexDirection: "row" },
@@ -85,6 +87,7 @@ const Chip: React.FC<Props> = ({
       <TouchableOpacity
         style={[
           Styles.timeChipBackground,
+          square ? {borderRadius : 4} : {borderRadius: 20},
           backgroundStyle,
           style,
           { flexDirection: "row-reverse" },
@@ -115,6 +118,7 @@ Chip.defaultProps = {
     fg: Colors.GRAY_700,
     border: Colors.BLUE_200,
   },
+  square: false,
 };
 
 export default Chip;

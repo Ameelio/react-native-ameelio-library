@@ -68,6 +68,9 @@ storiesOf("UserInput/Chip", module)
           <Chip image={FilterImage} selected={false} iconRight>
             Icon right
           </Chip>
+          <Chip selected={false} iconRight square>
+            Square
+          </Chip>
         </View>
       </>
     );
