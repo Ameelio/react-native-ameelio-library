@@ -41,16 +41,16 @@ const Styles = StyleSheet.create({
     height: 50,
   },
   primaryBackground: {
-    backgroundColor: Colors.BLUE_400,
-    borderColor: Colors.BLUE_400,
+    backgroundColor: Colors.RED_400,
+    borderColor: Colors.RED_400,
   },
   secondaryBackground: {
     backgroundColor: Colors.WHITE_BACKGROUND,
     borderColor: Colors.GRAY_100,
   },
   disabledBackground: {
-    backgroundColor: Colors.BLUE_200,
-    borderColor: Colors.BLUE_200,
+    backgroundColor: Colors.RED_200,
+    borderColor: Colors.RED_200,
   },
   linkBackground: {
     width: "100%",
@@ -62,7 +62,7 @@ const Styles = StyleSheet.create({
     color: Colors.WHITE,
   },
   secondaryForeground: {
-    color: Colors.BLUE_400,
+    color: Colors.RED_400,
   },
 });
 
