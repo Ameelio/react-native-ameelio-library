@@ -3,7 +3,7 @@ import Ameelio from './Ameelio';
 import BirdBlue from './BirdBlue';
 import BirdRed from './BirdRed';
 import AmeelioPrimary from './AmeelioPrimary';
-import AmeelioMonocolor from './AmeelioPrimary';
+import AmeelioMonocolor from './AmeelioMonocolor';
 import Letters from './Letters';
 import { SvgXml } from 'react-native-svg';
 
