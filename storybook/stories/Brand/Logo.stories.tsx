@@ -10,6 +10,7 @@ storiesOf("Brand/Logo", module)
   .add("Ameelio", () => <Logo type="ameelio" width={200} />)
   .add("Ameelio Primary", () => <Logo type="ameelio-primary" width={200} />)
   .add("Ameelio Monocolor", () => <Logo type="ameelio-monocolor" width={200} />)
+  .add("Ameelio Plus", () => <Logo type="ameelio-plus" width={200} />)
   .add("Letters", () => <Logo type="letters" width={200} />);
 
 
