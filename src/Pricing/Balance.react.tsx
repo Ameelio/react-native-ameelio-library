@@ -37,8 +37,8 @@ const Styles = StyleSheet.create({
     width: 70,
     ...GlobalStyles.shadow,
     ...Spacing.marginRight,
-    borderWidth: 2,
     ...Spacing.padding,
+    borderWidth: 0.25,
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
@@ -82,7 +82,7 @@ const BalanceChip: React.FC<ChipProps> = ({ image, balance }) => {
         { backgroundColor: Colors.WHITE, borderColor: Colors.GRAY_200 },
       ]}
     >
-      <Body size={3} style={{ color: Colors.GRAY_400 }}>
+      <Body size={2} style={{ color: Colors.GRAY_400, ...Spacing.smallPaddingLeft }}>
         {balance.toString()}
       </Body>
       {image && (
