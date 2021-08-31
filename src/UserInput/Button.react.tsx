@@ -51,9 +51,13 @@ const Styles = StyleSheet.create({
     backgroundColor: Colors.WHITE_BACKGROUND,
     borderColor: Colors.WHITE_BACKGROUND,
   },
-  disabledBackground: {
+  primaryDisabledBackground: {
     backgroundColor: Colors.RED_200,
     borderColor: Colors.RED_200,
+  },
+  secondaryDisabledBackground: {
+    backgroundColor: Colors.WHITE_BACKGROUND,
+    borderColor: Colors.WHITE_BACKGROUND,
   },
   linkBackground: {
     width: "100%",
@@ -67,16 +71,6 @@ const Styles = StyleSheet.create({
   secondaryForeground: {
     color: Colors.RED_400,
   },
-  shadow: {
-    shadowColor: Colors.BLACK,
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    shadowOffset: {
-      width: 1,
-      height: 3 
-    },
-    elevation: 5
-  }
 });
 
 const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
@@ -96,7 +90,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   };
 
   const getBackgroundStyle = () => {
-    if (props.disabled) return Styles.disabledBackground;
+    if (props.disabled) return props.secondary ? Styles.secondaryDisabledBackground : Styles.primaryDisabledBackground;
     return props.secondary
       ? Styles.secondaryBackground
       : Styles.primaryBackground;
@@ -112,16 +106,14 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     ],
     buttonStyle: [
       Styles.background,
-      Styles.shadow,
+      GlobalStyles.shadow,
       getBackgroundStyle(),
       props.noGrow ? { width: undefined } : {},
       props.nav ? { borderRadius: 19, height: 40 } : {},
       props.buttonStyle,
     ],
-    disabledStyle: Styles.disabledBackground,
-    disabledTitleStyle: {
-      color: Colors.WHITE,
-    },
+    disabledStyle: props.secondary ? Styles.secondaryDisabledBackground : Styles.primaryDisabledBackground,
+    disabledTitleStyle: props.secondary ? {color: Colors.RED_200} : { color: Colors.WHITE },
     onPress: async () => {
       if (blocked) return;
       if (props.blocking) safelySetBlocked(true);
@@ -149,7 +141,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
           numLines={1}
           adjustSize
           style={[
-            Styles.secondaryForeground,
+            props.disabled ? {color: Colors.RED_200} : Styles.secondaryForeground,
             props.noGrow ? { width: undefined } : {},
           ]}
         >

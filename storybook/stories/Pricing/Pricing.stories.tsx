@@ -15,19 +15,3 @@ storiesOf("Pricing", module)
         <Balance numCoins={15} numAmeelios={20} />
     );
   })
-
-  .add("Button Duo", () => {
-    return (
-      <View style={[Spacing.padding, { width: "100%" }]}>
-        <ButtonDuo
-          primaryText="Primary"
-          secondaryText="Secondary"
-          secondaryLink
-        />
-        <View style={{height: 40}}></View>
-        <Divider />
-        <View style={{height: 40}}></View>
-        <ButtonDuo primaryText="Primary" secondaryText="Secondary" />
-      </View>
-    );
-  });
