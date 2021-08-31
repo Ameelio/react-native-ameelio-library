@@ -56,6 +56,13 @@ storiesOf("UserInput/Button", module)
           secondaryLink
         />
         <Divider />
+        <ButtonDuo
+          primaryText="Primary"
+          secondaryText="Secondary"
+          secondaryLink
+          secondaryDisabled
+        />
+        <Divider />
         <ButtonDuo primaryText="Primary" secondaryText="Secondary" />
         <Divider />
         <ButtonDuo primaryText="Primary" secondaryText="Secondary" primaryDisabled/>

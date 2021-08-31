@@ -56,8 +56,8 @@ const Styles = StyleSheet.create({
     borderColor: Colors.RED_200,
   },
   secondaryDisabledBackground: {
-    backgroundColor: Colors.RED_200,
-    borderColor: Colors.RED_200,
+    backgroundColor: Colors.WHITE_BACKGROUND,
+    borderColor: Colors.WHITE_BACKGROUND,
   },
   linkBackground: {
     width: "100%",
@@ -112,10 +112,8 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       props.nav ? { borderRadius: 19, height: 40 } : {},
       props.buttonStyle,
     ],
-    disabledStyle: Styles.disabledBackground,
-    disabledTitleStyle: {
-      color: Colors.WHITE,
-    },
+    disabledStyle: props.secondary ? Styles.secondaryDisabledBackground : Styles.primaryDisabledBackground,
+    disabledTitleStyle: props.secondary ? {color: Colors.RED_200} : { color: Colors.WHITE },
     onPress: async () => {
       if (blocked) return;
       if (props.blocking) safelySetBlocked(true);
@@ -143,7 +141,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
           numLines={1}
           adjustSize
           style={[
-            Styles.secondaryForeground,
+            props.disabled ? {color: Colors.RED_200} : Styles.secondaryForeground,
             props.noGrow ? { width: undefined } : {},
           ]}
         >
