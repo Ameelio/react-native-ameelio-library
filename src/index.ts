@@ -6,7 +6,7 @@ import Logo from "./Brand/Logo.react";
 import ContactCard from "./Cards/ContactCard.react";
 import HeaderCard from "./Cards/HeaderCard.react";
 import OneLineCard from "./Cards/OneLineCard.react";
-import VerticalCard from "./Cards/VerticalCard.react";
+import LargeVerticalCard from "./Cards/LargeVerticalCard.react";
 
 /* Common */
 import AsyncImage from "./Common/AsyncImage.react";
@@ -59,7 +59,7 @@ import Tooltip from "./UserInput/Tooltip.react";
 export { Colors, Logo };
 
 /* Cards */
-export { ContactCard, HeaderCard, OneLineCard, VerticalCard };
+export { ContactCard, HeaderCard, OneLineCard, LargeVerticalCard };
 
 /* Common */
 export {
