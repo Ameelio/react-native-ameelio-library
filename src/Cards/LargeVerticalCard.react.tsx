@@ -54,7 +54,7 @@ const CardStyles = StyleSheet.create({
     verticalCardImage: {
       borderTopLeftRadius: 8,
       borderTopRightRadius: 8,
-      height: '55%',
+      height: '70%',
       width: '100%',
       resizeMode: 'cover',
       overflow: 'hidden',
@@ -81,7 +81,7 @@ const CardStyles = StyleSheet.create({
     },
    });
  
-const VerticalCard: React.FC<Props> = ({
+const LargeVerticalCard: React.FC<Props> = ({
   title,
   subtitle,
   children,
@@ -124,7 +124,7 @@ const VerticalCard: React.FC<Props> = ({
           active ? CardStyles.cardSelectedBackground : {},
         ]}
       >
-        {/* {img} */}
+        {img}
         <View
           style={{
             ...Spacing.padding,
@@ -132,23 +132,22 @@ const VerticalCard: React.FC<Props> = ({
             justifyContent: 'space-between',
           }}
         >
-          <Header size={5} numLines={1} style={{textTransform: 'capitalize'}}>
+          <Header color={Colors.GRAY_700} size={4} numLines={1} style={{textTransform: 'capitalize'}}>
             {title}
           </Header>
           <View
             style={{
               flex: 1,
               flexDirection: 'row',
-              justifyContent: 'space-between',
             }}
           >
             {subtitle && (
               <Body
+                color={Colors.GRAY_700}
                 fontSize={12}
-                style={{
-                  flexDirection: 'row',
-                  alignSelf: 'center',
-                }}
+                style={
+                  Spacing.smallPaddingTop
+                }
               >
                 {subtitle}
               </Body>
@@ -186,7 +185,7 @@ const VerticalCard: React.FC<Props> = ({
   );
 };
  
-VerticalCard.defaultProps = {
+LargeVerticalCard.defaultProps = {
   threeDimensional: false,
   local: false,
   icon: false,
@@ -195,4 +194,4 @@ VerticalCard.defaultProps = {
   containerStyle: {},
 };
  
-export default VerticalCard;
+export default LargeVerticalCard;
