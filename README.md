@@ -2,11 +2,11 @@
 
 ## Getting started
 
-Clone this repo, then run `yarn install` to get dependencies.
+Clone this repo, then run `npm install` to get dependencies.
 
-Run `yarn start` to launch the expo server. Install the Expo app for Android or iOS, and then connect your phone to the expo server to view the Storybook.
+Run `npm run start` to launch the expo server. Install the Expo app for Android or iOS, and then connect your phone to the expo server to view the Storybook.
 
-Publish the package with `yarn release`
+Publish the package with `npm run release`
 
 ### Creating a component
 
