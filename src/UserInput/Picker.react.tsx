@@ -38,14 +38,14 @@ const pickerStyles = (disabled: boolean) => {
   return StyleSheet.create({
     inputIOS: {
       fontSize: 16,
-      fontFamily: "Poppins_400Regular",
+      fontFamily: "Inter_400Regular",
       color: Colors.GRAY_700,
       ...Spacing.paddingVertical,
       height: 51,
     },
     inputAndroid: {
       fontSize: 16,
-      fontFamily: "Poppins_400Regular",
+      fontFamily: "Inter_400Regular",
       color: Colors.GRAY_700,
       ...Spacing.paddingVertical,
       height: 51,

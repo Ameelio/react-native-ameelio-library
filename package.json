@@ -45,13 +45,11 @@
     "react-native-svg": "^12.1.0"
   },
   "peerDependencies": {
-    "@expo-google-fonts/poppins": "^0.1.0",
     "react": "*",
     "react-native": "*"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
-    "@expo-google-fonts/poppins": "^0.1.0",
     "@expo/metro-config": "^0.1.49",
     "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "^0.1.10",
