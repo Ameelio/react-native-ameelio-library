@@ -27,7 +27,7 @@ storiesOf("Brand/Colors", module)
             return (
               <View
                 style={{ height: 60, margin: 8, width: "14.28%", backgroundColor: color }}
-                key={color + index.toString()}
+                key={index.toString()}
               />
             );
           })}
@@ -37,7 +37,7 @@ storiesOf("Brand/Colors", module)
             return (
               <View
                 style={{ height: 60, margin: 8, width: "14.28%", backgroundColor: color }}
-                key={color + index.toString()}
+                key={index.toString()}
               />
             );
           })}
