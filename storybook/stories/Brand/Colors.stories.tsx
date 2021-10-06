@@ -1,15 +1,16 @@
 import { storiesOf } from "@storybook/react-native";
 import React from "react";
-import { Logo, Colors } from "@src";
+import { Colors } from "@src";
 import CenterView from "../../helpers/CenterView.react";
 import { ScrollView, View } from "react-native";
+import { LinearGradient } from 'expo-linear-gradient';
 
 const colorsArray = Object.values(Colors);
 const BACKGROUND_COLOR = "rgba(200, 226, 246, 1)";
 
 storiesOf("Brand/Colors", module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
-  .add("All", () => {
+  .add("Solid", () => {
     return (
       <ScrollView>
         <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
@@ -47,6 +48,29 @@ storiesOf("Brand/Colors", module)
             style={{ height: 60, margin: 8, width: "14.28%", backgroundColor: Colors.WHITE_BACKGROUND }}
           />
         </View>
-      </ScrollView>
+      </ScrollView >
     );
-  });
+  })
+  .add("Gradient", () => {
+    return (
+      <ScrollView>
+        <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+          <View
+            style={{ height: 200, margin: 8, width: 200 }}
+          >
+            <LinearGradient
+              colors={["#3577DA", "#F66262"]}
+              start={{ x: 0.15, y: -0.2 }
+              }
+              end={{ x: 0.85, y: 1.2 }}
+              locations={[0.2088, 0.7641]}
+            >
+              <View
+                style={{ height: 200, width: 200 }}
+              />
+            </LinearGradient>
+          </View>
+        </View>
+      </ScrollView >
+    );
+  });;
