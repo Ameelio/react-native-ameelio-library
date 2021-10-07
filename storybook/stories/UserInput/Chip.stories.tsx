@@ -68,8 +68,13 @@ storiesOf("UserInput/Chip", module)
           <Chip image={FilterImage} selected={false} iconRight>
             Icon right
           </Chip>
+        </View>
+        <View style={{ flexDirection: "row" }}>
           <Chip selected={false} iconRight square>
             Square
+          </Chip>
+          <Chip selected={true} iconRight square>
+            Square selected
           </Chip>
         </View>
       </>
