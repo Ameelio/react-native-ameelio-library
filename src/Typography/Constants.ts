@@ -32,7 +32,7 @@ export function calculateColor(colorOrType: TypographyColors) {
     case "dark":
       return Colors.GRAY_700;
     case "secondary":
-      return Colors.GRAY_400;
+      return Colors.BLACK_65;
     case "success":
       return Colors.GREEN_500;
     case "warning":
