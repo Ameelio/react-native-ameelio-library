@@ -82,7 +82,7 @@ const BalanceChip: React.FC<ChipProps> = ({ image, balance }) => {
         { backgroundColor: Colors.WHITE, borderColor: Colors.GRAY_200 },
       ]}
     >
-      <Body size={2} style={{ color: Colors.GRAY_400, ...Spacing.smallPaddingLeft }}>
+      <Body size={2} style={{ color: Colors.BLACK_65, ...Spacing.smallPaddingLeft }}>
         {balance.toString()}
       </Body>
       {image && (
