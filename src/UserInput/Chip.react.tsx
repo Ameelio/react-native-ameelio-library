@@ -36,7 +36,8 @@ const Styles = StyleSheet.create({
   timeChipBackground: {
     borderWidth: 2,
     ...Spacing.smallMarginRight,
-    ...Spacing.padding,
+    ...Spacing.paddingVertical,
+    ...Spacing.largePaddingHorizontal,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -65,7 +66,7 @@ const Chip: React.FC<Props> = ({
       <TouchableOpacity
         style={[
           Styles.timeChipBackground,
-          square ? {borderRadius : 4} : {borderRadius: 20},
+          square ? { borderRadius: 4 } : { borderRadius: 20 },
           backgroundStyle,
           style,
           { flexDirection: "row" },
@@ -87,7 +88,7 @@ const Chip: React.FC<Props> = ({
       <TouchableOpacity
         style={[
           Styles.timeChipBackground,
-          square ? {borderRadius : 4} : {borderRadius: 20},
+          square ? { borderRadius: 4 } : { borderRadius: 20 },
           backgroundStyle,
           style,
           { flexDirection: "row-reverse" },
