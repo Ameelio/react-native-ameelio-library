@@ -5,7 +5,6 @@ import {
   BottomSheet,
   EmojiBullet,
   Icon,
-  IconCard,
   Input,
   InTextButtons,
   KeyboardAvoider,
@@ -94,31 +93,6 @@ storiesOf("Common", module)
       </BottomSheet>
     </>
   ))
-  .add("IconCard", () => (
-    <>
-      <IconCard svg={DynamicX} title="title" subtitle="subtitle" />
-      <IconCard svg={DynamicX} title="title" subtitle="subtitle" disabled />
-      <IconCard
-        svg={DynamicX}
-        title="long long long long long long long long long long"
-        numTitleLines={1}
-        subtitle="subtitle"
-      />
-      <IconCard
-        svg={DynamicX}
-        title="title"
-        subtitle="long long long long long long long long long long"
-        numSubtitleLines={1}
-      />
-      <IconCard
-        svg={DynamicX}
-        title="title"
-        subtitle="long long long long long long long long long long"
-        numSubtitleLines={1}
-        subtitleBold
-      />
-    </>
-  ))
   .add("KeyboardConditional", () => (
     <>
       <KeyboardConditional>
@@ -147,7 +121,7 @@ storiesOf("Common", module)
           {
             type: "button",
             text: "button",
-            onPress: () => {},
+            onPress: () => { },
           },
         ]}
       />
@@ -159,12 +133,12 @@ storiesOf("Common", module)
         text={"MOST POPULAR"}
         icon={Star}
       />
-      <View style={{height: 20}}></View>
+      <View style={{ height: 20 }}></View>
       <Tag
         text={"TRENDING"}
         icon={Fire}
       />
-      <View style={{height: 20}}></View>
+      <View style={{ height: 20 }}></View>
       <Tag
         text={"RECOMMENDED"}
         secondary
@@ -173,35 +147,35 @@ storiesOf("Common", module)
   ))
   .add("Topbar", () => (
     <>
-    <Topbar 
-      style={{top: 20}}
-      type={radios(
-        "type",
-        {
-          error: "error",
-          warning: "warning",
-          success: "success",
-          info: "info",
-        },
-        "error"
-      )}
-      title={"Add a contact to send your first Ameelio."}
-      cta={"Tap here to add a contact."}
-      rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "X")}
-    />
-    <Topbar 
-      style={{top: 100}}
-      type={"info"}
-      title={"Add a contact to send your first Ameelio."}
-      cta={"Tap here to add a contact."}
-      rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "rightIcon")}
-    />
-    <Topbar 
-      style={{top: 180, height: 50}}
-      type={"info"}
-      title={"Let us know..."}
-      cta={"Did Anthony receive your Ameelio?"}
-      rightIcon={"arrow"}
-    />
+      <Topbar
+        style={{ top: 20 }}
+        type={radios(
+          "type",
+          {
+            error: "error",
+            warning: "warning",
+            success: "success",
+            info: "info",
+          },
+          "error"
+        )}
+        title={"Add a contact to send your first Ameelio."}
+        cta={"Tap here to add a contact."}
+        rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "X")}
+      />
+      <Topbar
+        style={{ top: 100 }}
+        type={"info"}
+        title={"Add a contact to send your first Ameelio."}
+        cta={"Tap here to add a contact."}
+        rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "rightIcon")}
+      />
+      <Topbar
+        style={{ top: 180, height: 50 }}
+        type={"info"}
+        title={"Let us know..."}
+        cta={"Did Anthony receive your Ameelio?"}
+        rightIcon={"arrow"}
+      />
     </>
   ));

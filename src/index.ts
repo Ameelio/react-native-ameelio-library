@@ -13,7 +13,6 @@ import AsyncImage from "./Common/AsyncImage.react";
 import BottomSheet from "./Common/BottomSheet.react";
 import EmojiBullet from "./Common/EmojiBullet.react";
 import Icon from "./Common/Icon.react";
-import IconCard from "./Common/IconCard.react";
 import InTextButtons from "./Common/InTextButtons.react";
 import KeyboardAvoider from "./Common/KeyboardAvoider.react";
 import KeyboardConditional from "./Common/KeyboardConditional.react";
@@ -67,7 +66,6 @@ export {
   BottomSheet,
   EmojiBullet,
   Icon,
-  IconCard,
   InTextButtons,
   KeyboardAvoider,
   KeyboardConditional,
