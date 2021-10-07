@@ -21,46 +21,38 @@ interface Props {
   picture?: JSX.Element;
   titleColor?: string;
   subtitleColor?: string;
-  size?: "small" | "large";
   touchable?: boolean;
+  elevated?: boolean;
   onPress?: (() => void) | (() => Promise<void>);
 }
 
 const Styles = StyleSheet.create({
-  smallBackground: {
-    flexDirection: "row",
-    ...Spacing.padding,
-    ...Spacing.marginBottom,
-    borderWidth: 2,
-    borderColor: Colors.GRAY_200,
-    backgroundColor: Colors.WHITE_BACKGROUND,
-    ...GlobalStyles.rounded,
-    alignItems: "center",
+  elevatedBorder: {
+    ...GlobalStyles.shadow,
   },
-  largeBackground: {
+  flatBorder: {
+    borderWidth: 2,
+    borderColor: Colors.BLACK_06,
+
+  },
+  background: {
     flexDirection: "row",
     ...Spacing.largePadding,
-    ...Spacing.largeMarginBottom,
-    backgroundColor: Colors.WHITE_BACKGROUND,
+    ...Spacing.marginBottom,
+    backgroundColor: Colors.WHITE,
     ...GlobalStyles.rounded,
-    ...GlobalStyles.shadow,
     alignItems: "center",
   },
   textContainer: {
     flex: 1,
   },
-  smallImageContainer: {
+  imageContainer: {
     width: 40,
     height: 40,
     borderRadius: 20,
     overflow: "hidden",
   },
-  largeImageContainer: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    overflow: "hidden",
-  },
+
 });
 
 const ContactCard: React.FC<Props> = ({
@@ -70,15 +62,15 @@ const ContactCard: React.FC<Props> = ({
   picture,
   titleColor,
   subtitleColor,
-  size,
   touchable,
+  elevated,
   onPress,
 }: Props) => {
   return (
     <TouchableOpacity
       disabled={!touchable}
       activeOpacity={touchable ? undefined : 1.0}
-      style={size === "large" ? Styles.largeBackground : Styles.smallBackground}
+      style={[Styles.background, elevated ? Styles.elevatedBorder : Styles.flatBorder]}
       onPress={() => {
         if (onPress) onPress();
       }}
@@ -88,9 +80,7 @@ const ContactCard: React.FC<Props> = ({
           source={{ uri }}
           viewStyle={[
             Spacing.largeMarginRight,
-            size === "large"
-              ? Styles.largeImageContainer
-              : Styles.smallImageContainer,
+            Styles.imageContainer,
           ]}
         />
       )}
@@ -106,10 +96,10 @@ const ContactCard: React.FC<Props> = ({
         />
       )}
       <View style={Styles.textContainer}>
-        <Body size={size === "large" ? 2 : 3} bold color={titleColor || "dark"}>
+        <Body size={3} bold color={titleColor || "dark"}>
           {getFullName(persona)}
         </Body>
-        <Body size={size === "large" ? 2 : 3} color={subtitleColor || "dark"}>
+        <Body size={3} color={subtitleColor || "dark"} style={{ marginTop: -2 }}>
           {subtitle}
         </Body>
       </View>
