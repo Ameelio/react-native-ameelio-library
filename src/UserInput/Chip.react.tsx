@@ -66,6 +66,7 @@ const Chip: React.FC<Props> = ({
       <TouchableOpacity
         style={[
           Styles.timeChipBackground,
+          !!image && { paddingVertical: 7 },
           square ? { borderRadius: 4 } : { borderRadius: 20 },
           backgroundStyle,
           style,
