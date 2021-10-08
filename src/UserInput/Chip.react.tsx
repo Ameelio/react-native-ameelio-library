@@ -66,6 +66,7 @@ const Chip: React.FC<Props> = ({
       <TouchableOpacity
         style={[
           Styles.timeChipBackground,
+          !!image && { paddingVertical: 7 }, // The image is 2px taller than text so we conditionally bump the vertical padding down from the standard 8px to 7px
           square ? { borderRadius: 4 } : { borderRadius: 20 },
           backgroundStyle,
           style,
