@@ -3,7 +3,6 @@ import React from "react";
 import { Body, Tooltip } from "@src";
 import CenterView from "../../helpers/CenterView.react";
 import { withKnobs } from "@storybook/addon-knobs";
-import { View } from "react-native";
 
 storiesOf("UserInput/Tooltip", module)
   .addDecorator((getStory) => <CenterView>{getStory() as any}</CenterView>)
@@ -11,12 +10,12 @@ storiesOf("UserInput/Tooltip", module)
   .add("Tooltip", () => {
     return (
       <>
-        <Tooltip width={100} height={100} text="Woah!" numLines={1} />
+        <Tooltip width={300} height={60} text="Your Ameelio+ Token balance.
+Get more in ‘Community’." />
         <Tooltip
-          width={100}
-          height={100}
-          text="Dynamic content is cool!"
-          numLines={3}
+          width={200}
+          height={52}
+          text="Your Free Credit balance. These replenish every week."
         >
           <Body>Dynamic content</Body>
         </Tooltip>

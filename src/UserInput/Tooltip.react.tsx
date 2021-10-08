@@ -5,7 +5,7 @@ import { Tooltip as TooltipElement } from "react-native-elements";
 import { GlobalStyles, Spacing } from "../Styles";
 import Icon from "../Common/Icon.react";
 import * as Colors from "../Brand/Colors";
-import Body from "../Typography/Body.react";
+import Caption from "../Typography/Caption.react";
 
 interface Props {
   children?: JSX.Element | JSX.Element[];
@@ -38,16 +38,16 @@ const Tooltip: React.FC<Props> = ({
   return (
     <TooltipElement
       popover={
-        <Body numLines={numLines} adjustSize={!!numLines} color="dark">
+        <Caption size={1} numLines={numLines} adjustSize={!!numLines} color="dark">
           {text}
-        </Body>
+        </Caption>
       }
       withPointer
       withOverlay={false}
       skipAndroidStatusBar={true}
-      backgroundColor={Colors.GRAY_100}
+      backgroundColor={Colors.WHITE}
       containerStyle={Styles.background}
-      pointerColor={Colors.GRAY_100}
+      pointerColor={Colors.WHITE}
       height={height}
       width={width}
       toggleOnPress
