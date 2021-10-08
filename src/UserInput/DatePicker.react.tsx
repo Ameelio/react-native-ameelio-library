@@ -7,8 +7,10 @@ import { GlobalStyles, Spacing } from "../Styles";
 import { StyleProp } from "react-native";
 import { useCallback } from "react";
 import Tooltip from "./Tooltip.react";
-import { addHours, addSeconds, isSameDay } from "date-fns";
-import { addDays } from "date-fns/esm";
+import { isSameDay } from "date-fns";
+import Next from "@src/UserInput/assets/Next";
+import Previous from "@src/UserInput/assets/Previous";
+import Icon from "@src/Common/Icon.react";
 
 interface Props {
   minDate: Date;
@@ -57,8 +59,8 @@ const generateStyles = (DATE_WIDTH: number) =>
     todayCircle: {
       position: "absolute",
       bottom: 2,
-      width: 6,
-      height: 6,
+      width: 4,
+      height: 4,
       borderRadius: 3,
       backgroundColor: Colors.BLUE_500,
     },
@@ -174,6 +176,7 @@ const DatePicker: React.FC<Props> = ({
                   backgroundColor: color === "dark" ? Colors.GRAY_700 : color,
                 },
               ]}
+
             />
           )}
           {isCrossed && renderCross({ position: "absolute" })}
@@ -200,7 +203,12 @@ const DatePicker: React.FC<Props> = ({
         onDayPress={(date) => {
           setChosenDate(new Date(date.dateString));
         }}
-        style={{ width: DATE_WIDTH * 8 }}
+        style={{ width: DATE_WIDTH * 10 }}
+        theme={{ textMonthFontWeight: "700", textDayHeaderFontFamily: "Inter_700Bold", textDayHeaderFontSize: 12 }}
+        renderArrow={(direction) => (
+          <View style={{ width: 20, height: 20 }}>
+            {direction === "left" ? <Icon svg={Previous} /> : <Icon svg={Next} />}
+          </View>)}
       />
       {showKey && (
         <View
