@@ -34,30 +34,29 @@ const Styles = StyleSheet.create({
   trueBackground: {
     width: "100%",
     ...Spacing.paddingBottom,
+    ...Spacing.smallPaddingHorizontal,
     overflow: 'hidden'
   },
   background: {
     width: "100%",
-    // ...Spacing.padding,
     ...GlobalStyles.rounded,
-    borderWidth: 2,
     height: 50,
   },
   primaryBackground: {
     backgroundColor: Colors.RED_400,
-    borderColor: Colors.RED_400,
+    ...GlobalStyles.shadow,
+
   },
   secondaryBackground: {
     backgroundColor: Colors.WHITE_BACKGROUND,
-    borderColor: Colors.WHITE_BACKGROUND,
+    ...GlobalStyles.shadow,
   },
   primaryDisabledBackground: {
     backgroundColor: Colors.RED_200,
-    borderColor: Colors.RED_200,
   },
   secondaryDisabledBackground: {
     backgroundColor: Colors.WHITE_BACKGROUND,
-    borderColor: Colors.WHITE_BACKGROUND,
+
   },
   linkBackground: {
     width: "100%",
@@ -106,14 +105,13 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     ],
     buttonStyle: [
       Styles.background,
-      GlobalStyles.shadow,
       getBackgroundStyle(),
-      props.noGrow ? { width: undefined } : {},
+      props.noGrow ? { ...Spacing.paddingVertical, ...Spacing.largePaddingHorizontal, width: undefined } : {},
       props.nav ? { borderRadius: 19, height: 40 } : {},
       props.buttonStyle,
     ],
     disabledStyle: props.secondary ? Styles.secondaryDisabledBackground : Styles.primaryDisabledBackground,
-    disabledTitleStyle: props.secondary ? {color: Colors.RED_200} : { color: Colors.WHITE },
+    disabledTitleStyle: props.secondary ? { color: Colors.RED_200 } : { color: Colors.WHITE },
     onPress: async () => {
       if (blocked) return;
       if (props.blocking) safelySetBlocked(true);
@@ -141,7 +139,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
           numLines={1}
           adjustSize
           style={[
-            props.disabled ? {color: Colors.RED_200} : Styles.secondaryForeground,
+            props.disabled ? { color: Colors.RED_200 } : Styles.secondaryForeground,
             props.noGrow ? { width: undefined } : {},
           ]}
         >
