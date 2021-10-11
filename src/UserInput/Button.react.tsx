@@ -48,11 +48,11 @@ const Styles = StyleSheet.create({
 
   },
   secondaryBackground: {
-    backgroundColor: Colors.WHITE_BACKGROUND,
+    backgroundColor: Colors.WHITE,
     ...GlobalStyles.shadow,
   },
   tertiaryBackground: {
-    backgroundColor: Colors.WHITE_BACKGROUND,
+    backgroundColor: Colors.WHITE,
     borderWidth: 1,
     borderColor: Colors.BLACK_06
   },
@@ -60,7 +60,7 @@ const Styles = StyleSheet.create({
     backgroundColor: Colors.RED_200,
   },
   secondaryDisabledBackground: {
-    backgroundColor: Colors.WHITE_BACKGROUND,
+    backgroundColor: Colors.WHITE,
 
   },
   linkBackground: {
