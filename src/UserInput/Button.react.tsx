@@ -16,7 +16,7 @@ import Header from "../Typography/Header.react";
 
 export interface ButtonProps extends ElementsButtonProps {
   title?: string;
-  secondary?: boolean;
+  rank?: "primary" | "secondary" | "tertiary";
   children?: string | string[];
   blocking?: boolean;
   onPress?: (() => void) | (() => Promise<void>);
@@ -50,6 +50,11 @@ const Styles = StyleSheet.create({
   secondaryBackground: {
     backgroundColor: Colors.WHITE_BACKGROUND,
     ...GlobalStyles.shadow,
+  },
+  tertiaryBackground: {
+    backgroundColor: Colors.WHITE_BACKGROUND,
+    borderWidth: 1,
+    borderColor: Colors.BLACK_06
   },
   primaryDisabledBackground: {
     backgroundColor: Colors.RED_200,
@@ -89,10 +94,14 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   };
 
   const getBackgroundStyle = () => {
-    if (props.disabled) return props.secondary ? Styles.secondaryDisabledBackground : Styles.primaryDisabledBackground;
-    return props.secondary
-      ? Styles.secondaryBackground
-      : Styles.primaryBackground;
+    if (props.disabled) {
+      return (!props.rank || props.rank === "primary")
+        ? Styles.primaryDisabledBackground : Styles.secondaryDisabledBackground;
+    } else {
+      return (!props.rank || props.rank === "primary")
+        ? Styles.primaryBackground : props.rank === "secondary" ? Styles.secondaryBackground
+          : Styles.tertiaryBackground;
+    }
   };
 
   const derivedProps: ButtonProps = {
@@ -110,8 +119,8 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       props.nav ? { borderRadius: 19, height: 40 } : {},
       props.buttonStyle,
     ],
-    disabledStyle: props.secondary ? Styles.secondaryDisabledBackground : Styles.primaryDisabledBackground,
-    disabledTitleStyle: props.secondary ? { color: Colors.RED_200 } : { color: Colors.WHITE },
+    disabledStyle: props.rank && props.rank in ["secondary", "tertiary"] ? Styles.secondaryDisabledBackground : Styles.primaryDisabledBackground,
+    disabledTitleStyle: props.rank && props.rank in ["secondary", "tertiary"] ? { color: Colors.RED_200 } : { color: Colors.WHITE },
     onPress: async () => {
       if (blocked) return;
       if (props.blocking) safelySetBlocked(true);
@@ -123,7 +132,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
         fontSize: props.nav ? 15 : 18,
         fontFamily: "Inter_600SemiBold",
       },
-      props.secondary ? Styles.secondaryForeground : Styles.primaryForeground,
+      (!props.rank || props.rank === "primary") ? Styles.primaryForeground : Styles.secondaryForeground,
       props.titleStyle,
     ],
     loading: blocked || props.loading,
@@ -135,7 +144,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       <TouchableOpacity onPress={props.onPress} style={Styles.linkBackground}>
         <Header
           size={5}
-          fontSize={props.linkSize}
+          fontSize={props.linkSize || 18}
           numLines={1}
           adjustSize
           style={[

@@ -25,7 +25,9 @@ storiesOf("UserInput/Button", module)
             Primary {"hello"} {"test"}
           </Button>
           <Divider />
-          <Button secondary>Secondary</Button>
+          <Button rank="secondary">Secondary</Button>
+          <Divider />
+          <Button rank="tertiary">Tertiary</Button>
           <Divider />
           <Button
             blocking
@@ -54,25 +56,25 @@ storiesOf("UserInput/Button", module)
   })
   .add("Button Duo", () => {
     return (
-      <View style={[Spacing.padding, { width: "100%" }]}>
+      <ScrollView style={[Spacing.padding, { width: "100%" }]}>
+        <ButtonDuo primaryText="Primary" secondaryText="Secondary" />
+        <Divider />
+        <ButtonDuo primaryText="Primary disabled" secondaryText="Secondary" primaryDisabled />
+        <Divider />
+        <ButtonDuo primaryText="Primary" secondaryText="Secondary disabled" secondaryDisabled />
+        <Divider />
         <ButtonDuo
           primaryText="Primary"
-          secondaryText="Secondary"
+          secondaryText="Secondary Link"
           secondaryLink
         />
         <Divider />
         <ButtonDuo
           primaryText="Primary"
-          secondaryText="Secondary"
+          secondaryText="Secondary Link Disabled"
           secondaryLink
           secondaryDisabled
         />
-        <Divider />
-        <ButtonDuo primaryText="Primary" secondaryText="Secondary" />
-        <Divider />
-        <ButtonDuo primaryText="Primary" secondaryText="Secondary" primaryDisabled />
-        <Divider />
-        <ButtonDuo primaryText="Primary" secondaryText="Secondary" secondaryDisabled />
-      </View>
+      </ScrollView>
     );
   });
