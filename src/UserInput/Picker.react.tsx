@@ -15,14 +15,14 @@ export interface Props {
   required?: boolean;
 }
 
-const Styles = StyleSheet.create({
+const Styles = (disabled: boolean) => StyleSheet.create({
   pickerContainer: {
-    backgroundColor: Colors.GRAY_100,
     ...Spacing.paddingHorizontal,
     ...Spacing.smallMarginBottom,
+    backgroundColor: disabled ? Colors.BLACK_06 : Colors.WHITE_25,
     ...GlobalStyles.rounded,
-    borderWidth: 2,
-    borderColor: "transparent",
+    borderWidth: 1,
+    borderColor: Colors.GRAY_200,
   },
   invalidBackground: {
     backgroundColor: Colors.RED_100,
@@ -37,26 +37,26 @@ const Styles = StyleSheet.create({
 const pickerStyles = (disabled: boolean) => {
   return StyleSheet.create({
     inputIOS: {
-      fontSize: 16,
+      fontSize: 13,
       fontFamily: "Inter_400Regular",
       color: Colors.GRAY_700,
       ...Spacing.paddingVertical,
-      height: 51,
+      height: 36,
     },
     inputAndroid: {
-      fontSize: 16,
+      fontSize: 13,
       fontFamily: "Inter_400Regular",
       color: Colors.GRAY_700,
       ...Spacing.paddingVertical,
-      height: 51,
+      height: 36,
     },
     placeholder: {
-      fontSize: 16,
-      color: disabled ? "rgb(201,201,201)" : "#9A9A9A",
+      fontSize: 13,
+      color: disabled ? Colors.BLACK_45 : Colors.GRAY_400,
     },
     iconContainer: {
-      top: 14,
-      right: 16,
+      top: 6,
+      right: 8,
     },
   });
 };
@@ -85,12 +85,12 @@ const Picker: React.FC<Props> = ({
   if (dirty) {
     checkValueStyle =
       !required || isValueSelected()
-        ? Styles.validBackground
-        : Styles.invalidBackground;
+        ? Styles(!!disabled).validBackground
+        : Styles(!!disabled).invalidBackground;
   }
 
   return (
-    <View style={[Styles.pickerContainer, checkValueStyle, style]}>
+    <View style={[Styles(!!disabled).pickerContainer, checkValueStyle, style]}>
       <RNPickerSelect
         key={value}
         placeholder={{ label: placeholder, value: "" }}
@@ -106,7 +106,7 @@ const Picker: React.FC<Props> = ({
         }}
         disabled={disabled}
         Icon={() => {
-          return <Entypo name="chevron-thin-down" size={16} color="gray" />;
+          return <Entypo name="chevron-down" size={24} color={Colors.GRAY_400} />;
         }}
       />
     </View>
