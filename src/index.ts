@@ -18,7 +18,7 @@ import KeyboardAvoider from "./Common/KeyboardAvoider.react";
 import KeyboardConditional from "./Common/KeyboardConditional.react";
 import Tag from "./Common/Tag.react";
 import Toast, { ToastInfo, ToastTypes } from "./Common/Toast.react";
-import Topbar, { TopbarInfo, TopbarTypes } from "./Common/Topbar.react";
+import AlertBanner, { AlertBannerInfo, AlertBannerTypes } from "./Common/AlertBanner.react";
 
 /* Persona */
 import Initials from "./Persona/Initials.react";
@@ -73,9 +73,9 @@ export {
   Toast,
   ToastInfo,
   ToastTypes,
-  Topbar,
-  TopbarInfo,
-  TopbarTypes,
+  AlertBanner,
+  AlertBannerInfo,
+  AlertBannerTypes,
 };
 
 /* Persona */
