@@ -11,6 +11,7 @@ import {
   radios,
   color,
 } from "@storybook/addon-knobs";
+import { View } from "react-native";
 
 const sizeOptions = {
   range: true,
@@ -38,22 +39,60 @@ storiesOf("Typography/Caption", module)
   ))
   .add("Colors", () => (
     <>
-      <Caption size={1}>Dark</Caption>
-      <Caption size={1} color="secondary">
-        Secondary
-      </Caption>
-      <Caption size={1} color="success">
-        Success
-      </Caption>
-      <Caption size={1} color="warning">
-        Warning
-      </Caption>
-      <Caption size={1} color="error">
-        Error
-      </Caption>
-      <Caption size={1} color="white">
-        White
-      </Caption>
+      <View>
+        <Caption size={1}>Dark, Size 1</Caption>
+        <Caption size={1} color="secondary">
+          Secondary
+        </Caption>
+        <Caption size={1} color="success">
+          Success
+        </Caption>
+        <Caption size={1} color="warning">
+          Warning
+        </Caption>
+        <Caption size={1} color="error">
+          Error
+        </Caption>
+        <Caption size={1} color="white">
+          White
+        </Caption>
+      </View>
+      <View>
+        <Caption size={2}>Dark, Size 2</Caption>
+        <Caption size={2} color="secondary">
+          Secondary
+        </Caption>
+        <Caption size={2} color="success">
+          Success
+        </Caption>
+        <Caption size={2} color="warning">
+          Warning
+        </Caption>
+        <Caption size={2} color="error">
+          Error
+        </Caption>
+        <Caption size={2} color="white">
+          White
+        </Caption>
+      </View>
+      <View>
+        <Caption size={3}>Dark, Size 3</Caption>
+        <Caption size={3} color="secondary">
+          Secondary
+        </Caption>
+        <Caption size={3} color="success">
+          Success
+        </Caption>
+        <Caption size={3} color="warning">
+          Warning
+        </Caption>
+        <Caption size={3} color="error">
+          Error
+        </Caption>
+        <Caption size={3} color="white">
+          White
+        </Caption>
+      </View>
     </>
   ))
   .add("Custom", () => (
