@@ -40,24 +40,27 @@ const InTextButtons: React.FC<Props> = ({
     <Text style={containerStyle}>
       {calculatedBlocks.map((block, index) => {
         return (
-          <TouchableOpacity
-            disabled={block.type === "text"}
-            onPress={() => {
-              if (block.onPress) block.onPress();
-            }}
-            key={block.text + index.toString()}
-          >
-            <Body
-              style={
-                block.type === "text" ? textStyle || {} : buttonStyle || {}
-              }
-              bold={block.type === "button"}
-              numLines={1}
-              adjustSize
+          <Text>
+            <TouchableOpacity
+              disabled={block.type === "text"}
+              onPress={() => {
+                if (block.onPress) block.onPress();
+              }}
+              key={block.text + index.toString()}
             >
-              {block.text}{" "}
-            </Body>
-          </TouchableOpacity>
+              <Body
+                style={
+                  block.type === "text" ? textStyle || {} : buttonStyle || {}
+                }
+                bold={block.type === "button"}
+                numLines={1}
+                adjustSize
+              >
+                {block.text}
+              </Body>
+            </TouchableOpacity>
+            {" "}
+          </Text>
         );
       })}
     </Text>
@@ -69,6 +72,8 @@ InTextButtons.defaultProps = {
     textDecorationLine: "underline",
     color: Colors.BLUE_500,
     fontSize: 14,
+
+
   },
   textStyle: {
     fontSize: 14,
