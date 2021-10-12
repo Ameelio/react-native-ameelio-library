@@ -72,8 +72,6 @@ InTextButtons.defaultProps = {
     textDecorationLine: "underline",
     color: Colors.BLUE_500,
     fontSize: 14,
-
-
   },
   textStyle: {
     fontSize: 14,
