@@ -80,6 +80,7 @@ const Styles = StyleSheet.create({
 const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   const mounted = useRef(true);
   const [blocked, setBlocked] = useState(false);
+  const rank = props.rank || "primary";
 
   useEffect(() => {
     mounted.current = true;
@@ -95,11 +96,11 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
 
   const getBackgroundStyle = () => {
     if (props.disabled) {
-      return (!props.rank || props.rank === "primary")
+      return rank === "primary"
         ? Styles.primaryDisabledBackground : Styles.secondaryDisabledBackground;
     } else {
-      return (!props.rank || props.rank === "primary")
-        ? Styles.primaryBackground : props.rank === "secondary" ? Styles.secondaryBackground
+      return rank === "primary"
+        ? Styles.primaryBackground : rank === "secondary" ? Styles.secondaryBackground
           : Styles.tertiaryBackground;
     }
   };
@@ -119,8 +120,8 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       props.nav ? { borderRadius: 19, height: 40 } : {},
       props.buttonStyle,
     ],
-    disabledStyle: props.rank && props.rank in ["secondary", "tertiary"] ? Styles.secondaryDisabledBackground : Styles.primaryDisabledBackground,
-    disabledTitleStyle: props.rank && props.rank in ["secondary", "tertiary"] ? { color: Colors.RED_200 } : { color: Colors.WHITE },
+    disabledStyle: rank === "primary" ? Styles.primaryDisabledBackground : Styles.secondaryDisabledBackground,
+    disabledTitleStyle: rank === "primary" ? { color: Colors.WHITE } : { color: Colors.RED_200 },
     onPress: async () => {
       if (blocked) return;
       if (props.blocking) safelySetBlocked(true);
@@ -132,7 +133,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
         fontSize: props.nav ? 15 : 18,
         fontFamily: "Inter_600SemiBold",
       },
-      (!props.rank || props.rank === "primary") ? Styles.primaryForeground : Styles.secondaryForeground,
+      rank === "primary" ? Styles.primaryForeground : Styles.secondaryForeground,
       props.titleStyle,
     ],
     loading: blocked || props.loading,
