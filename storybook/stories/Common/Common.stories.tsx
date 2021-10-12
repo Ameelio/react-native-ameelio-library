@@ -11,7 +11,7 @@ import {
   KeyboardConditional,
   Tag,
   Toast,
-  Topbar,
+  AlertBanner,
 } from "@src";
 import CenterView from "../../helpers/CenterView.react";
 import Star from "./assets/Star";
@@ -163,37 +163,50 @@ storiesOf("Common", module)
       />
     </>
   ))
-  .add("Topbar", () => (
+  .add("AlertBanner", () => (
     <>
-      <Topbar
+      <AlertBanner
         style={{ top: 20 }}
-        type={radios(
-          "type",
-          {
-            error: "error",
-            warning: "warning",
-            success: "success",
-            info: "info",
-          },
-          "error"
-        )}
-        title={"Add a contact to send your first Ameelio."}
-        cta={"Tap here to add a contact."}
-        rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "X")}
+        type={"error"}
+        title={"Something went wrong."}
+        cta={"Tap to close."}
+        rightIcon={"X"}
       />
-      <Topbar
-        style={{ top: 100 }}
+      <AlertBanner
+        style={{ top: 120 }}
+        type={"warning"}
+        title={"Something threw a warning."}
+        cta={"Tap to view details."}
+        rightIcon={"arrow"}
+      />
+      <AlertBanner
+        style={{ top: 220 }}
+        type={"success"}
+        title={"Successfully added Contact."}
+        cta=""
+        rightIcon={"X"}
+      />
+      <AlertBanner
+        style={{ top: 320 }}
         type={"info"}
         title={"Add a contact to send your first Ameelio."}
         cta={"Tap here to add a contact."}
-        rightIcon={radios("rightIcon", { arrow: "arrow", X: "X" }, "rightIcon")}
+        rightIcon={"arrow"}
       />
-      <Topbar
-        style={{ top: 180, height: 50 }}
+
+      <AlertBanner
+        style={{ top: 420, height: 50 }}
         type={"info"}
         title={"Let us know..."}
         cta={"Did Anthony receive your Ameelio?"}
         rightIcon={"arrow"}
+      />
+      <AlertBanner
+        style={{ top: 520, height: 50 }}
+        type={"info"}
+        title={"Let us know..."}
+        cta={"Did Anthony receive your Ameelio?"}
+        rightIcon={"X"}
       />
     </>
   ));

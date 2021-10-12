@@ -17,10 +17,10 @@ import Icon from "./Icon.react";
 // for color while still preserving autocomplete for X or next icons
 type CustomIcon = string & { dummy?: never };
 
-export type TopbarTypes = "error" | "warning" | "success" | "info";
+export type AlertBannerTypes = "error" | "warning" | "success" | "info";
 
-export interface TopbarInfo {
-  type: TopbarTypes;
+export interface AlertBannerInfo {
+  type: AlertBannerTypes;
   title: string;
   cta: string;
   onPress?: (() => void) | (() => Promise<void>);
@@ -29,14 +29,14 @@ export interface TopbarInfo {
   style?: StyleProp<ViewStyle>;
 }
 
-const mapTypeToColors: Record<TopbarTypes, { bg: string; fg: string }> = {
+const mapTypeToColors: Record<AlertBannerTypes, { bg: string; fg: string }> = {
   error: {
     bg: Colors.RED_100,
     fg: Colors.RED_600,
   },
   warning: {
     bg: Colors.YELLOW_100,
-    fg: Colors.YELLOW_600,
+    fg: Colors.YELLOW_500,
   },
   success: {
     bg: Colors.GREEN_100,
@@ -76,7 +76,7 @@ const Styles = StyleSheet.create({
   },
 });
 
-const Topbar: React.FC<TopbarInfo> = ({
+const AlertBanner: React.FC<AlertBannerInfo> = ({
   type,
   title,
   cta,
@@ -123,4 +123,4 @@ const Topbar: React.FC<TopbarInfo> = ({
   );
 };
 
-export default Topbar;
+export default AlertBanner;
