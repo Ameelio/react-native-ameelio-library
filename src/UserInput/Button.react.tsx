@@ -16,7 +16,7 @@ import Header from "../Typography/Header.react";
 
 export interface ButtonProps extends ElementsButtonProps {
   title?: string;
-  secondary?: boolean;
+  rank?: "primary" | "secondary" | "tertiary";
   children?: string | string[];
   blocking?: boolean;
   onPress?: (() => void) | (() => Promise<void>);
@@ -34,30 +34,34 @@ const Styles = StyleSheet.create({
   trueBackground: {
     width: "100%",
     ...Spacing.paddingBottom,
+    ...Spacing.smallPaddingHorizontal,
     overflow: 'hidden'
   },
   background: {
     width: "100%",
-    // ...Spacing.padding,
     ...GlobalStyles.rounded,
-    borderWidth: 2,
     height: 50,
   },
   primaryBackground: {
     backgroundColor: Colors.RED_400,
-    borderColor: Colors.RED_400,
+    ...GlobalStyles.shadow,
+
   },
   secondaryBackground: {
-    backgroundColor: Colors.WHITE_BACKGROUND,
-    borderColor: Colors.WHITE_BACKGROUND,
+    backgroundColor: Colors.WHITE,
+    ...GlobalStyles.shadow,
+  },
+  tertiaryBackground: {
+    backgroundColor: Colors.WHITE,
+    borderWidth: 1,
+    borderColor: Colors.BLACK_06
   },
   primaryDisabledBackground: {
     backgroundColor: Colors.RED_200,
-    borderColor: Colors.RED_200,
   },
   secondaryDisabledBackground: {
-    backgroundColor: Colors.WHITE_BACKGROUND,
-    borderColor: Colors.WHITE_BACKGROUND,
+    backgroundColor: Colors.WHITE,
+
   },
   linkBackground: {
     width: "100%",
@@ -76,6 +80,7 @@ const Styles = StyleSheet.create({
 const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   const mounted = useRef(true);
   const [blocked, setBlocked] = useState(false);
+  const rank = props.rank || "primary";
 
   useEffect(() => {
     mounted.current = true;
@@ -90,10 +95,14 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   };
 
   const getBackgroundStyle = () => {
-    if (props.disabled) return props.secondary ? Styles.secondaryDisabledBackground : Styles.primaryDisabledBackground;
-    return props.secondary
-      ? Styles.secondaryBackground
-      : Styles.primaryBackground;
+    if (props.disabled) {
+      return rank === "primary"
+        ? Styles.primaryDisabledBackground : Styles.secondaryDisabledBackground;
+    } else {
+      return rank === "primary"
+        ? Styles.primaryBackground : rank === "secondary" ? Styles.secondaryBackground
+          : Styles.tertiaryBackground;
+    }
   };
 
   const derivedProps: ButtonProps = {
@@ -106,14 +115,13 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     ],
     buttonStyle: [
       Styles.background,
-      GlobalStyles.shadow,
       getBackgroundStyle(),
-      props.noGrow ? { width: undefined } : {},
+      props.noGrow ? { ...Spacing.paddingVertical, ...Spacing.largePaddingHorizontal, width: undefined } : {},
       props.nav ? { borderRadius: 19, height: 40 } : {},
       props.buttonStyle,
     ],
-    disabledStyle: props.secondary ? Styles.secondaryDisabledBackground : Styles.primaryDisabledBackground,
-    disabledTitleStyle: props.secondary ? {color: Colors.RED_200} : { color: Colors.WHITE },
+    disabledStyle: rank === "primary" ? Styles.primaryDisabledBackground : Styles.secondaryDisabledBackground,
+    disabledTitleStyle: rank === "primary" ? { color: Colors.WHITE } : { color: Colors.RED_200 },
     onPress: async () => {
       if (blocked) return;
       if (props.blocking) safelySetBlocked(true);
@@ -125,7 +133,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
         fontSize: props.nav ? 15 : 18,
         fontFamily: "Inter_600SemiBold",
       },
-      props.secondary ? Styles.secondaryForeground : Styles.primaryForeground,
+      rank === "primary" ? Styles.primaryForeground : Styles.secondaryForeground,
       props.titleStyle,
     ],
     loading: blocked || props.loading,
@@ -137,11 +145,11 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       <TouchableOpacity onPress={props.onPress} style={Styles.linkBackground}>
         <Header
           size={5}
-          fontSize={props.linkSize}
+          fontSize={props.linkSize || 18}
           numLines={1}
           adjustSize
           style={[
-            props.disabled ? {color: Colors.RED_200} : Styles.secondaryForeground,
+            props.disabled ? { color: Colors.RED_200 } : Styles.secondaryForeground,
             props.noGrow ? { width: undefined } : {},
           ]}
         >

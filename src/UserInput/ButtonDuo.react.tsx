@@ -33,7 +33,7 @@ const ButtonDuo: React.FC<Props> = ({
   style,
 }) => {
   return (
-    <View style={[{ width: "100%", ...Spacing.paddingBottom}, style]}>
+    <View style={[{ width: "100%", ...Spacing.paddingBottom }, style]}>
       <Button
         onPress={onPrimaryPress}
         blocking={primaryBlocking}
@@ -49,7 +49,7 @@ const ButtonDuo: React.FC<Props> = ({
         blocking={secondaryBlocking}
         loading={secondaryLoading}
         disabled={secondaryDisabled}
-        secondary={!secondaryLink}
+        rank="secondary"
         link={secondaryLink}
         linkSize={16}
         style={[Spacing.marginTop]}

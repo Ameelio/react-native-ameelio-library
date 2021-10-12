@@ -1,9 +1,9 @@
 import { storiesOf } from "@storybook/react-native";
 import React from "react";
-import { Spacing, Divider, Button, ButtonDuo } from "@src";
+import { Spacing, Divider, Button, ButtonDuo, Body, Caption } from "@src";
 import CenterView from "../../helpers/CenterView.react";
 import { withKnobs } from "@storybook/addon-knobs";
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 
 function sleep(ms: number, error = false): Promise<void> {
   return new Promise((resolve, reject) =>
@@ -19,55 +19,62 @@ storiesOf("UserInput/Button", module)
   .addDecorator(withKnobs)
   .add("Buttons", () => {
     return (
-      <View style={{ width: "100%", ...Spacing.largePaddingHorizontal }}>
-        <Button>
-          Primary {"hello"} {"test"}
-        </Button>
-        <Divider />
-        <Button secondary>Secondary</Button>
-        <Divider />
-        <Button
-          blocking
-          onPress={async () => {
-            await sleep(1000);
-          }}
-        >
-          Blocking
-        </Button>
-        <Divider />
-        <Button disabled>Disabled</Button>
-        <Divider />
-        <Button nav noGrow>
-          Save
-        </Button>
-        <Divider />
-        <Button link>Link</Button>
-        <Divider />
-        <Button loading>Override loading</Button>
-      </View>
+      <>
+        <ScrollView style={{ marginVertical: 0, width: "100%" }}>
+          <Button>
+            Primary {"hello"} {"test"}
+          </Button>
+          <Divider />
+          <Button rank="secondary">Secondary</Button>
+          <Divider />
+          <Button rank="tertiary">Tertiary</Button>
+          <Divider />
+          <Button
+            blocking
+            onPress={async () => {
+              await sleep(1000);
+            }}
+          >
+            Blocking
+          </Button>
+          <Divider />
+          <Button disabled>Disabled</Button>
+          <Divider />
+          <Button nav noGrow>
+            Save
+          </Button>
+          <Divider />
+          <Button link>Link</Button>
+          <Divider />
+          <Button loading>Override loading</Button>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, i: number) => <View key={i} style={Spacing.largePaddingVertical}><Body size={1}> Scroll Filler...</Body></View>)}
+        </ScrollView>
+        <Button style={{ marginBottom: 24 }}>
+          Below ScrollView</Button>
+      </>
     );
   })
   .add("Button Duo", () => {
     return (
-      <View style={[Spacing.padding, { width: "100%" }]}>
+      <ScrollView style={[Spacing.padding, { width: "100%" }]}>
+        <ButtonDuo primaryText="Primary" secondaryText="Secondary" />
+        <Divider />
+        <ButtonDuo primaryText="Primary disabled" secondaryText="Secondary" primaryDisabled />
+        <Divider />
+        <ButtonDuo primaryText="Primary" secondaryText="Secondary disabled" secondaryDisabled />
+        <Divider />
         <ButtonDuo
           primaryText="Primary"
-          secondaryText="Secondary"
+          secondaryText="Secondary Link"
           secondaryLink
         />
         <Divider />
         <ButtonDuo
           primaryText="Primary"
-          secondaryText="Secondary"
+          secondaryText="Secondary Link Disabled"
           secondaryLink
           secondaryDisabled
         />
-        <Divider />
-        <ButtonDuo primaryText="Primary" secondaryText="Secondary" />
-        <Divider />
-        <ButtonDuo primaryText="Primary" secondaryText="Secondary" primaryDisabled/>
-        <Divider />
-        <ButtonDuo primaryText="Primary" secondaryText="Secondary" secondaryDisabled/>
-      </View>
+      </ScrollView>
     );
   });
