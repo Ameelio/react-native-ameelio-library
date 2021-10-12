@@ -12,7 +12,7 @@ import Header from '../Typography/Header.react';
 import Body from '../Typography/Body.react';
 import { Spacing, GlobalStyles } from "../Styles";
 import * as Colors from '../Brand/Colors';
- 
+
 interface Props {
   image: string;
   local?: boolean;
@@ -25,62 +25,61 @@ interface Props {
   active?: boolean;
   containerStyle?: ViewStyle | ViewStyle[];
 }
- 
+
 const CardStyles = StyleSheet.create({
-    shadow: {
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 4,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 5,
+  shadow: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
     },
-    cardSelectedBackground: {
-      borderWidth: 3,
-      ...GlobalStyles.rounded,
-      borderColor: Colors.RED_500,
-    },
-    premiumCardBox: {
-      width: '100%',
-      height: '100%',
-      ...GlobalStyles.rounded,
-      zIndex: 6,
-      borderColor: '#DCDCDC',
-      borderWidth: 1,
-      backgroundColor: Colors.WHITE,
-    },
-    verticalCardImage: {
-      borderTopLeftRadius: 8,
-      borderTopRightRadius: 8,
-      height: '70%',
-      width: '100%',
-      resizeMode: 'cover',
-      overflow: 'hidden',
-    },
-    premiumCardBox2: {
-      backgroundColor: Colors.WHITE,
-      position: 'absolute',
-      top: 4,
-      left: 4,
-      elevation: 5,
-      zIndex: 5,
-      borderColor: '#DCDCDC',
-      borderWidth: 1,
-    },
-    premiumCardBox3: {
-      backgroundColor: Colors.WHITE,
-      position: 'absolute',
-      top: 8,
-      left: 8,
-      elevation: 4,
-      zIndex: 4,
-      borderColor: '#DCDCDC',
-      borderWidth: 1,
-    },
-   });
- 
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  cardSelectedBackground: {
+    borderWidth: 3,
+    ...GlobalStyles.rounded,
+    borderColor: Colors.RED_500,
+  },
+  premiumCardBox: {
+    width: '100%',
+    height: '100%',
+    ...GlobalStyles.rounded,
+    zIndex: 6,
+    borderColor: '#DCDCDC',
+    backgroundColor: Colors.WHITE,
+  },
+  verticalCardImage: {
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+    height: '70%',
+    width: '100%',
+    resizeMode: 'cover',
+    overflow: 'hidden',
+  },
+  premiumCardBox2: {
+    backgroundColor: Colors.WHITE,
+    position: 'absolute',
+    top: 4,
+    left: 4,
+    elevation: 5,
+    zIndex: 5,
+    borderColor: '#DCDCDC',
+    borderWidth: 1,
+  },
+  premiumCardBox3: {
+    backgroundColor: Colors.WHITE,
+    position: 'absolute',
+    top: 8,
+    left: 8,
+    elevation: 4,
+    zIndex: 4,
+    borderColor: '#DCDCDC',
+    borderWidth: 1,
+  },
+});
+
 const LargeVerticalCard: React.FC<Props> = ({
   title,
   subtitle,
@@ -104,13 +103,13 @@ const LargeVerticalCard: React.FC<Props> = ({
     img = !local ? (
       <AsyncImage
         download
-        source={{uri: image}}
+        source={{ uri: image }}
         viewStyle={CardStyles.verticalCardImage}
         local={local}
       />
     ) : (
       <ImageComponent
-        source={{uri: image}}
+        source={{ uri: image }}
         style={CardStyles.verticalCardImage}
       />
     );
@@ -132,7 +131,7 @@ const LargeVerticalCard: React.FC<Props> = ({
             justifyContent: 'space-between',
           }}
         >
-          <Header color={Colors.GRAY_700} size={4} numLines={1} style={{textTransform: 'capitalize'}}>
+          <Header color={Colors.GRAY_700} size={4} numLines={1} style={{ textTransform: 'capitalize' }}>
             {title}
           </Header>
           <View
@@ -184,7 +183,7 @@ const LargeVerticalCard: React.FC<Props> = ({
     </TouchableOpacity>
   );
 };
- 
+
 LargeVerticalCard.defaultProps = {
   threeDimensional: false,
   local: false,
@@ -193,5 +192,5 @@ LargeVerticalCard.defaultProps = {
   active: false,
   containerStyle: {},
 };
- 
+
 export default LargeVerticalCard;
