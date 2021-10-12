@@ -12,8 +12,10 @@ import { Input as ElementsInput, InputProps } from "react-native-elements";
 import { GlobalStyles, Spacing } from "../Styles";
 import * as Colors from "../Brand/Colors";
 import Eye from "./assets/SecureEye";
+import Required from "./assets/Required";
 import Icon from "../Common/Icon.react";
 import Body from "../Typography/Body.react";
+import { Caption } from "@src";
 
 export type BaseInput = ElementsInput;
 
@@ -33,6 +35,8 @@ interface Props extends TextInputProps, InputProps {
   disabled?: boolean;
   containerStyle?: StyleProp<ViewStyle>;
   hideValidityFeedback?: boolean;
+  description?: string;
+  movePlaceholderOnInput?: boolean
 }
 
 const Styles = StyleSheet.create({
@@ -41,16 +45,14 @@ const Styles = StyleSheet.create({
     ...Spacing.paddingHorizontal,
     ...Spacing.smallMarginBottom,
     ...GlobalStyles.rounded,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: Colors.BLACK_06,
   },
   invalidBackground: {
-    backgroundColor: Colors.RED_100,
-    borderColor: Colors.RED_700,
+    borderColor: Colors.RED_200,
   },
-  validBackground: {
-    backgroundColor: Colors.GREEN_100,
-    borderColor: Colors.GREEN_700,
+  invalidFocusedBackground: {
+    borderColor: Colors.RED_600,
   },
   inputContainerStyle: {
     borderBottomWidth: 0,
@@ -58,20 +60,17 @@ const Styles = StyleSheet.create({
   inputStyle: {
     fontFamily: "Inter_400Regular",
     fontSize: 16,
-    color: Colors.GRAY_700,
-  },
-  invalidForeground: {
-    color: Colors.GRAY_500,
-  },
-  validForeground: {
-    color: Colors.GRAY_700,
   },
   errorMessageContainer: {
     width: "100%",
-    justifyContent: "center",
-    alignItems: "center",
     ...Spacing.smallMarginBottom,
   },
+  placeholderSmall: {
+    color: Colors.GRAY_400
+  },
+  placeholderSmallInvalid: {
+    color: Colors.RED_600
+  }
 });
 
 const Input: React.FC<Props> = (props: Props) => {
@@ -83,13 +82,8 @@ const Input: React.FC<Props> = (props: Props) => {
   };
 
   const getValidityBackground = (): ViewStyle => {
-    if (!dirty || focused) return {};
-    return valid ? Styles.validBackground : Styles.invalidBackground;
-  };
-
-  const getValidityForeground = (): TextStyle => {
-    if (!dirty || focused) return {};
-    return valid ? Styles.validForeground : Styles.invalidForeground;
+    if (!dirty || valid) return {};
+    return focused ? Styles.invalidFocusedBackground : Styles.invalidBackground;
   };
 
   const [value, setValue] = useState(props.initialValue || "");
@@ -129,9 +123,15 @@ const Input: React.FC<Props> = (props: Props) => {
       props.inputContainerStyle,
     ],
     inputStyle: [
+      (props.placeholder && !!props.movePlaceholderOnInput && value !== "") ? {
+        marginTop: 8,
+        marginBottom: -8,
+      } : {},
+      value !== "" ? {
+        color: Colors.GRAY_700
+      } : { color: Colors.BLACK_45 },
       Styles.inputStyle,
-      props.multiline ? {} : { height: 51 },
-      props.hideValidityFeedback ? {} : getValidityForeground(),
+
       { textAlignVertical: props.multiline ? "top" : "center" },
       props.inputStyle,
     ],
@@ -152,11 +152,19 @@ const Input: React.FC<Props> = (props: Props) => {
 
   return (
     <>
+      {props.placeholder && !!props.movePlaceholderOnInput && value !== "" && <View style={{ paddingLeft: 8, marginBottom: -16, zIndex: 999 } /*Negative margin places text inside input window*/}>
+        <Caption size={3} style={!dirty || valid ? Styles.placeholderSmall : Styles.placeholderSmallInvalid}>
+          {props.placeholder}
+        </Caption>
+      </View>}
       <ElementsInput
         value={value}
+        style={props.multiline ? {} : { height: 44 }}
         ref={props.inputRef}
+        inputContainerStyle={{ marginTop: 20 }}
         {...derivedProps}
         errorMessage={undefined}
+        leftIcon={props.required && <Icon svg={Required} width={10} height="8px" />}
         rightIcon={
           props.secure ? (
             <TouchableOpacity
@@ -170,13 +178,23 @@ const Input: React.FC<Props> = (props: Props) => {
         }
         secureTextEntry={secureText}
       />
-      {!valid && dirty && props.errorMessage && (
-        <View style={Styles.errorMessageContainer}>
-          <Body color="error" bold>
-            {props.errorMessage}
-          </Body>
+      {props.description && (
+        <View>
+          <Caption size={3} style={{ color: Colors.BLACK_65 }}>
+            {props.description}
+          </Caption>
         </View>
-      )}
+      )
+      }
+      {
+        !valid && props.errorMessage && (
+          <View style={Styles.errorMessageContainer}>
+            <Caption size={3} color={Colors.RED_600} bold>
+              {props.errorMessage}
+            </Caption>
+          </View>
+        )
+      }
     </>
   );
 };
