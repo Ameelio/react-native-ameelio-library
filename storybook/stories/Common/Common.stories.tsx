@@ -26,6 +26,7 @@ import {
   withKnobs,
 } from "@storybook/addon-knobs";
 import TestIcon from "./TestIcon";
+import * as Colors from "@src/Brand/Colors";
 
 storiesOf("Common", module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
@@ -112,17 +113,34 @@ storiesOf("Common", module)
   .add("InTextButtons", () => (
     <>
       <InTextButtons
-        buttonStyle={{
-          fontSize: 16,
-          textDecorationLine: "underline",
-        }}
         blocks={[
-          { type: "text", text: "text" },
+          { type: "text", text: "default-styled" },
           {
             type: "button",
             text: "button",
             onPress: () => { },
           },
+          { type: "text", text: "text" },
+        ]}
+      />
+      <InTextButtons
+        textStyle={{
+          fontSize: 16,
+        }}
+        buttonStyle={{
+          fontSize: 20,
+          color: Colors.GREEN_400,
+          fontFamily: "Inter_600SemiBold"
+        }}
+
+        blocks={[
+          { type: "text", text: "custom-styled" },
+          {
+            type: "button",
+            text: "button",
+            onPress: () => { },
+          },
+          { type: "text", text: "text" },
         ]}
       />
     </>
