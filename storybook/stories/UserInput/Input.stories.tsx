@@ -114,6 +114,7 @@ storiesOf("UserInput/Input", module)
       <View style={{ width: "100%" }}>
         <Input inputRef={ref} placeholder="Placeholder" />
         <Input inputRef={ref} placeholder="Disabled" disabled />
+        <Input inputRef={ref} placeholder="Required" required />
         <Divider />
         {renderInputManipulators(ref)}
       </View>
@@ -122,50 +123,39 @@ storiesOf("UserInput/Input", module)
   .add("Single Line Validation", () => {
     return (
       <ScrollView style={{ width: "100%" }}>
-        <Input label="Required" required placeholder="Placeholder" />
+        <Input required placeholder="Example Required field" />
         <Divider />
         <Input
-          label="Less than 4 chars"
           validation={(text: string) => {
             return text.length < 4;
           }}
-          placeholder="Placeholder"
+          placeholder="Something short"
+          description="Must be less than 4 chars"
+          errorMessage="Too long"
         />
         <Divider />
-        <Input secure label="Secure entry" placeholder="Placeholder" />
+        <Input secure description="Secure entry" placeholder="Password" />
         <Divider />
+
         <Input
-          label="Error Feedback"
-          initialValue="Invalid"
-          validation={(text: string) => {
-            return text.toLowerCase() === "valid";
-          }}
-          errorMessage="Not valid"
-        />
-        <Divider />
-        <Input
-          label="Initial value dirty"
+          placeholder="Has validation"
+          description="Must = 'valid'"
           initialValue="Invalid"
           dirtyOnInitialValue
           validation={(text: string) => {
             return text.toLowerCase() === "valid";
           }}
+          errorMessage="Must = 'valid'"
         />
         <Divider />
         <Input
-          label="Must match"
+          description="Must match 'match'"
           initialValue="doesn't match"
           mustMatch={text("match", "match")}
           errorMessage="doesn't match"
         />
         <Divider />
-        <Input
-          label="No validity feedback"
-          initialValue="incorrect"
-          mustMatch={text("match", "match")}
-          errorMessage="doesn't match"
-          hideValidityFeedback
-        />
+
         <View style={{ width: "100%", height: 1000 }} />
       </ScrollView>
     );
@@ -174,24 +164,16 @@ storiesOf("UserInput/Input", module)
     return (
       <View style={{ width: "100%" }}>
         <Input
-          placeholder="Placeholder"
+          placeholder="Three line height"
           multiline
-          label="Three line height"
-          inputStyle={{ height: LINE_HEIGHT * 3 }}
-        />
-        <Divider />
-        <Input
-          placeholder="Placeholder"
-          multiline
-          label="Three line height grow"
-          inputStyle={{ maxHeight: LINE_HEIGHT * 3 }}
+          rows={3}
         />
         <Divider />
         {/* Paragraph style */}
         <Input
-          placeholder="Tap to type..."
+          placeholder="Five line height"
           multiline
-          inputStyle={{ height: LINE_HEIGHT * 5 }}
+          rows={5}
         />
       </View>
     );
