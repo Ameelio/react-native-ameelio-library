@@ -4,12 +4,15 @@ import { View, ViewStyle, StyleSheet } from "react-native";
 import * as Colors from "../Brand/Colors";
 import RNPickerSelect from "react-native-picker-select";
 import Entypo from "react-native-vector-icons/Entypo";
+import { Caption } from "@src";
 
 export interface Props {
   style?: ViewStyle | ViewStyle[];
   items: string[];
+  title?: string;
   placeholder?: string;
   initialValue?: string;
+  description?: string;
   onValueChange?: (v: string) => void;
   disabled?: boolean;
   required?: boolean;
@@ -29,43 +32,46 @@ const Styles = (disabled: boolean) => StyleSheet.create({
     borderColor: Colors.RED_400,
   },
   validBackground: {
-    backgroundColor: Colors.GREEN_100,
-    borderColor: Colors.GREEN_400,
+    backgroundColor: Colors.WHITE,
+    borderColor: Colors.BLACK_06,
   },
 });
 
 const pickerStyles = (disabled: boolean) => {
   return StyleSheet.create({
     inputIOS: {
-      fontSize: 13,
+      fontSize: 14,
       fontFamily: "Inter_400Regular",
       color: Colors.GRAY_700,
       ...Spacing.paddingVertical,
-      height: 36,
+      height: 44,
     },
     inputAndroid: {
-      fontSize: 13,
+      fontSize: 14,
       fontFamily: "Inter_400Regular",
       color: Colors.GRAY_700,
       ...Spacing.paddingVertical,
-      height: 36,
+      height: 44,
     },
     placeholder: {
-      fontSize: 13,
+      fontSize: 14,
       color: disabled ? Colors.BLACK_45 : Colors.GRAY_400,
     },
     iconContainer: {
       top: 6,
       right: 8,
     },
+
   });
 };
 
 const Picker: React.FC<Props> = ({
   style,
   items,
+  title,
   placeholder,
   initialValue,
+  description,
   onValueChange,
   disabled,
   required,
@@ -89,27 +95,55 @@ const Picker: React.FC<Props> = ({
         : Styles(!!disabled).invalidBackground;
   }
 
+  const computedPickerStyles: any = {
+    ...pickerStyles(!!disabled),
+    inputAndroid: {
+      ...pickerStyles(!!disabled).inputAndroid,
+      marginTop: title ? 8 : 0,
+      marginBottom: title ? -8 : 0
+    },
+    inputIOS: {
+      ...pickerStyles(!!disabled).inputIOS,
+      marginTop: title ? 8 : 0,
+      marginBottom: title ? -8 : 0
+    }
+  }
   return (
-    <View style={[Styles(!!disabled).pickerContainer, checkValueStyle, style]}>
-      <RNPickerSelect
-        key={value}
-        placeholder={{ label: placeholder, value: "" }}
-        items={items.map((item) => {
-          return { key: item, label: item, value: item };
-        })}
-        useNativeAndroidPickerStyle={false}
-        style={pickerStyles(!!disabled)}
-        value={value}
-        onValueChange={(v) => {
-          setValue(v);
-          setDirty(true);
-        }}
-        disabled={disabled}
-        Icon={() => {
-          return <Entypo name="chevron-down" size={24} color={Colors.GRAY_400} />;
-        }}
-      />
-    </View>
+    <>
+      {!!title && <View style={{ paddingLeft: 8, marginBottom: -16, zIndex: 999 } /*Negative margin places text inside input window*/}>
+        <Caption size={3} color={Colors.BLACK_45} >
+          {title}
+        </Caption>
+      </View>
+      }
+      <View style={[Styles(!!disabled).pickerContainer, checkValueStyle, style]}>
+        <RNPickerSelect
+          key={value}
+          placeholder={{ label: placeholder, value: "" }}
+          items={items.map((item) => {
+            return { key: item, label: item, value: item };
+          })}
+          useNativeAndroidPickerStyle={false}
+          style={computedPickerStyles}
+          value={value}
+          onValueChange={(v) => {
+            setValue(v);
+            setDirty(true);
+          }}
+          disabled={disabled}
+          Icon={() => {
+            return <Entypo name="chevron-down" size={20} style={{ paddingTop: 4 }} color={Colors.GRAY_400} />;
+          }}
+        />
+      </View>
+      {description && (
+        <View>
+          <Caption size={3} style={{ color: Colors.BLACK_65 }}>
+            {description}
+          </Caption>
+        </View>
+      )}
+    </>
   );
 };
 
