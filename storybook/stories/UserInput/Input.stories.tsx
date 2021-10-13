@@ -155,6 +155,12 @@ storiesOf("UserInput/Input", module)
           errorMessage="doesn't match"
         />
         <Divider />
+        <Input
+          disabled
+          placeholder="Disabled"
+          description="a disabled input"
+        />
+        <Divider />
 
         <View style={{ width: "100%", height: 1000 }} />
       </ScrollView>

@@ -48,6 +48,9 @@ const Styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.BLACK_06,
   },
+  disabledBackground: {
+    backgroundColor: Colors.BLACK_06,
+  },
   invalidBackground: {
     borderColor: Colors.RED_200,
   },
@@ -86,9 +89,14 @@ const Input: React.FC<Props> = (props: Props) => {
     return requiredCheck && dynamicCheck && mustMatchCheck;
   };
 
-  const getValidityBackground = (): ViewStyle => {
-    if (!dirty || valid) return {};
-    return focused ? Styles.invalidFocusedBackground : Styles.invalidBackground;
+  const getBackground = (): ViewStyle => {
+    if (props.disabled) {
+      return Styles.disabledBackground
+    } else if (!dirty || valid || props.hideValidityFeedback) {
+      return {};
+    } else {
+      return focused ? Styles.invalidFocusedBackground : Styles.invalidBackground;
+    }
   };
 
   const [value, setValue] = useState(props.initialValue || "");
@@ -120,7 +128,7 @@ const Input: React.FC<Props> = (props: Props) => {
     renderErrorMessage: false,
     containerStyle: [
       Styles.background,
-      props.hideValidityFeedback ? {} : getValidityBackground(),
+      getBackground(),
       props.containerStyle || {},
     ],
     inputContainerStyle: [
