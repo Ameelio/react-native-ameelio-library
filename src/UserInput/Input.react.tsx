@@ -19,8 +19,8 @@ import { Caption } from "@src";
 
 export type BaseInput = ElementsInput;
 
-export const LINE_HEIGHT = 26;
-export const INPUT_HEIGHT = 51;
+export const LINE_HEIGHT = 20;
+export const INPUT_PADDING = 12;
 
 interface Props extends TextInputProps, InputProps {
   inputRef?: RefObject<BaseInput> | MutableRefObject<BaseInput>;
@@ -36,7 +36,7 @@ interface Props extends TextInputProps, InputProps {
   containerStyle?: StyleProp<ViewStyle>;
   hideValidityFeedback?: boolean;
   description?: string;
-  movePlaceholderOnInput?: boolean
+  rows?: number;
 }
 
 const Styles = StyleSheet.create({
@@ -60,6 +60,10 @@ const Styles = StyleSheet.create({
   inputStyle: {
     fontFamily: "Inter_400Regular",
     fontSize: 16,
+    lineHeight: LINE_HEIGHT,
+    paddingTop: INPUT_PADDING,
+    paddingBottom: INPUT_PADDING,
+    textAlignVertical: "top"
   },
   errorMessageContainer: {
     width: "100%",
@@ -74,6 +78,7 @@ const Styles = StyleSheet.create({
 });
 
 const Input: React.FC<Props> = (props: Props) => {
+  const rows = props.rows || 1;
   const getValid = (text: string): boolean => {
     const requiredCheck = !props.required || !!text.length;
     const dynamicCheck = !props.validation || props.validation(text);
@@ -123,7 +128,7 @@ const Input: React.FC<Props> = (props: Props) => {
       props.inputContainerStyle,
     ],
     inputStyle: [
-      (props.placeholder && !!props.movePlaceholderOnInput && value !== "") ? {
+      (props.placeholder && value !== "") ? {
         marginTop: 8,
         marginBottom: -8,
       } : {},
@@ -131,9 +136,8 @@ const Input: React.FC<Props> = (props: Props) => {
         color: Colors.GRAY_700
       } : { color: Colors.BLACK_45 },
       Styles.inputStyle,
-
-      { textAlignVertical: props.multiline ? "top" : "center" },
       props.inputStyle,
+      { height: LINE_HEIGHT * rows }
     ],
     placeholderTextColor: "#9A9A9A",
     onChangeText: (text) => {
@@ -152,14 +156,14 @@ const Input: React.FC<Props> = (props: Props) => {
 
   return (
     <>
-      {props.placeholder && !!props.movePlaceholderOnInput && value !== "" && <View style={{ paddingLeft: 8, marginBottom: -16, zIndex: 999 } /*Negative margin places text inside input window*/}>
+      {props.placeholder && value !== "" && <View style={{ paddingLeft: 8, marginBottom: -16, zIndex: 999 } /*Negative margin places text inside input window*/}>
         <Caption size={3} style={!dirty || valid ? Styles.placeholderSmall : Styles.placeholderSmallInvalid}>
           {props.placeholder}
         </Caption>
       </View>}
       <ElementsInput
         value={value}
-        style={props.multiline ? {} : { height: 44 }}
+        style={{ height: LINE_HEIGHT * rows + 2 * INPUT_PADDING }}
         ref={props.inputRef}
         inputContainerStyle={{ marginTop: 20 }}
         {...derivedProps}
@@ -178,23 +182,20 @@ const Input: React.FC<Props> = (props: Props) => {
         }
         secureTextEntry={secureText}
       />
-      {props.description && (
+      {valid && props.description && (
         <View>
           <Caption size={3} style={{ color: Colors.BLACK_65 }}>
             {props.description}
           </Caption>
         </View>
-      )
-      }
-      {
-        !valid && props.errorMessage && (
-          <View style={Styles.errorMessageContainer}>
-            <Caption size={3} color={Colors.RED_600} bold>
-              {props.errorMessage}
-            </Caption>
-          </View>
-        )
-      }
+      )}
+      {!valid && props.errorMessage && (
+        <View style={Styles.errorMessageContainer}>
+          <Caption size={3} color={Colors.RED_600} bold>
+            {props.errorMessage}
+          </Caption>
+        </View>
+      )}
     </>
   );
 };

@@ -123,15 +123,15 @@ storiesOf("UserInput/Input", module)
   .add("Single Line Validation", () => {
     return (
       <ScrollView style={{ width: "100%" }}>
-        <Input required placeholder="Example Required field" movePlaceholderOnInput />
+        <Input required placeholder="Example Required field" />
         <Divider />
         <Input
           validation={(text: string) => {
             return text.length < 4;
           }}
           placeholder="Something short"
-          movePlaceholderOnInput={true}
           description="Must be less than 4 chars"
+          errorMessage="Too long"
         />
         <Divider />
         <Input secure description="Secure entry" placeholder="Password" />
@@ -139,15 +139,13 @@ storiesOf("UserInput/Input", module)
 
         <Input
           placeholder="Has validation"
-          movePlaceholderOnInput
           description="Must = 'valid'"
           initialValue="Invalid"
           dirtyOnInitialValue
           validation={(text: string) => {
             return text.toLowerCase() === "valid";
           }}
-          errorMessage="Not valid"
-
+          errorMessage="Must = 'valid'"
         />
         <Divider />
         <Input
@@ -167,23 +165,15 @@ storiesOf("UserInput/Input", module)
       <View style={{ width: "100%" }}>
         <Input
           placeholder="Three line height"
-          movePlaceholderOnInput
           multiline
-          inputStyle={{ height: LINE_HEIGHT * 3 }}
-        />
-        <Divider />
-        <Input
-          placeholder="Three line height grow"
-          movePlaceholderOnInput
-          multiline
-          inputStyle={{ maxHeight: LINE_HEIGHT * 3 }}
+          rows={3}
         />
         <Divider />
         {/* Paragraph style */}
         <Input
-          placeholder="Tap to type..."
+          placeholder="Five line height"
           multiline
-          inputStyle={{ height: LINE_HEIGHT * 5 }}
+          rows={5}
         />
       </View>
     );
