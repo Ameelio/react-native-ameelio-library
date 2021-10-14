@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json && copyfiles -u1 \"src/**/*.gif\" \"src/**/*.png\" dist",
     "clean": "rm -rf dist/",
-    "release": "yarn build && yarn publish && yarn clean",
+    "release": "npm run build && npm run publish && npm run clean",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
