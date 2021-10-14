@@ -11,6 +11,11 @@
     "sourceMap": true,
     "outDir": "dist",
     "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@src": ["src"],
+      "@src/*": ["src/*"]
+    },
     "skipLibCheck": true
   },
   "exclude": ["node_modules", "dist", "storybook", "App.tsx"],
