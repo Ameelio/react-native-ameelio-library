@@ -28,9 +28,19 @@ storiesOf("UserInput/Picker", module)
       >
         <Picker
           items={["Apple", "Banana", "Carrot"]}
-          placeholder="Placeholder"
+          title="Favorite Fruit"
+          placeholder="Select..."
+          description="here's a description."
           required
         />
+        <Divider />
+        <Picker
+          items={["Apple", "Banana", "Carrot"]}
+          placeholder="Has no title"
+          description="here's a description."
+          required
+        />
+        <Divider />
         <Input placeholder="Input comparison" />
         <Picker
           items={["Apple", "Banana", "Carrot"]}
