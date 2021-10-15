@@ -11,6 +11,7 @@ import Body from '../Typography/Body.react';
 import { Spacing, GlobalStyles } from "../Styles";
 import * as Colors from '../Brand/Colors';
 import ForwardArrow from './assets/ForwardArrow';
+import Caption from '../Typography/Caption.react';
 
 interface Props {
   emphasis?: 'header' | 'body' | 'none';
@@ -51,12 +52,16 @@ const HeaderCard: React.FC<Props> = ({
             flexDirection: 'column',
           }}
         >
-          <Header color={emphasis == 'body' ? Colors.BLACK_65 : Colors.GRAY_700} size={emphasis == 'header' ? 3 : 4} numLines={1} style={{ textTransform: 'capitalize' }}>
-            {title}
-          </Header>
+          {emphasis == 'body' ?
+            <Caption color={Colors.BLACK_65} size={1} numLines={1} style={{ textTransform: 'capitalize' }} >
+              {title}
+            </Caption> :
+            <Header color={Colors.GRAY_700} size={3} numLines={1} style={{ textTransform: 'capitalize' }}>
+              {title}
+            </Header>}
           <Body
             numLines={1}
-            fontSize={14}
+            size={2}
             bold={emphasis == 'body'}
             color={emphasis != 'body' ? Colors.BLACK_65 : Colors.GRAY_700}
           >
