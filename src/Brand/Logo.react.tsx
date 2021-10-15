@@ -1,7 +1,4 @@
 import React from 'react';
-import Ameelio from './Ameelio';
-import BirdBlue from './BirdBlue';
-import BirdRed from './BirdRed';
 import AmeelioPrimary from './AmeelioPrimary';
 import AmeelioMonocolor from './AmeelioMonocolor';
 import AmeelioPlus from './AmeelioPlus';
@@ -16,12 +13,6 @@ interface Props {
 
 const Logo: React.FC<Props> = ({ type, width, height }: Props) => {
   switch (type) {
-    case 'red':
-      return <SvgXml xml={BirdRed} width={width} height={height} />;
-    case 'blue':
-      return <SvgXml xml={BirdBlue} width={width} height={height} />;
-    case 'ameelio':
-      return <SvgXml xml={Ameelio} width={width} height={height} />;
     case 'ameelio-primary':
       return <SvgXml xml={AmeelioPrimary} width={width} height={height} />;
     case 'ameelio-monocolor':
@@ -31,7 +22,7 @@ const Logo: React.FC<Props> = ({ type, width, height }: Props) => {
     case 'letters':
       return <SvgXml xml={Letters} width={width} height={height} />;
     default:
-      return <SvgXml xml={BirdRed} width={width} height={height} />;
+      return <SvgXml xml={AmeelioPrimary} width={width} height={height} />;
   }
 };
 
