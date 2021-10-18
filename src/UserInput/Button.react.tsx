@@ -55,7 +55,12 @@ const Styles = StyleSheet.create({
   },
   secondaryDisabledBackground: {
     backgroundColor: Colors.WHITE,
-
+    borderWidth: 1,
+    borderColor: Colors.BLACK_06
+  },
+  tertiaryDisabledBackground: {
+    backgroundColor: Colors.WHITE,
+    borderWidth: 0
   },
   primaryForeground: {
     color: Colors.WHITE,
@@ -85,14 +90,15 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   const getBackgroundStyle = () => {
     if (props.disabled) {
       return rank === "primary"
-        ? Styles.primaryDisabledBackground : Styles.secondaryDisabledBackground;
+        ? Styles.primaryDisabledBackground : rank === "secondary" ? Styles.secondaryDisabledBackground
+          : Styles.tertiaryDisabledBackground;
     } else {
       return rank === "primary"
         ? Styles.primaryBackground : rank === "secondary" ? Styles.secondaryBackground
           : Styles.tertiaryBackground;
     }
   };
-  const shadow = props.shadow || ((rank === "primary" || rank === "secondary") && !props.noGrow); //noGrow disables the shadow by default, but it can be re-enabled with the shadow property.
+  const shadow = props.shadow || ((rank === "primary" || rank === "secondary") && !props.noGrow && !props.disabled); //noGrow disables the shadow by default, but it can be re-enabled with the shadow property.
   const derivedProps: ButtonProps = {
     ...props,
     containerStyle: [
@@ -110,7 +116,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       shadow ? { ...GlobalStyles.shadow } : {},
 
     ],
-    disabledStyle: rank === "primary" ? Styles.primaryDisabledBackground : Styles.secondaryDisabledBackground,
+    disabledStyle: rank === "primary" ? Styles.primaryDisabledBackground : rank === "secondary" ? Styles.secondaryDisabledBackground : Styles.tertiaryDisabledBackground,
     disabledTitleStyle: rank === "primary" ? { color: Colors.WHITE } : { color: Colors.RED_200 },
     onPress: async () => {
       if (blocked) return;

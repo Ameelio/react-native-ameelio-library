@@ -40,6 +40,8 @@ storiesOf("UserInput/Button", module)
           <Divider />
           <Button disabled>Disabled</Button>
           <Divider />
+          <Button rank="secondary" disabled>Secondary Disabled</Button>
+          <Divider />
           <Button nav noGrow>
             Save
           </Button>
@@ -63,14 +65,14 @@ storiesOf("UserInput/Button", module)
         <Divider />
         <ButtonDuo
           primaryText="Primary"
-          secondaryText="Secondary Link"
-          secondaryLink
+          secondaryText="Tertiary"
+          rankOfSecondary="tertiary"
         />
         <Divider />
         <ButtonDuo
           primaryText="Primary"
-          secondaryText="Secondary Link Disabled"
-          secondaryLink
+          secondaryText="Tertiary Disabled"
+          rankOfSecondary={"tertiary"}
           secondaryDisabled
         />
       </ScrollView>
