@@ -11,8 +11,8 @@ import {
 import { Input as ElementsInput, InputProps } from "react-native-elements";
 import { GlobalStyles, Spacing } from "../Styles";
 import * as Colors from "../Brand/Colors";
-import Eye from "./assets/SecureEye";
-import Required from "./assets/Required";
+import EyeHidden from "./assets/SecureEyeHidden";
+import EyeShowing from "./assets/SecureEyeShowing";
 import Icon from "../Common/Icon.react";
 import Body from "../Typography/Body.react";
 import { Caption } from "@src";
@@ -54,6 +54,9 @@ const Styles = StyleSheet.create({
   invalidBackground: {
     borderColor: Colors.RED_200,
   },
+  focusedBackground: {
+    borderColor: Colors.GRAY_700
+  },
   invalidFocusedBackground: {
     borderColor: Colors.RED_600,
   },
@@ -93,7 +96,7 @@ const Input: React.FC<Props> = (props: Props) => {
     if (props.disabled) {
       return Styles.disabledBackground
     } else if (!dirty || valid || props.hideValidityFeedback) {
-      return {};
+      return focused ? Styles.focusedBackground : {};
     } else {
       return focused ? Styles.invalidFocusedBackground : Styles.invalidBackground;
     }
@@ -125,6 +128,7 @@ const Input: React.FC<Props> = (props: Props) => {
 
   const derivedProps: Props = {
     ...props,
+    placeholder: focused ? "" : props.placeholder,
     renderErrorMessage: false,
     containerStyle: [
       Styles.background,
@@ -136,7 +140,7 @@ const Input: React.FC<Props> = (props: Props) => {
       props.inputContainerStyle,
     ],
     inputStyle: [
-      (props.placeholder && value !== "") ? {
+      (props.placeholder && (focused || value !== "")) ? {
         marginTop: 8,
         marginBottom: -8,
       } : {},
@@ -164,7 +168,7 @@ const Input: React.FC<Props> = (props: Props) => {
 
   return (
     <>
-      {props.placeholder && value !== "" && <View style={{ paddingLeft: 8, marginBottom: -16, zIndex: 999 } /*Negative margin places text inside input window*/}>
+      {props.placeholder && (focused || value !== "") && <View style={{ paddingLeft: 8, marginBottom: -16, zIndex: 999 } /*Negative margin places text inside input window*/}>
         <Caption size={3} style={!dirty || valid ? Styles.placeholderSmall : Styles.placeholderSmallInvalid}>
           {props.placeholder}
         </Caption>
@@ -176,7 +180,6 @@ const Input: React.FC<Props> = (props: Props) => {
         inputContainerStyle={{ marginTop: 20 }}
         {...derivedProps}
         errorMessage={undefined}
-        leftIcon={props.required && <Icon svg={Required} width={10} height="8px" />}
         rightIcon={
           props.secure ? (
             <TouchableOpacity
@@ -184,7 +187,7 @@ const Input: React.FC<Props> = (props: Props) => {
                 setSecureText((val) => !val);
               }}
             >
-              <Icon svg={Eye} width={25} height="100%" />
+              <Icon svg={secureText ? EyeHidden : EyeShowing} width={25} height="100%" />
             </TouchableOpacity>
           ) : undefined
         }
