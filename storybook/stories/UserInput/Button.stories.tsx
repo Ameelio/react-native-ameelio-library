@@ -66,13 +66,13 @@ storiesOf("UserInput/Button", module)
         <ButtonDuo
           primaryText="Primary"
           secondaryText="Tertiary"
-          rankOfSecondary="tertiary"
+          secondaryRank="tertiary"
         />
         <Divider />
         <ButtonDuo
           primaryText="Primary"
           secondaryText="Tertiary Disabled"
-          rankOfSecondary={"tertiary"}
+          secondaryRank={"tertiary"}
           secondaryDisabled
         />
       </ScrollView>
