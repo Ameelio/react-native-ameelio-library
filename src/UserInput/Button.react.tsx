@@ -21,8 +21,6 @@ export interface ButtonProps extends ElementsButtonProps {
   blocking?: boolean;
   onPress?: (() => void) | (() => Promise<void>);
   nav?: boolean;
-  link?: boolean;
-  linkSize?: number;
   disabled?: boolean;
   style?: StyleProp<ViewStyle>;
   noGrow?: boolean;
@@ -44,17 +42,13 @@ const Styles = StyleSheet.create({
   },
   primaryBackground: {
     backgroundColor: Colors.RED_400,
-    ...GlobalStyles.shadow,
 
   },
   secondaryBackground: {
     backgroundColor: Colors.WHITE,
-    ...GlobalStyles.shadow,
   },
   tertiaryBackground: {
     backgroundColor: Colors.WHITE,
-    borderWidth: 1,
-    borderColor: Colors.BLACK_06
   },
   primaryDisabledBackground: {
     backgroundColor: Colors.RED_200,
@@ -62,12 +56,6 @@ const Styles = StyleSheet.create({
   secondaryDisabledBackground: {
     backgroundColor: Colors.WHITE,
 
-  },
-  linkBackground: {
-    width: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-    ...Spacing.padding,
   },
   primaryForeground: {
     color: Colors.WHITE,
@@ -104,12 +92,12 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
           : Styles.tertiaryBackground;
     }
   };
-
+  const shadow = props.shadow || ((rank === "primary" || rank === "secondary") && !props.noGrow); //noGrow disables the shadow by default, but it can be re-enabled with the shadow property.
   const derivedProps: ButtonProps = {
     ...props,
     containerStyle: [
       Styles.trueBackground,
-      props.noGrow ? { width: undefined } : { width: "100%" },
+      props.noGrow ? { width: undefined } : { paddingHorizontal: 16 },
       props.nav ? { borderRadius: 19, height: 40 } : {},
       props.containerStyle,
     ],
@@ -119,6 +107,8 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       props.noGrow ? { ...Spacing.paddingVertical, ...Spacing.largePaddingHorizontal, width: undefined } : {},
       props.nav ? { borderRadius: 19, height: 40 } : {},
       props.buttonStyle,
+      shadow ? { ...GlobalStyles.shadow } : {},
+
     ],
     disabledStyle: rank === "primary" ? Styles.primaryDisabledBackground : Styles.secondaryDisabledBackground,
     disabledTitleStyle: rank === "primary" ? { color: Colors.WHITE } : { color: Colors.RED_200 },
@@ -139,25 +129,6 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     loading: blocked || props.loading,
     TouchableComponent: TouchableOpacity,
   };
-
-  if (props.link) {
-    return (
-      <TouchableOpacity onPress={props.onPress} style={Styles.linkBackground}>
-        <Header
-          size={5}
-          fontSize={props.linkSize || 18}
-          numLines={1}
-          adjustSize
-          style={[
-            props.disabled ? { color: Colors.RED_200 } : Styles.secondaryForeground,
-            props.noGrow ? { width: undefined } : {},
-          ]}
-        >
-          {props.children}
-        </Header>
-      </TouchableOpacity>
-    );
-  }
 
   const text =
     props.children && typeof props.children !== "string"

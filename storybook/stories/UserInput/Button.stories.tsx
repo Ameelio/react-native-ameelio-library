@@ -20,7 +20,7 @@ storiesOf("UserInput/Button", module)
   .add("Buttons", () => {
     return (
       <>
-        <ScrollView style={{ marginVertical: 0, width: "100%" }}>
+        <ScrollView style={{ marginVertical: 0, width: "100%", zIndex: -1 }}>
           <Button>
             Primary {"hello"} {"test"}
           </Button>
@@ -36,7 +36,7 @@ storiesOf("UserInput/Button", module)
             }}
           >
             Blocking
-          </Button>
+          </Button >
           <Divider />
           <Button disabled>Disabled</Button>
           <Divider />
@@ -44,12 +44,10 @@ storiesOf("UserInput/Button", module)
             Save
           </Button>
           <Divider />
-          <Button link>Link</Button>
-          <Divider />
           <Button loading>Override loading</Button>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, i: number) => <View key={i} style={Spacing.largePaddingVertical}><Body size={1}> Scroll Filler...</Body></View>)}
         </ScrollView>
-        <Button style={{ marginBottom: 24 }}>
+        <Button style={{ marginBottom: 24, marginTop: -100, zIndex: 1 }}>
           Below ScrollView</Button>
       </>
     );
