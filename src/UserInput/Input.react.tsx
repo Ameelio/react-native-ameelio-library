@@ -111,6 +111,7 @@ const Input: React.FC<Props> = (props: Props) => {
   );
   const [focused, setFocused] = useState(false);
   const [secureText, setSecureText] = useState(!!props.secure);
+  const [showRequired, setShowRequired] = useState(false);
 
   useEffect(() => {
     if (props.onChangeText) props.onChangeText(value);
@@ -154,6 +155,7 @@ const Input: React.FC<Props> = (props: Props) => {
     placeholderTextColor: "#9A9A9A",
     onChangeText: (text) => {
       setValue(text);
+      setShowRequired(!!props.required && text === "");
     },
     onFocus: (e) => {
       setDirty(true);
@@ -162,6 +164,9 @@ const Input: React.FC<Props> = (props: Props) => {
     },
     onBlur: (e) => {
       setFocused(false);
+      if (props.required && value === "") {
+        setShowRequired(true);
+      }
       if (props.onBlur) props.onBlur(e);
     },
   };
@@ -204,6 +209,13 @@ const Input: React.FC<Props> = (props: Props) => {
         <View style={Styles.errorMessageContainer}>
           <Caption size={3} color={Colors.RED_600} bold>
             {props.errorMessage}
+          </Caption>
+        </View>
+      )}
+      {showRequired && (
+        <View style={Styles.errorMessageContainer}>
+          <Caption size={3} color={Colors.RED_600} bold>
+            This field is required
           </Caption>
         </View>
       )}
