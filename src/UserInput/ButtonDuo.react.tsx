@@ -15,8 +15,8 @@ interface Props {
   secondaryBlocking?: boolean;
   secondaryLoading?: boolean;
   secondaryDisabled?: boolean;
-  secondaryLink?: boolean;
   style?: StyleProp<ViewStyle>;
+  secondaryRank?: "secondary" | "tertiary"
 }
 
 const ButtonDuo: React.FC<Props> = ({
@@ -29,8 +29,8 @@ const ButtonDuo: React.FC<Props> = ({
   secondaryBlocking,
   secondaryLoading,
   secondaryDisabled,
-  secondaryLink,
   style,
+  secondaryRank
 }) => {
   return (
     <View style={[{ width: "100%", ...Spacing.paddingBottom }, style]}>
@@ -41,17 +41,12 @@ const ButtonDuo: React.FC<Props> = ({
       >
         {primaryText}
       </Button>
-      {secondaryLink && (
-        <View style={{ width: "100%", height: Spacing.MARGIN }} />
-      )}
       <Button
         onPress={onSecondaryPress}
         blocking={secondaryBlocking}
         loading={secondaryLoading}
         disabled={secondaryDisabled}
-        rank="secondary"
-        link={secondaryLink}
-        linkSize={16}
+        rank={secondaryRank || "secondary"}
         style={[Spacing.marginTop]}
       >
         {secondaryText}

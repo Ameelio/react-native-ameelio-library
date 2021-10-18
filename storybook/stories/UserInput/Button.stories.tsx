@@ -20,7 +20,7 @@ storiesOf("UserInput/Button", module)
   .add("Buttons", () => {
     return (
       <>
-        <ScrollView style={{ marginVertical: 0, width: "100%" }}>
+        <ScrollView style={{ marginVertical: 0, width: "100%", zIndex: -1 }}>
           <Button>
             Primary {"hello"} {"test"}
           </Button>
@@ -36,20 +36,20 @@ storiesOf("UserInput/Button", module)
             }}
           >
             Blocking
-          </Button>
+          </Button >
           <Divider />
           <Button disabled>Disabled</Button>
+          <Divider />
+          <Button rank="secondary" disabled>Secondary Disabled</Button>
           <Divider />
           <Button nav noGrow>
             Save
           </Button>
           <Divider />
-          <Button link>Link</Button>
-          <Divider />
           <Button loading>Override loading</Button>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, i: number) => <View key={i} style={Spacing.largePaddingVertical}><Body size={1}> Scroll Filler...</Body></View>)}
         </ScrollView>
-        <Button style={{ marginBottom: 24 }}>
+        <Button style={{ marginBottom: 24, marginTop: -100, zIndex: 1 }}>
           Below ScrollView</Button>
       </>
     );
@@ -65,14 +65,14 @@ storiesOf("UserInput/Button", module)
         <Divider />
         <ButtonDuo
           primaryText="Primary"
-          secondaryText="Secondary Link"
-          secondaryLink
+          secondaryText="Tertiary"
+          rankOfSecondary="tertiary"
         />
         <Divider />
         <ButtonDuo
           primaryText="Primary"
-          secondaryText="Secondary Link Disabled"
-          secondaryLink
+          secondaryText="Tertiary Disabled"
+          rankOfSecondary={"tertiary"}
           secondaryDisabled
         />
       </ScrollView>

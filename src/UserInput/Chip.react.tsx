@@ -74,7 +74,7 @@ const Chip: React.FC<Props> = ({
         ]}
         onPress={onPress}
       >
-        <Body size={3} style={foregroundStyle}>
+        <Body size={2} style={foregroundStyle}>
           {children}
         </Body>
         {image && (
@@ -96,7 +96,7 @@ const Chip: React.FC<Props> = ({
         ]}
         onPress={onPress}
       >
-        <Body size={3} style={foregroundStyle}>
+        <Body size={2} style={foregroundStyle}>
           {children}
         </Body>
         {image && (
