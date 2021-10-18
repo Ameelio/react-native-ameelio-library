@@ -105,9 +105,9 @@ const AlertBanner: React.FC<AlertBannerInfo> = ({
         <Body size={2} color={colors.fg}>
           {title}
         </Body>
-        <Body size={2} color={colors.fg} bold>
+        {!!cta && <Body size={2} color={colors.fg} bold>
           {cta}
-        </Body>
+        </Body>}
       </View>
       <View
         style={[
