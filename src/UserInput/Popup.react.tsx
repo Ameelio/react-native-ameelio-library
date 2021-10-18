@@ -40,6 +40,7 @@ interface Props {
 const Styles = StyleSheet.create({
   background: {
     width: Spacing.SCREEN_WIDTH - Spacing.PADDING * 8,
+    marginBottom: -8
   },
   titleContainer: {
     flexDirection: "row",
@@ -124,32 +125,29 @@ const Popup: React.FC<Props> = ({
           )}
           {local.dynamic
             ? !!local.dynamic && (
-                <View
-                  style={[
-                    {
-                      width: "100%",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    },
-                    Spacing.paddingBottom,
-                  ]}
-                >
-                  {local.content}
-                </View>
-              )
+              <View
+                style={[
+                  {
+                    width: "100%",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  },
+                  Spacing.paddingBottom,
+                ]}
+              >
+                {local.content}
+              </View>
+            )
             : !!local.message &&
-              !!local.message.length && (
-                <Body align="center" style={Spacing.largePaddingBottom}>
-                  {local.message}
-                </Body>
-              )}
+            !!local.message.length && (
+              <Body align="center" style={Spacing.largePaddingBottom}>
+                {local.message}
+              </Body>
+            )}
           {local.buttons.map((bProps, index) => {
             return (
               <View
-                style={
-                  index !== local.buttons.length - 1
-                    ? [Spacing.paddingBottom, { width: "100%" }]
-                    : { width: "100%" }
+                style={{ width: "100%" }
                 }
                 key={index.toString()}
               >
