@@ -23,7 +23,7 @@ const Styles = StyleSheet.create({
   },
   optionBackground: {
     width: "100%",
-    ...Spacing.smallPaddingVertical,
+    ...Spacing.largePaddingVertical,
     ...Spacing.largePaddingHorizontal,
     flexDirection: "row",
     alignItems: "center",
@@ -86,7 +86,7 @@ export default function SelectSheet<T>({
               <View style={Styles.outerCircle}>
                 {isSelected && <View style={Styles.selectedInner} />}
               </View>
-              <Body size={1} color="dark">
+              <Body size={1} color={Colors.GRAY_700}>
                 {option as unknown as string}
               </Body>
             </TouchableOpacity>
