@@ -4,7 +4,6 @@ import {
   Body,
   BottomSheet,
   EmojiBullet,
-  Icon,
   Input,
   InTextButtons,
   KeyboardAvoider,
@@ -16,7 +15,6 @@ import {
 import CenterView from "../../helpers/CenterView.react";
 import Star from "./assets/Star";
 import Fire from "./assets/Fire";
-import DynamicX from "./DynamicX";
 import { ScrollView, TextInput, View } from "react-native";
 import {
   boolean,
@@ -25,18 +23,11 @@ import {
   text,
   withKnobs,
 } from "@storybook/addon-knobs";
-import TestIcon from "./TestIcon";
 import * as Colors from "@src/Brand/Colors";
 
 storiesOf("Common", module)
   .addDecorator((getStory) => <CenterView>{getStory()}</CenterView>)
   .addDecorator(withKnobs)
-  .add("Icon", () => (
-    <>
-      <Icon svg={DynamicX} />
-      <Icon svg={TestIcon} />
-    </>
-  ))
   .add("KeyboardAvoider", () => (
     <KeyboardAvoider>
       <View style={{ flex: 1 }}>
@@ -128,8 +119,8 @@ storiesOf("Common", module)
           fontSize: 16,
         }}
         buttonStyle={{
-          fontSize: 20,
-          color: Colors.GREEN_400,
+          fontSize: 16,
+          color: Colors.RED_400,
           fontFamily: "Inter_600SemiBold"
         }}
 

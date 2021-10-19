@@ -60,9 +60,9 @@ storiesOf("Typography/Body", module)
     <Body
       size={number("size", 1, sizeOptions) as any}
       style={object("style", { width: "100%" }) as any}
-      children={text("text", "Body")}
+      children={text("text", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ")}
       adjustSize={boolean("adjustSize", false)}
-      numLines={number("numLines", 1, numLinesOptions)}
+      numLines={number("numLines", 0, numLinesOptions)}
       align={radios(
         "align",
         { left: "left", center: "center", right: "right" },

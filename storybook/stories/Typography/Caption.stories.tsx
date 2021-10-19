@@ -99,22 +99,7 @@ storiesOf("Typography/Caption", module)
     <Caption
       size={number("size", 1, sizeOptions) as any}
       style={object("style", { width: "100%" }) as any}
-      children={text("text", "Caption")}
-      adjustSize={boolean("adjustSize", false)}
-      numLines={number("numLines", 1, numLinesOptions)}
-      align={radios(
-        "align",
-        { left: "left", center: "center", right: "right" },
-        "center"
-      )}
-      color={color("color", "#000000")}
-    />
-  ))
-  .add("Fontsize", () => (
-    <Caption
-      fontSize={40}
-      style={object("style", { width: "100%" }) as any}
-      children={text("text", "Caption")}
+      children={text("text", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod")}
       adjustSize={boolean("adjustSize", false)}
       numLines={number("numLines", 1, numLinesOptions)}
       align={radios(
