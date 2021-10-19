@@ -9,7 +9,7 @@ import { Caption } from "@src";
 export interface Props {
   style?: ViewStyle | ViewStyle[];
   items: string[];
-  title?: string;
+  title: string;
   placeholder?: string;
   initialValue?: string;
   description?: string;
@@ -99,18 +99,18 @@ const Picker: React.FC<Props> = ({
     ...pickerStyles(!!disabled),
     inputAndroid: {
       ...pickerStyles(!!disabled).inputAndroid,
-      marginTop: title ? 8 : 0,
-      marginBottom: title ? -8 : 0
+      marginTop: !!placeholder || !!value ? 8 : 0,
+      marginBottom: !!placeholder || !!value ? -8 : 0
     },
     inputIOS: {
       ...pickerStyles(!!disabled).inputIOS,
-      marginTop: title ? 8 : 0,
-      marginBottom: title ? -8 : 0
+      marginTop: !!placeholder || !!value ? 8 : 0,
+      marginBottom: !!placeholder || !!value ? -8 : 0
     }
   }
   return (
     <>
-      {!!title && <View style={{ paddingLeft: 8, marginBottom: -16, zIndex: 999 } /*Negative margin places text inside input window*/}>
+      {!!title && (!!placeholder || !!value) && <View style={{ paddingLeft: 8, marginBottom: -16, zIndex: 999 } /*Negative margin places text inside input window*/}>
         <Caption size={3} color={Colors.BLACK_45} >
           {title}
         </Caption>
@@ -119,7 +119,7 @@ const Picker: React.FC<Props> = ({
       <View style={[Styles(!!disabled).pickerContainer, checkValueStyle, style]}>
         <RNPickerSelect
           key={value}
-          placeholder={{ label: placeholder, value: "" }}
+          placeholder={{ label: placeholder || title, value: "" }}
           items={items.map((item) => {
             return { key: item, label: item, value: item };
           })}
