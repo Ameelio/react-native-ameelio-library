@@ -30,27 +30,27 @@ storiesOf("UserInput/Picker", module)
           items={["Apple", "Banana", "Carrot"]}
           title="Favorite Fruit"
           placeholder="Select..."
-          description="here's a description."
+          description="This has a title and a placeholder. The placeholder appears in the selection list."
           required
         />
         <Divider />
         <Picker
           items={["Apple", "Banana", "Carrot"]}
-          placeholder="Has no title"
-          description="here's a description."
+          title="Title"
+          description="This has no placeholder so only shows a title. The title appears in the selection list"
           required
         />
         <Divider />
         <Input placeholder="Input comparison" />
         <Picker
           items={["Apple", "Banana", "Carrot"]}
-          placeholder="Disabled"
+          title="Disabled"
           disabled
         />
         <Input placeholder="Input comparison" disabled />
         <View style={{ flexDirection: "row" }}>
           <View style={{ flex: 1 }}>
-            <Picker items={["Apple"]} placeholder="test" />
+            <Picker title="test" items={["Apple"]} placeholder="test hint" />
           </View>
           <View style={{ flex: 1 }}>
             <Input placeholder="Input comparison" />
@@ -58,8 +58,9 @@ storiesOf("UserInput/Picker", module)
         </View>
         <Divider />
         <Picker
+          title="Has initial value"
           items={["Apple", "Banana", "Carrot"]}
-          initialValue={text("Iniatial Value", "Apple")}
+          initialValue={text("Initial Value", "Apple")}
           placeholder={"Not required"}
         />
       </View>
