@@ -35,7 +35,7 @@ const Words: React.FC<WordsProps> = ({
   else if (weight === "bold")
     fontFamily = italic ? "Inter_700Bold_Italic" : "Inter_700Bold";
 
-  let colorType: TypographyColors = "default";
+  let colorType: TypographyColors = "dark";
   let calculatedColor = calculateColor(colorType);
 
   return (
