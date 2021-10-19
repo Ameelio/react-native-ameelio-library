@@ -4,6 +4,7 @@ import { TypographyColors } from "../Typography/Constants";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import Body from "../Typography/Body.react";
 import { Colors, GlobalStyles, Spacing } from "../Styles";
+import { Divider } from "dist";
 
 interface TextButtonBlock {
   text: string;
@@ -24,13 +25,11 @@ const Styles = StyleSheet.create({
   textBlockBackground: {
     width: "100%",
     justifyContent: "center",
-    borderTopWidth: 1,
-    borderTopColor: "transparent",
   },
   pressBackground: {
     width: "100%",
     ...Spacing.largePaddingHorizontal,
-    ...Spacing.smallPaddingVertical,
+    ...Spacing.paddingVertical,
   },
 });
 
@@ -40,29 +39,32 @@ function renderBlock(
   setIsOpen?: (val: boolean) => void
 ) {
   return (
-    <View
-      key={block.text + index.toString()}
-      style={[
-        Styles.textBlockBackground,
-        index > 0 ? { borderTopColor: Colors.GRAY_200 } : {},
-      ]}
-    >
-      <TouchableOpacity
-        onPress={
-          setIsOpen
-            ? () => {
+    <>
+      {index > 0 && <Divider style={{ backgroundColor: Colors.BLACK_06 }} />}
+      <View
+        key={block.text + index.toString()}
+        style={[
+          Styles.textBlockBackground,
+        ]}
+      >
+        <TouchableOpacity
+          onPress={
+            setIsOpen
+              ? () => {
                 setIsOpen(false);
                 block.onPress();
               }
-            : block.onPress
-        }
-        style={Styles.pressBackground}
-      >
-        <Body size={2} color={block.color || "secondary"}>
-          {block.text}
-        </Body>
-      </TouchableOpacity>
-    </View>
+              : block.onPress
+          }
+          style={Styles.pressBackground}
+        >
+          <Body size={1} color={block.color || Colors.GRAY_700}>
+            {block.text}
+          </Body>
+        </TouchableOpacity>
+
+      </View>
+    </>
   );
 }
 
@@ -81,9 +83,11 @@ const TextButtonSheet: React.FC<Props> = ({
       setIsOpen={setIsOpen}
       maxHeight={maxHeight}
     >
-      {blocks.map((block, index) =>
-        renderBlock(block, index, persistTaps ? undefined : setIsOpen)
-      )}
+      <View style={Spacing.largePaddingBottom}>
+        {blocks.map((block, index) =>
+          renderBlock(block, index, persistTaps ? undefined : setIsOpen)
+        )}
+      </View>
     </BottomSheet>
   );
 };
