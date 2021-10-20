@@ -8,9 +8,9 @@ import { StyleProp } from "react-native";
 import { useCallback } from "react";
 import Tooltip from "./Tooltip.react";
 import { isSameDay } from "date-fns";
-import Next from "@src/UserInput/assets/Next";
-import Previous from "@src/UserInput/assets/Previous";
-import Icon from "@src/Common/Icon.react";
+import Next from "./assets/Next";
+import Previous from "./assets/Previous";
+import Icon from "../Common/Icon.react";
 
 interface Props {
   minDate: Date;

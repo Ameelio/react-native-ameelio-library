@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import { TypographyColors } from "../Typography/Constants";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import Body from "../Typography/Body.react";
-import { Colors, GlobalStyles, Spacing } from "../Styles";
-import { Divider } from "dist";
+import { Colors, Divider, GlobalStyles, Spacing } from "../Styles";
 
 interface TextButtonBlock {
   text: string;

@@ -14,8 +14,7 @@ import * as Colors from "../Brand/Colors";
 import EyeHidden from "./assets/SecureEyeHidden";
 import EyeShowing from "./assets/SecureEyeShowing";
 import Icon from "../Common/Icon.react";
-import Body from "../Typography/Body.react";
-import { Caption } from "@src";
+import Caption from "../Typography/Caption.react";
 
 export type BaseInput = ElementsInput;
 

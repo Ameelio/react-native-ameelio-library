@@ -6,7 +6,7 @@ import {
   ViewStyle,
   TouchableOpacity,
 } from 'react-native';
-import * as Colors from '@src/Brand/Colors';
+import * as Colors from '../Brand/Colors';
 import Body from "../Typography/Body.react";
 import { GlobalStyles, Spacing } from "../Styles";
 import Tooltip from '../UserInput/Tooltip.react';
