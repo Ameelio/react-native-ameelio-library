@@ -2,6 +2,7 @@ import React, { MutableRefObject, RefObject, useEffect, useState } from "react";
 import {
   StyleProp,
   StyleSheet,
+  TextInput,
   TextInputProps,
   TextStyle,
   TouchableOpacity,
@@ -15,13 +16,11 @@ import Eye from "./assets/SecureEye";
 import Icon from "../Common/Icon.react";
 import Body from "../Typography/Body.react";
 
-export type BaseInput = ElementsInput;
-
 export const LINE_HEIGHT = 26;
 export const INPUT_HEIGHT = 51;
 
 interface Props extends TextInputProps, InputProps {
-  inputRef?: RefObject<BaseInput> | MutableRefObject<BaseInput>;
+  inputRef?: RefObject<TextInput> | MutableRefObject<TextInput>;
   required?: boolean;
   mustMatch?: string;
   validation?: (val: string) => boolean;

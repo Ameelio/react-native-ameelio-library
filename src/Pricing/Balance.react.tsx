@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   StyleSheet,
   StyleProp,
   ViewStyle,
   TouchableOpacity,
-} from 'react-native';
-import * as Colors from '@src/Brand/Colors';
+} from "react-native";
+import * as Colors from "../Brand/Colors";
 import Body from "../Typography/Body.react";
 import { GlobalStyles, Spacing } from "../Styles";
-import Tooltip from '../UserInput/Tooltip.react';
-import FreeCreditIcon from './assets/FreeCreditIcon';
-import TokenIcon from './assets/TokenIcon';
-import Icon from '../Common/Icon.react';
+import Tooltip from "../UserInput/Tooltip.react";
+import FreeCreditIcon from "./assets/FreeCreditIcon";
+import TokenIcon from "./assets/TokenIcon";
+import Icon from "../Common/Icon.react";
 
 interface Props {
   style?: StyleProp<ViewStyle>;
-  type?: 'ameelio' | 'ameelio+';
+  type?: "ameelio" | "ameelio+";
   numCoins?: number;
   numAmeelios?: number;
 }
@@ -28,10 +28,10 @@ interface ChipProps {
 
 const Styles = StyleSheet.create({
   walletContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     ...Spacing.largeMarginBottom,
     ...Spacing.paddingHorizontal,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
   },
   balanceChip: {
     width: 70,
@@ -40,16 +40,16 @@ const Styles = StyleSheet.create({
     ...Spacing.padding,
     borderWidth: 0.25,
     borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row-reverse',
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row-reverse",
   },
 });
 
 const Balance: React.FC<Props> = ({ style, type, numCoins, numAmeelios }) => {
   return (
     <View style={[style, Styles.walletContainer]}>
-      {type !== 'ameelio+' && (numAmeelios || numAmeelios === 0) ? (
+      {type !== "ameelio+" && (numAmeelios || numAmeelios === 0) ? (
         <Tooltip
           text="Your Free Credit balance. These replenish every week."
           numLines={2}
@@ -59,7 +59,7 @@ const Balance: React.FC<Props> = ({ style, type, numCoins, numAmeelios }) => {
           <BalanceChip image={FreeCreditIcon} balance={numAmeelios} />
         </Tooltip>
       ) : null}
-      {type !== 'ameelio' && numCoins ? (
+      {type !== "ameelio" && numCoins ? (
         <Tooltip
           text={"Your Ameelio+ Token balance. Get more in 'Community'."}
           numLines={2}
@@ -82,7 +82,10 @@ const BalanceChip: React.FC<ChipProps> = ({ image, balance }) => {
         { backgroundColor: Colors.WHITE, borderColor: Colors.GRAY_200 },
       ]}
     >
-      <Body size={2} style={{ color: Colors.GRAY_400, ...Spacing.smallPaddingLeft }}>
+      <Body
+        size={2}
+        style={{ color: Colors.GRAY_400, ...Spacing.smallPaddingLeft }}
+      >
         {balance.toString()}
       </Body>
       {image && (

@@ -1,14 +1,9 @@
-/* Brand */
 import * as Colors from "./Brand/Colors";
 import Logo from "./Brand/Logo.react";
-
-/* Cards */
 import ContactCard from "./Cards/ContactCard.react";
 import HeaderCard from "./Cards/HeaderCard.react";
 import OneLineCard from "./Cards/OneLineCard.react";
 import LargeVerticalCard from "./Cards/LargeVerticalCard.react";
-
-/* Common */
 import AsyncImage from "./Common/AsyncImage.react";
 import BottomSheet from "./Common/BottomSheet.react";
 import EmojiBullet from "./Common/EmojiBullet.react";
@@ -20,26 +15,16 @@ import KeyboardConditional from "./Common/KeyboardConditional.react";
 import Tag from "./Common/Tag.react";
 import Toast, { ToastInfo, ToastTypes } from "./Common/Toast.react";
 import Topbar, { TopbarInfo, TopbarTypes } from "./Common/Topbar.react";
-
-/* Persona */
 import Initials from "./Persona/Initials.react";
-
-/* Pricing */
 import Balance from "./Pricing/Balance.react";
-
-/* Styles */
 import Divider from "./Styles/Divider.react";
 import * as GlobalStyles from "./Styles/GlobalStyles";
 import * as Spacing from "./Styles/Spacing";
-
-/* Typography */
 import Body, { BodyProps } from "./Typography/Body.react";
 import Caption, { CaptionProps } from "./Typography/Caption.react";
 import Header, { HeaderProps } from "./Typography/Header.react";
 import Words, { WordsProps } from "./Typography/Words.react";
 import { CustomTextProps, TypographyColors } from "./Typography/Constants";
-
-/* User Input */
 import Button from "./UserInput/Button.react";
 import ButtonDuo from "./UserInput/ButtonDuo.react";
 import Chip from "./UserInput/Chip.react";
@@ -52,71 +37,11 @@ import Rating from "./UserInput/Rating.react";
 import SelectSheet from "./UserInput/SelectSheet.react";
 import TextButtonSheet from "./UserInput/TextButtonSheet.react";
 import Tooltip from "./UserInput/Tooltip.react";
-
-/* ------------------------------------------------------------------ */
-
-/* Brand */
 export { Colors, Logo };
-
-/* Cards */
 export { ContactCard, HeaderCard, OneLineCard, LargeVerticalCard };
-
-/* Common */
-export {
-  AsyncImage,
-  BottomSheet,
-  EmojiBullet,
-  Icon,
-  IconCard,
-  InTextButtons,
-  KeyboardAvoider,
-  KeyboardConditional,
-  Tag,
-  Toast,
-  ToastInfo,
-  ToastTypes,
-  Topbar,
-  TopbarInfo,
-  TopbarTypes,
-};
-
-/* Persona */
+export { AsyncImage, BottomSheet, EmojiBullet, Icon, IconCard, InTextButtons, KeyboardAvoider, KeyboardConditional, Tag, Toast, ToastInfo, ToastTypes, Topbar, TopbarInfo, TopbarTypes, };
 export { Initials };
-
-/* Pricing */
 export { Balance };
-
-/* Styles */
 export { Divider, GlobalStyles, Spacing };
-
-/* Typography */
-export {
-  Body,
-  BodyProps,
-  Caption,
-  CaptionProps,
-  Header,
-  HeaderProps,
-  Words,
-  WordsProps,
-  CustomTextProps,
-  TypographyColors,
-};
-
-/* User Input */
-export {
-  Button,
-  ButtonDuo,
-  Chip,
-  ChipGroup,
-  DatePicker,
-  Input,
-  LINE_HEIGHT,
-  Picker,
-  Popup,
-  PopupInfo,
-  Rating,
-  SelectSheet,
-  TextButtonSheet,
-  Tooltip,
-};
+export { Body, BodyProps, Caption, CaptionProps, Header, HeaderProps, Words, WordsProps, CustomTextProps, TypographyColors, };
+export { Button, ButtonDuo, Chip, ChipGroup, DatePicker, Input, LINE_HEIGHT, Picker, Popup, PopupInfo, Rating, SelectSheet, TextButtonSheet, Tooltip, };
