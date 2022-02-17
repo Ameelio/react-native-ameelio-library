@@ -33,7 +33,6 @@
   },
   "homepage": "https://github.com/Ameelio/react-native-ameelio-library#readme",
   "dependencies": {
-    "@expo-google-fonts/inter": "^0.2.0",
     "date-fns": "^2.22.1",
     "expo-crypto": "^10.1.2",
     "react-native-calendar-picker": "^7.0.9",

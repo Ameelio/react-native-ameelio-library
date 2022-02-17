@@ -8,7 +8,7 @@ const Styles = StyleSheet.create({
     trueBackground: {
         width: "100%",
         ...Spacing.paddingBottom,
-        overflow: 'hidden'
+        overflow: "hidden",
     },
     background: {
         width: "100%",
@@ -62,7 +62,9 @@ const Button = (props) => {
     };
     const getBackgroundStyle = () => {
         if (props.disabled)
-            return props.secondary ? Styles.secondaryDisabledBackground : Styles.primaryDisabledBackground;
+            return props.secondary
+                ? Styles.secondaryDisabledBackground
+                : Styles.primaryDisabledBackground;
         return props.secondary
             ? Styles.secondaryBackground
             : Styles.primaryBackground;
@@ -83,8 +85,12 @@ const Button = (props) => {
             props.nav ? { borderRadius: 19, height: 40 } : {},
             props.buttonStyle,
         ],
-        disabledStyle: props.secondary ? Styles.secondaryDisabledBackground : Styles.primaryDisabledBackground,
-        disabledTitleStyle: props.secondary ? { color: Colors.RED_200 } : { color: Colors.WHITE },
+        disabledStyle: props.secondary
+            ? Styles.secondaryDisabledBackground
+            : Styles.primaryDisabledBackground,
+        disabledTitleStyle: props.secondary
+            ? { color: Colors.RED_200 }
+            : { color: Colors.WHITE },
         onPress: async () => {
             if (blocked)
                 return;
@@ -98,7 +104,7 @@ const Button = (props) => {
         titleStyle: [
             {
                 fontSize: props.nav ? 15 : 18,
-                fontFamily: "Inter_600SemiBold",
+                // fontFamily: "Inter_600SemiBold",
             },
             props.secondary ? Styles.secondaryForeground : Styles.primaryForeground,
             props.titleStyle,
@@ -109,7 +115,9 @@ const Button = (props) => {
     if (props.link) {
         return (React.createElement(TouchableOpacity, { onPress: props.onPress, style: Styles.linkBackground },
             React.createElement(Header, { size: 5, fontSize: props.linkSize, numLines: 1, adjustSize: true, style: [
-                    props.disabled ? { color: Colors.RED_200 } : Styles.secondaryForeground,
+                    props.disabled
+                        ? { color: Colors.RED_200 }
+                        : Styles.secondaryForeground,
                     props.noGrow ? { width: undefined } : {},
                 ] }, props.children)));
     }

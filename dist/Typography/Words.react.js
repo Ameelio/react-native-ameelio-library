@@ -17,7 +17,7 @@ const Words = ({ weight, italic, style, children, adjustSize, numLines, align, f
     return (React.createElement(Text, { style: [
             {
                 fontSize: finalSize,
-                fontFamily,
+                // fontFamily,
                 textAlign: align,
                 color: calculatedColor,
             },
