@@ -34,7 +34,7 @@ const Styles = StyleSheet.create({
   trueBackground: {
     width: "100%",
     ...Spacing.paddingBottom,
-    overflow: 'hidden'
+    overflow: "hidden",
   },
   background: {
     width: "100%",
@@ -90,7 +90,10 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   };
 
   const getBackgroundStyle = () => {
-    if (props.disabled) return props.secondary ? Styles.secondaryDisabledBackground : Styles.primaryDisabledBackground;
+    if (props.disabled)
+      return props.secondary
+        ? Styles.secondaryDisabledBackground
+        : Styles.primaryDisabledBackground;
     return props.secondary
       ? Styles.secondaryBackground
       : Styles.primaryBackground;
@@ -112,8 +115,12 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       props.nav ? { borderRadius: 19, height: 40 } : {},
       props.buttonStyle,
     ],
-    disabledStyle: props.secondary ? Styles.secondaryDisabledBackground : Styles.primaryDisabledBackground,
-    disabledTitleStyle: props.secondary ? {color: Colors.RED_200} : { color: Colors.WHITE },
+    disabledStyle: props.secondary
+      ? Styles.secondaryDisabledBackground
+      : Styles.primaryDisabledBackground,
+    disabledTitleStyle: props.secondary
+      ? { color: Colors.RED_200 }
+      : { color: Colors.WHITE },
     onPress: async () => {
       if (blocked) return;
       if (props.blocking) safelySetBlocked(true);
@@ -123,7 +130,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
     titleStyle: [
       {
         fontSize: props.nav ? 15 : 18,
-        fontFamily: "Inter_600SemiBold",
+        // fontFamily: "Inter_600SemiBold",
       },
       props.secondary ? Styles.secondaryForeground : Styles.primaryForeground,
       props.titleStyle,
@@ -141,7 +148,9 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
           numLines={1}
           adjustSize
           style={[
-            props.disabled ? {color: Colors.RED_200} : Styles.secondaryForeground,
+            props.disabled
+              ? { color: Colors.RED_200 }
+              : Styles.secondaryForeground,
             props.noGrow ? { width: undefined } : {},
           ]}
         >

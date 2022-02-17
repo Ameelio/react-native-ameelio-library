@@ -43,7 +43,7 @@ const Words: React.FC<WordsProps> = ({
       style={[
         {
           fontSize: finalSize,
-          fontFamily,
+          // fontFamily,
           textAlign: align,
           color: calculatedColor,
         },
