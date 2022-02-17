@@ -17,12 +17,12 @@ const Body = ({ size, style, children, adjustSize, numLines, align, fontSize, co
                 break;
         }
     }
-    const fontFamily = bold ? "Inter_600SemiBold" : "Inter_400Regular";
+    // const fontFamily = bold ? "Inter_600SemiBold" : "Inter_400Regular";
     let calculatedColor = calculateColor(color || "secondary");
     return (React.createElement(Text, { style: [
             {
                 fontSize: finalSize,
-                fontFamily,
+                // fontFamily,
                 textAlign: align,
                 color: calculatedColor,
             },

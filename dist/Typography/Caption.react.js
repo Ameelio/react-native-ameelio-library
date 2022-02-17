@@ -15,14 +15,15 @@ const Caption = ({ size, style, children, adjustSize, numLines, align, fontSize,
             default:
                 finalSize = 11 * SCALE_CONSTANT;
         }
-    const fontFamily = (bold === undefined && size !== 3) || bold
-        ? "Inter_400Regular"
-        : "Inter_500Medium";
+    // const fontFamily =
+    //   (bold === undefined && size !== 3) || bold
+    //     ? "Inter_400Regular"
+    //     : "Inter_500Medium";
     let calculatedColor = calculateColor(color || "dark");
     return (React.createElement(Text, { style: [
             {
                 fontSize: finalSize,
-                fontFamily,
+                // fontFamily,
                 textAlign: align,
                 color: calculatedColor,
             },

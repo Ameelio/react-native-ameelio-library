@@ -67,7 +67,7 @@ const Header: React.FC<HeaderProps> = ({
       style={[
         {
           fontSize: finalSize,
-          fontFamily,
+          // fontFamily,
           textAlign: align,
           color: calculatedColor,
         },

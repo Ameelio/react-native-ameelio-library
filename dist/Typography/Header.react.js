@@ -43,7 +43,7 @@ const Header = ({ size, style, children, adjustSize, numLines, align, fontSize, 
     return (React.createElement(Text, { style: [
             {
                 fontSize: finalSize,
-                fontFamily,
+                // fontFamily,
                 textAlign: align,
                 color: calculatedColor,
             },
