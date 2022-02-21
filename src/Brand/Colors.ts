@@ -48,14 +48,23 @@ export const GRAY_700 = "#0A0A0A";
 
 // Special values
 export const WHITE = "#FFF";
-export const WHITE_BACKGROUND = '#FFFCFC';
-export const BLACK = '#000';
+export const WHITE_BACKGROUND = "#FFFCFC";
+export const BLACK = "#000";
 
 // Black and white with transparency
-export const BLACK_65 = 'rgba(0, 0, 0, 0.65)';
-export const BLACK_45 = 'rgba(0, 0, 0, 0.45)';
-export const BLACK_25 = 'rgba(0, 0, 0, 0.25)';
-export const BLACK_06 = 'rgba(0, 0, 0, 0.06)';
-export const WHITE_65 = 'rgba(255, 255, 255, 0.65)';
-export const WHITE_45 = 'rgba(255, 255, 255, 0.45)';
-export const WHITE_25 = 'rgba(255, 255, 255, 0.25)';
+export const BLACK_65 = "rgba(0, 0, 0, 0.65)";
+export const BLACK_45 = "rgba(0, 0, 0, 0.45)";
+export const BLACK_25 = "rgba(0, 0, 0, 0.25)";
+export const BLACK_06 = "rgba(0, 0, 0, 0.06)";
+export const WHITE_65 = "rgba(255, 255, 255, 0.65)";
+export const WHITE_45 = "rgba(255, 255, 255, 0.45)";
+export const WHITE_25 = "rgba(255, 255, 255, 0.25)";
+
+// PINK
+export const PINK_100 = "#FFF5F5";
+export const PINK_200 = "#FFE8E8";
+export const PINK_300 = "#FFC4C4";
+export const PINK_400 = "#FF9E9E";
+export const PINK_500 = "#FF6F6F";
+export const PINK_600 = "#FC7272";
+export const PINK_700 = "#762B2B";

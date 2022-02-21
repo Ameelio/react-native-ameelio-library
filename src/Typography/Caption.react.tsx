@@ -32,11 +32,6 @@ const Caption: React.FC<CaptionProps> = ({
         finalSize = 11 * SCALE_CONSTANT;
     }
 
-  // const fontFamily =
-  //   (bold === undefined && size !== 3) || bold
-  //     ? "Inter_400Regular"
-  //     : "Inter_500Medium";
-
   let calculatedColor = calculateColor(color || "dark");
 
   return (
@@ -44,7 +39,6 @@ const Caption: React.FC<CaptionProps> = ({
       style={[
         {
           fontSize: finalSize,
-          // fontFamily,
           textAlign: align,
           color: calculatedColor,
         },

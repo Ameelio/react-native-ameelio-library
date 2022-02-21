@@ -39,8 +39,6 @@ const Body: React.FC<BodyProps> = ({
     }
   }
 
-  const fontFamily = bold ? "Inter_600SemiBold" : "Inter_400Regular";
-
   let calculatedColor = calculateColor(color || "secondary");
 
   return (
@@ -48,7 +46,6 @@ const Body: React.FC<BodyProps> = ({
       style={[
         {
           fontSize: finalSize,
-          // fontFamily,
           textAlign: align,
           color: calculatedColor,
         },

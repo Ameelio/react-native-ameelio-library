@@ -55,7 +55,6 @@ const Styles = StyleSheet.create({
     borderBottomWidth: 0,
   },
   inputStyle: {
-    // fontFamily: "Inter_400Regular",
     fontSize: 16,
     color: Colors.GRAY_700,
   },

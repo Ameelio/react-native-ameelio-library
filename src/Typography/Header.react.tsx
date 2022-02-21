@@ -43,23 +43,6 @@ const Header: React.FC<HeaderProps> = ({
     }
   }
 
-  let fontFamily = "Inter_700Bold";
-  switch (size) {
-    case 1:
-      fontFamily = "Inter_700Bold";
-      break;
-    case 2:
-      fontFamily = "Inter_600SemiBold";
-      break;
-    case 3:
-      fontFamily = "Inter_600SemiBold";
-    case 4:
-      fontFamily = "Inter_600SemiBold";
-    case 5:
-      fontFamily = "Inter_600SemiBold";
-      break;
-  }
-
   let calculatedColor = calculateColor(color || "dark");
 
   return (
@@ -67,7 +50,6 @@ const Header: React.FC<HeaderProps> = ({
       style={[
         {
           fontSize: finalSize,
-          // fontFamily,
           textAlign: align,
           color: calculatedColor,
         },
